@@ -458,7 +458,7 @@ namespace Microsoft.PSharp
         #endregion
 
         /// <summary>
-        /// Constructor.
+        /// Initializes a new instance of the <see cref="Configuration"/> class.
         /// </summary>
         protected Configuration()
         {
@@ -598,11 +598,11 @@ namespace Microsoft.PSharp
         }
 
         /// <summary>
-        /// Indicates whether the requested C# version is supported for for rewriting.
+        /// Indicates whether the requested C# version is supported for rewriting.
         /// </summary>
-        /// <param name="major">The major version required</param>
-        /// <param name="minor">The minor version required</param>
-        /// <returns></returns>
+        /// <param name="major">The major version required.</param>
+        /// <param name="minor">The minor version required.</param>
+        /// <returns>True if it is supported.</returns>
         public bool IsRewriteCSharpVersion(int major, int minor)
         {
             // Return true if not set

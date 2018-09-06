@@ -52,7 +52,7 @@ namespace Microsoft.PSharp
 #endif
 
             Output.WriteLine(". Testing " + configuration.AssemblyToBeAnalyzed);
-            if (configuration.TestMethodName != "")
+            if (configuration.TestMethodName != string.Empty)
             {
                 Output.WriteLine("... Method {0}", configuration.TestMethodName);
             }

@@ -728,7 +728,7 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
                     Console.Write(" '{0}'", index);
                 }
 
-                Console.WriteLine("");
+                Console.WriteLine(string.Empty);
             }
         }
 

@@ -52,12 +52,12 @@ namespace Microsoft.PSharp.TestingServices
 
             arguments.Append($"/test:{configuration.AssemblyToBeAnalyzed} ");
 
-            if (configuration.TestingRuntimeAssembly != "")
+            if (configuration.TestingRuntimeAssembly != string.Empty)
             {
                 arguments.Append($"/runtime:{configuration.TestingRuntimeAssembly} ");
             }
 
-            if (configuration.TestMethodName != "")
+            if (configuration.TestMethodName != string.Empty)
             {
                 arguments.Append($"/method:{configuration.TestMethodName} ");
             }

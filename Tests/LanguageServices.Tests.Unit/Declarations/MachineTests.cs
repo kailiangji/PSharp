@@ -193,7 +193,7 @@ state S { }
         [Fact]
         public void TestMachineDeclarationWithoutStartState2()
         {
-            var test = "" +
+            var test = string.Empty +
                 "namespace Foo {" +
                 "machine M {" +
                 "state S1 { }" +

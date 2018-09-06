@@ -94,7 +94,7 @@ namespace Microsoft.PSharp.TestingServices
             StringBuilder report = new StringBuilder();
 
             report.AppendFormat("... Reproduced {0} bug{1}.", base.TestReport.NumOfFoundBugs,
-                base.TestReport.NumOfFoundBugs == 1 ? "" : "s");
+                base.TestReport.NumOfFoundBugs == 1 ? string.Empty : "s");
             report.AppendLine();
 
             report.Append($"... Elapsed {base.Profiler.Results()} sec.");

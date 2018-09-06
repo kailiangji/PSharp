@@ -36,7 +36,7 @@ namespace Microsoft.PSharp.LanguageServices
         /// <param name="errors">List of errors</param>
         /// <param name="warnings">List of warnings</param>
         public ParsingException(List<string> errors, List<string> warnings)
-            : base("")
+            : base(string.Empty)
         {
             this.Errors = errors;
             this.Warnings = warnings;

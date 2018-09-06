@@ -143,7 +143,7 @@ namespace Microsoft.PSharp.Core.Tests.Unit
 <DequeueLog> Machine 'Microsoft.PSharp.Core.Tests.Unit.CustomLoggerTest+M()' in state 'Microsoft.PSharp.Core.Tests.Unit.CustomLoggerTest+M.Init' dequeued event 'Microsoft.PSharp.Core.Tests.Unit.CustomLoggerTest+E'.
 <ActionLog> Machine 'Microsoft.PSharp.Core.Tests.Unit.CustomLoggerTest+M()' in state 'Microsoft.PSharp.Core.Tests.Unit.CustomLoggerTest+M.Init' invoked action 'Act'.
 ";
-            string actual = Regex.Replace(logger.ToString(), "[0-9]", "");
+            string actual = Regex.Replace(logger.ToString(), "[0-9]", string.Empty);
 
             HashSet<string> expectedSet = new HashSet<string>(Regex.Split(expected, "\r\n|\r|\n"));
             HashSet<string> actualSet = new HashSet<string>(Regex.Split(actual, "\r\n|\r|\n"));
@@ -165,7 +165,7 @@ namespace Microsoft.PSharp.Core.Tests.Unit
             runtime.CreateMachine(typeof(M), new Configure(tcs));
             tcs.Task.Wait();
 
-            Assert.Equal("", logger.ToString());
+            Assert.Equal(string.Empty, logger.ToString());
 
             logger.Dispose();
         }

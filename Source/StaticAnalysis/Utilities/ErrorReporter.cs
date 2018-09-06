@@ -115,7 +115,7 @@ namespace Microsoft.PSharp.StaticAnalysis
         {
             this.Report("Error: ", ConsoleColor.Red);
             this.Report(value, ConsoleColor.Yellow);
-            this.Logger.WriteLine("");
+            this.Logger.WriteLine(string.Empty);
             this.ErrorCount++;
         }
 
@@ -129,7 +129,7 @@ namespace Microsoft.PSharp.StaticAnalysis
             string message = IO.Utilities.Format(format, args);
             this.Report("Error: ", ConsoleColor.Red);
             this.Report(message, ConsoleColor.Yellow);
-            this.Logger.WriteLine("");
+            this.Logger.WriteLine(string.Empty);
             this.ErrorCount++;
         }
 
@@ -181,7 +181,7 @@ namespace Microsoft.PSharp.StaticAnalysis
             {
                 this.Report("Warning: ", ConsoleColor.Red);
                 this.Report(value, ConsoleColor.Yellow);
-                this.Logger.WriteLine("");
+                this.Logger.WriteLine(string.Empty);
             }
 
             this.WarningCount++;
@@ -199,7 +199,7 @@ namespace Microsoft.PSharp.StaticAnalysis
                 string message = IO.Utilities.Format(format, args);
                 this.Report("Warning: ", ConsoleColor.Red);
                 this.Report(message, ConsoleColor.Yellow);
-                this.Logger.WriteLine("");
+                this.Logger.WriteLine(string.Empty);
             }
 
             this.WarningCount++;

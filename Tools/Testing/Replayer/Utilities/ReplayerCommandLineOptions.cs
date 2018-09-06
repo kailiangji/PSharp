@@ -72,13 +72,13 @@ namespace Microsoft.PSharp.Utilities
         /// </summary>
         protected override void CheckForParsingErrors()
         {
-            if (base.Configuration.AssemblyToBeAnalyzed.Equals(""))
+            if (base.Configuration.AssemblyToBeAnalyzed.Equals(string.Empty))
             {
                 Error.ReportAndExit("Please give a valid path to a P# " +
                     "program's dll using '/test:[x]'.");
             }
 
-            if (base.Configuration.ScheduleFile.Equals(""))
+            if (base.Configuration.ScheduleFile.Equals(string.Empty))
             {
                 Error.ReportAndExit("Please give a valid path to a P# schedule " +
                     "file using '/replay:[x]', where [x] has extension '.schedule'.");

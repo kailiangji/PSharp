@@ -419,7 +419,7 @@ namespace Microsoft.PSharp.TestingServices.Scheduling
         /// <returns>String</returns>
         public string GetDescription()
         {
-            return "";
+            return string.Empty;
         }
 
         #endregion
@@ -495,7 +495,7 @@ namespace Microsoft.PSharp.TestingServices.Scheduling
         {
             if (steps > this.InputCache.Count)
             {
-                this.InputCache.AddRange(Enumerable.Repeat("", steps - this.InputCache.Count));
+                this.InputCache.AddRange(Enumerable.Repeat(string.Empty, steps - this.InputCache.Count));
             }
         }
 

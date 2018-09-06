@@ -90,7 +90,7 @@ namespace Microsoft.PSharp.LanguageServices
         protected UsingDirectiveSyntax CreateLibrary(string name)
         {
             var leading = SyntaxFactory.TriviaList(SyntaxFactory.Whitespace(" "));
-            var trailing = SyntaxFactory.TriviaList(SyntaxFactory.Whitespace(""));
+            var trailing = SyntaxFactory.TriviaList(SyntaxFactory.Whitespace(string.Empty));
 
             var identifier = SyntaxFactory.Identifier(leading, name, trailing);
             var identifierName = SyntaxFactory.IdentifierName(identifier);

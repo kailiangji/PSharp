@@ -78,7 +78,7 @@ namespace Microsoft.PSharp.LanguageServices.Compilation
 
             var graph = this.CompilationContext.GetSolution().GetProjectDependencyGraph();
 
-            if (this.CompilationContext.Configuration.ProjectName.Equals(""))
+            if (this.CompilationContext.Configuration.ProjectName.Equals(string.Empty))
             {
                 foreach (var projectId in graph.GetTopologicallySortedProjects())
                 {
@@ -155,7 +155,7 @@ namespace Microsoft.PSharp.LanguageServices.Compilation
             }
 
             string outputDirectory;
-            if (!this.CompilationContext.Configuration.OutputFilePath.Equals(""))
+            if (!this.CompilationContext.Configuration.OutputFilePath.Equals(string.Empty))
             {
                 outputDirectory = this.CompilationContext.Configuration.OutputFilePath;
             }

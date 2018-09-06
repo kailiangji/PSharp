@@ -89,7 +89,7 @@ namespace Microsoft.PSharp.LanguageServices.Compilation
             {
                 // Populate the workspace with the user defined solution.
                 solution = (workspace as MSBuildWorkspace).OpenSolutionAsync(
-                    @"" + this.Configuration.SolutionFilePath + "").Result;
+                    string.Empty + this.Configuration.SolutionFilePath + string.Empty).Result;
             }
             catch (AggregateException ex)
             {
@@ -102,7 +102,7 @@ namespace Microsoft.PSharp.LanguageServices.Compilation
 
             this.Solution = solution;
 
-            if (!this.Configuration.ProjectName.Equals(""))
+            if (!this.Configuration.ProjectName.Equals(string.Empty))
             {
                 // Find the project specified by the user.
                 var project = this.GetProjectWithName(this.Configuration.ProjectName);

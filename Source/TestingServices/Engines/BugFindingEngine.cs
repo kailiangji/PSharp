@@ -92,7 +92,7 @@ namespace Microsoft.PSharp.TestingServices
         public override void TryEmitTraces(string directory, string file)
         {
             // Emits the human readable trace, if it exists.
-            if (!this.ReadableTrace.Equals(""))
+            if (!this.ReadableTrace.Equals(string.Empty))
             {
                 string[] readableTraces = Directory.GetFiles(directory, file + "_*.txt").
                     Where(path => new Regex(@"^.*_[0-9]+.txt$").IsMatch(path)).ToArray();
@@ -117,7 +117,7 @@ namespace Microsoft.PSharp.TestingServices
             }
 
             // Emits the reproducable trace, if it exists.
-            if (!this.ReproducableTrace.Equals(""))
+            if (!this.ReproducableTrace.Equals(string.Empty))
             {
                 string[] reproTraces = Directory.GetFiles(directory, file + "_*.schedule");
                 string reproTracePath = directory + file + "_" + reproTraces.Length + ".schedule";
@@ -190,8 +190,8 @@ namespace Microsoft.PSharp.TestingServices
         /// </summary>
         private void Initialize()
         {
-            this.ReadableTrace = "";
-            this.ReproducableTrace = "";
+            this.ReadableTrace = string.Empty;
+            this.ReproducableTrace = string.Empty;
 
             if (base.Configuration.EnableDataRaceDetection)
             {
@@ -206,7 +206,7 @@ namespace Microsoft.PSharp.TestingServices
 
         private Task CreateBugFindingTask()
         {
-            string options = "";
+            string options = string.Empty;
             if (base.Configuration.SchedulingStrategy == SchedulingStrategy.Random ||
                 base.Configuration.SchedulingStrategy == SchedulingStrategy.ProbabilisticRandom ||
                 base.Configuration.SchedulingStrategy == SchedulingStrategy.PCT ||
@@ -464,7 +464,7 @@ namespace Microsoft.PSharp.TestingServices
                     Append(Environment.NewLine);
             }
 
-            if (!base.Configuration.TestMethodName.Equals(""))
+            if (!base.Configuration.TestMethodName.Equals(string.Empty))
             {
                 stringBuilder.Append("--test-method:" +
                     base.Configuration.TestMethodName).
@@ -506,7 +506,7 @@ namespace Microsoft.PSharp.TestingServices
             if (iteration > this.PrintGuard * 10)
             {
                 var count = (iteration.ToString().Length - 1);
-                var guard = "1" + (count > 0 ? String.Concat(Enumerable.Repeat("0", count)) : "");
+                var guard = "1" + (count > 0 ? String.Concat(Enumerable.Repeat("0", count)) : string.Empty);
                 this.PrintGuard = int.Parse(guard);
             }
 

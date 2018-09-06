@@ -341,7 +341,7 @@ namespace Microsoft.PSharp.TestingServices.Coverage
                 foreach (var state in this.CoverageInfo.MachinesToStates[machine])
                 {
                     writer.WriteLine();
-                    writer.WriteLine("\tState: {0}{1}", state, uncoveredStates.Contains(state) ? " is uncovered" : "");
+                    writer.WriteLine("\tState: {0}{1}", state, uncoveredStates.Contains(state) ? " is uncovered" : string.Empty);
                     if (!uncoveredStates.Contains(state))
                     {
                         writer.WriteLine("\t\tState event coverage: {0}%",

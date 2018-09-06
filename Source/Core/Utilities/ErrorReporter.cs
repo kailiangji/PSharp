@@ -57,7 +57,7 @@ namespace Microsoft.PSharp.Utilities
         {
             this.Write("Error: ", ConsoleColor.Red);
             this.Write(value, ConsoleColor.Yellow);
-            this.Logger.WriteLine("");
+            this.Logger.WriteLine(string.Empty);
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace Microsoft.PSharp.Utilities
             {
                 this.Write("Warning: ", ConsoleColor.Red);
                 this.Write(value, ConsoleColor.Yellow);
-                this.Logger.WriteLine("");
+                this.Logger.WriteLine(string.Empty);
             }
         }
 

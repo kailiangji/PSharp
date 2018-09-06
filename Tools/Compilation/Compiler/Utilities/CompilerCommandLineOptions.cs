@@ -132,7 +132,7 @@ namespace Microsoft.PSharp.Utilities
         /// </summary>
         protected override void CheckForParsingErrors()
         {
-            if (base.Configuration.SolutionFilePath.Equals(""))
+            if (base.Configuration.SolutionFilePath.Equals(string.Empty))
             {
                 Error.ReportAndExit("Please give a valid solution path.");
             }

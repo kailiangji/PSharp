@@ -24,7 +24,7 @@ namespace Microsoft.PSharp.IO
             string message = Utilities.Format(format, args);
             Error.Write(ConsoleColor.Red, "Error: ");
             Error.Write(ConsoleColor.Yellow, message);
-            Console.Error.WriteLine("");
+            Console.Error.WriteLine(string.Empty);
         }
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace Microsoft.PSharp.IO
         {
             Error.Write(ConsoleColor.Red, "Error: ");
             Error.Write(ConsoleColor.Yellow, value);
-            Console.Error.WriteLine("");
+            Console.Error.WriteLine(string.Empty);
             Environment.Exit(1);
         }
 
@@ -49,7 +49,7 @@ namespace Microsoft.PSharp.IO
             string message = Utilities.Format(format, args);
             Error.Write(ConsoleColor.Red, "Error: ");
             Error.Write(ConsoleColor.Yellow, message);
-            Console.Error.WriteLine("");
+            Console.Error.WriteLine(string.Empty);
             Environment.Exit(1);
         }
 

@@ -213,7 +213,7 @@ namespace Microsoft.PSharp.TestingServices
             }
 #endif
 
-            if (configuration.TestingRuntimeAssembly != "")
+            if (configuration.TestingRuntimeAssembly != string.Empty)
             {
                 try
                 {

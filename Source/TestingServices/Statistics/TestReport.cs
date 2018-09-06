@@ -197,7 +197,7 @@ namespace Microsoft.PSharp.TestingServices
             report.AppendLine();
             report.AppendFormat("{0} Found {1} bug{2}.",
                 prefix.Equals("...") ? "....." : prefix, this.NumOfFoundBugs,
-                this.NumOfFoundBugs == 1 ? "" : "s");
+                this.NumOfFoundBugs == 1 ? string.Empty : "s");
 
             report.AppendLine();
             report.AppendFormat("{0} Scheduling statistics:", prefix);
@@ -208,7 +208,7 @@ namespace Microsoft.PSharp.TestingServices
             report.AppendLine();
             report.AppendFormat("{0} Explored {1} schedule{2}: {3} fair and {4} unfair.",
                 prefix.Equals("...") ? "....." : prefix,
-                totalExploredSchedules, totalExploredSchedules == 1 ? "" : "s",
+                totalExploredSchedules, totalExploredSchedules == 1 ? string.Empty : "s",
                 this.NumOfExploredFairSchedules,
                 this.NumOfExploredUnfairSchedules);
 

@@ -65,7 +65,7 @@ namespace Microsoft.PSharp
                 if (ex.Warnings.Count > 0)
                 {
                     logger.WriteLine("Found {0} parsing warning{1}.", ex.Warnings.Count,
-                        ex.Warnings.Count == 1 ? "" : "s");
+                        ex.Warnings.Count == 1 ? string.Empty : "s");
                 }
 
                 foreach (var error in ex.Errors)
@@ -76,7 +76,7 @@ namespace Microsoft.PSharp
                 if (ex.Errors.Count > 0)
                 {
                     logger.WriteLine("Found {0} parsing error{1}.", ex.Errors.Count,
-                        ex.Errors.Count == 1 ? "" : "s");
+                        ex.Errors.Count == 1 ? string.Empty : "s");
                 }
             }
             catch (RewritingException ex)

@@ -768,7 +768,7 @@ namespace Microsoft.PSharp.TestingServices
 
             if (sender != null)
             {
-                var stateName = sender is Machine ? (sender as Machine).CurrentStateName : "";
+                var stateName = sender is Machine ? (sender as Machine).CurrentStateName : string.Empty;
                 this.BugTrace.AddSendEventStep(sender.Id, stateName, eventInfo, machine.Id);
                 if (base.Configuration.EnableDataRaceDetection)
                 {
@@ -1080,7 +1080,7 @@ namespace Microsoft.PSharp.TestingServices
             var choice = this.Scheduler.GetNextNondeterministicBooleanChoice(maxValue);
             base.Logger.OnRandom(caller?.Id, choice);
 
-            var stateName = caller is Machine ? (caller as Machine).CurrentStateName : "";
+            var stateName = caller is Machine ? (caller as Machine).CurrentStateName : string.Empty;
             this.BugTrace.AddRandomChoiceStep(caller == null ? null : caller.Id, stateName, choice);
 
             return choice;
@@ -1105,7 +1105,7 @@ namespace Microsoft.PSharp.TestingServices
             var choice = this.Scheduler.GetNextNondeterministicBooleanChoice(2, uniqueId);
             base.Logger.OnRandom(caller?.Id, choice);
 
-            var stateName = caller is Machine ? (caller as Machine).CurrentStateName : "";
+            var stateName = caller is Machine ? (caller as Machine).CurrentStateName : string.Empty;
             this.BugTrace.AddRandomChoiceStep(caller == null ? null : caller.Id, stateName, choice);
 
             return choice;
@@ -1129,7 +1129,7 @@ namespace Microsoft.PSharp.TestingServices
             var choice = this.Scheduler.GetNextNondeterministicIntegerChoice(maxValue);
             base.Logger.OnRandom(caller?.Id, choice);
 
-            var stateName = caller is Machine ? (caller as Machine).CurrentStateName : "";
+            var stateName = caller is Machine ? (caller as Machine).CurrentStateName : string.Empty;
             this.BugTrace.AddRandomChoiceStep(caller == null ? null : caller.Id, stateName, choice);
 
             return choice;
@@ -1535,8 +1535,8 @@ namespace Microsoft.PSharp.TestingServices
             string originState = StateGroup.GetQualifiedStateName(machine.CurrentState);
             string destMachine = machine.GetType().Name;
 
-            string edgeLabel = "";
-            string destState = "";
+            string edgeLabel = string.Empty;
+            string destState = string.Empty;
             if (eventInfo.Event is GotoStateEvent)
             {
                 edgeLabel = "goto";
@@ -1595,8 +1595,8 @@ namespace Microsoft.PSharp.TestingServices
             string originState = StateGroup.GetQualifiedStateName(monitor.CurrentState);
             string destMachine = originMachine;
 
-            string edgeLabel = "";
-            string destState = "";
+            string edgeLabel = string.Empty;
+            string destState = string.Empty;
             if (e is GotoStateEvent)
             {
                 edgeLabel = "goto";

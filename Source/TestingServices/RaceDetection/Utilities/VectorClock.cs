@@ -248,7 +248,7 @@ namespace Microsoft.PSharp.TestingServices.RaceDetection.Util
 
             for (int i = 0; i < Values.Length; i++)
             {
-                r.Append((i > 0 ? " " : "") + Epoch.ToString(Values[i]));
+                r.Append((i > 0 ? " " : string.Empty) + Epoch.ToString(Values[i]));
             }
 
             return r.Append("]").ToString();

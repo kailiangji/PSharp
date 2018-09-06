@@ -160,7 +160,7 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.PSharp
         /// <returns>Qualified name</returns>
         private string FromTokens(List<string> state)
         {
-            return state.Aggregate("", (acc, name) => acc == "" ? name : acc + "." + name);
+            return state.Aggregate(string.Empty, (acc, name) => acc == string.Empty ? name : acc + "." + name);
         }
 
         #endregion

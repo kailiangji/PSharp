@@ -169,7 +169,7 @@ namespace Microsoft.PSharp.IO
         /// </summary>
         public override void WriteLine()
         {
-            this.Logger.WriteLine("");
+            this.Logger.WriteLine(string.Empty);
         }
 
         /// <summary>

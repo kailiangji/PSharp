@@ -60,7 +60,7 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
         public ParsingEngine Run()
         {
             // Parse the projects.
-            if (this.CompilationContext.Configuration.ProjectName.Equals(""))
+            if (this.CompilationContext.Configuration.ProjectName.Equals(string.Empty))
             {
                 foreach (var project in this.CompilationContext.GetSolution().Projects)
                 {

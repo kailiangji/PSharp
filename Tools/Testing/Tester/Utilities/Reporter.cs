@@ -55,14 +55,14 @@ namespace Microsoft.PSharp.TestingServices
         {
             string directoryPath;
 
-            if (userOutputDir != "")
+            if (userOutputDir != string.Empty)
             {
                 directoryPath = userOutputDir + Path.DirectorySeparatorChar;
             }
             else
             {
                 var subpath = Path.GetDirectoryName(assemblyPath);
-                if (subpath == "")
+                if (subpath == string.Empty)
                 {
                     subpath = ".";
                 }

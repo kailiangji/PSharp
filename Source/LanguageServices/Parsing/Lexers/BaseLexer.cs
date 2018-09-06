@@ -61,7 +61,7 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
                     var split = this.SplitText(lineText);
                     foreach (var tok in split)
                     {
-                        if (tok.Equals(""))
+                        if (tok.Equals(string.Empty))
                         {
                             continue;
                         }

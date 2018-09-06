@@ -63,7 +63,7 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
         {
             if (this.StmtTokens.Count == 0)
             {
-                base.TextUnit = new TextUnit("", 0);
+                base.TextUnit = new TextUnit(string.Empty, 0);
                 return;
             }
 

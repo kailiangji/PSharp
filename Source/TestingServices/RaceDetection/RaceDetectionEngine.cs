@@ -325,7 +325,7 @@ namespace Microsoft.PSharp.TestingServices.RaceDetection
                         !InSameMonitor(varState.InMonitorRead[readMId], this.InMonitor))
                     {
                         // Read-Write Race
-                        string firstLocation = Config.EnableReadWriteTracing ? varState.LastReadLocation[readMId] : "";
+                        string firstLocation = Config.EnableReadWriteTracing ? varState.LastReadLocation[readMId] : string.Empty;
                         ReportRace(RaceDiagnostic.ReadWrite, firstLocation, readMId, sourceLocation, currentMId, objHandle, offset);
                     }
                 }

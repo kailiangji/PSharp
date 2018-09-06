@@ -415,7 +415,7 @@ namespace Microsoft.PSharp.TestingServices.SchedulingStrategies
                 {
                     Logger.Write(sc.Id + " [" + sc.IsDone + "], ");
                 }
-                Logger.WriteLine("");
+                Logger.WriteLine(string.Empty);
             }
 
             Logger.WriteLine("*******************");
@@ -427,7 +427,7 @@ namespace Microsoft.PSharp.TestingServices.SchedulingStrategies
                 {
                     Logger.Write(nc.Value + " [" + nc.IsDone + "], ");
                 }
-                Logger.WriteLine("");
+                Logger.WriteLine(string.Empty);
             }
 
             Logger.WriteLine("*******************");
@@ -439,7 +439,7 @@ namespace Microsoft.PSharp.TestingServices.SchedulingStrategies
                 {
                     Logger.Write(nc.Value + " [" + nc.IsDone + "], ");
                 }
-                Logger.WriteLine("");
+                Logger.WriteLine(string.Empty);
             }
 
             Logger.WriteLine("*******************");

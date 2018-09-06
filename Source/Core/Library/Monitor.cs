@@ -150,7 +150,7 @@ namespace Microsoft.PSharp
                 return CurrentStateName +
                     (IsInHotState() ? "[hot]" :
                     IsInColdState() ? "[cold]" :
-                    "");
+                    string.Empty);
             }
         }
 

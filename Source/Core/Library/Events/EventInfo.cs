@@ -58,10 +58,10 @@ namespace Microsoft.PSharp
         /// <param name="e">Event</param>
         internal EventInfo(Event e)
         {
-            Event = e;
-            EventType = e.GetType();
-            EventName = EventType.FullName;
-            MustHandle = false;
+            this.Event = e;
+            this.EventType = e.GetType();
+            this.EventName = this.EventType.FullName;
+            this.MustHandle = false;
         }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace Microsoft.PSharp
         /// <param name="originInfo">EventOriginInfo</param>
         internal EventInfo(Event e, EventOriginInfo originInfo) : this(e)
         {
-            OriginInfo = originInfo;
+            this.OriginInfo = originInfo;
         }
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace Microsoft.PSharp
         internal EventInfo(Event e, EventOriginInfo originInfo, int sendStep)
             : this(e, originInfo)
         {
-            SendStep = sendStep;
+            this.SendStep = sendStep;
         }
     }
 }

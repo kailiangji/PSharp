@@ -3,8 +3,6 @@
 // Licensed under the MIT license. See LICENSE.txt in the repo root for full license information.
 // ------------------------------------------------------------------------------------------------
 
-using System;
-
 namespace Microsoft.PSharp
 {
     /// <summary>
@@ -15,7 +13,7 @@ namespace Microsoft.PSharp
         /// <summary>
         /// The machine that threw the exception
         /// </summary>
-        public MachineId mid;
+        public MachineId Mid;
 
         /// <summary>
         /// Name of the current state of the machine
@@ -31,17 +29,16 @@ namespace Microsoft.PSharp
         /// Initializes a new instance of the exception.
         /// </summary>
         /// <param name="mid">MachineId</param>
-        /// <param name="CurrentStateName">Current state name</param>
-        /// <param name="UnhandledEvent">The event that was unhandled</param>
+        /// <param name="currentStateName">Current state name</param>
+        /// <param name="unhandledEvent">The event that was unhandled</param>
         /// <param name="message">Message</param>
-        internal UnhandledEventException(MachineId mid, string CurrentStateName, Event UnhandledEvent, string message)
+        internal UnhandledEventException(MachineId mid, string currentStateName, Event unhandledEvent, string message)
             : base(message)
         {
-            this.mid = mid;
-            this.CurrentStateName = CurrentStateName;
-            this.UnhandledEvent = UnhandledEvent;
+            this.Mid = mid;
+            this.CurrentStateName = currentStateName;
+            this.UnhandledEvent = unhandledEvent;
         }
-
     }
 }
 

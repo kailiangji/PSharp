@@ -24,7 +24,7 @@ namespace Microsoft.PSharp.Utilities
         protected string[] Options;
 
         /// <summary>
-        /// Constructor.
+        /// Initializes a new instance of the <see cref="BaseCommandLineOptions"/> class
         /// </summary>
         /// <param name="args">Array of arguments</param>
         public BaseCommandLineOptions(string[] args)
@@ -46,7 +46,7 @@ namespace Microsoft.PSharp.Utilities
 
             this.CheckForParsingErrors();
             this.UpdateConfiguration();
-            return Configuration;
+            return this.Configuration;
         }
 
         /// <summary>

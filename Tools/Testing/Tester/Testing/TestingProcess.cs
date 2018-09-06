@@ -310,8 +310,8 @@ namespace Microsoft.PSharp.TestingServices
         /// Checks the status of the parent process. If the parent
         /// process exits, then this process should also exit.
         /// </summary>
-        /// <param name="sender">Sender</param>
-        /// <param name="e">ElapsedEventArgs</param>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">Object that contains the event data.</param>
         private void CheckParentStatus(object sender, ElapsedEventArgs e)
         {
             Process parent = Process.GetProcesses().FirstOrDefault(val

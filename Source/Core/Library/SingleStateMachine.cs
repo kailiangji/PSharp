@@ -26,7 +26,7 @@ namespace Microsoft.PSharp
         /// </summary>
         private async Task _InitOnEntry()
         {
-            await InitOnEntry(this.ReceivedEvent);
+            await this.InitOnEntry(this.ReceivedEvent);
         }
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace Microsoft.PSharp
         /// </summary>
         private async Task _ProcessEvent()
         {
-            await ProcessEvent(this.ReceivedEvent);
+            await this.ProcessEvent(this.ReceivedEvent);
         }
 
         /// <summary>

@@ -27,8 +27,8 @@ namespace Microsoft.PSharp
         /// </summary>
         public SendOptions()
         {
-            OperationGroupId = null;
-            MustHandle = false;
+            this.OperationGroupId = null;
+            this.MustHandle = false;
         }
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace Microsoft.PSharp
         /// </summary>
         public override string ToString()
         {
-            return $"SendOptions[Guid='{OperationGroupId}', MustHandle='{MustHandle}']";
+            return $"SendOptions[Guid='{this.OperationGroupId}', MustHandle='{this.MustHandle}']";
         }
 
         /// <summary>

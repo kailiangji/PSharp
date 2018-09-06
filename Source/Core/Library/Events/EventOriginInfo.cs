@@ -3,7 +3,6 @@
 // Licensed under the MIT license. See LICENSE.txt in the repo root for full license information.
 // ------------------------------------------------------------------------------------------------
 
-using System;
 using System.Runtime.Serialization;
 
 namespace Microsoft.PSharp

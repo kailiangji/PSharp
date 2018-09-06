@@ -4,7 +4,6 @@
 // ------------------------------------------------------------------------------------------------
 
 using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -22,7 +21,7 @@ namespace Microsoft.PSharp
         private List<Monitor> Monitors;
 
         /// <summary>
-        /// Constructor.
+        /// Initializes a new instance of the <see cref="StateMachineRuntime"/> class.
         /// </summary>
         internal StateMachineRuntime()
             : base()
@@ -31,7 +30,7 @@ namespace Microsoft.PSharp
         }
 
         /// <summary>
-        /// Constructor.
+        /// Initializes a new instance of the <see cref="StateMachineRuntime"/> class.
         /// </summary>
         /// <param name="configuration">Configuration</param>
         internal StateMachineRuntime(Configuration configuration)
@@ -54,8 +53,8 @@ namespace Microsoft.PSharp
         /// used to access its payload, and cannot be handled.
         /// </summary>
         /// <param name="type">Type of the machine</param>
-        /// <param name="operationGroupId">Operation group id</param>
         /// <param name="e">Event</param>
+        /// <param name="operationGroupId">Operation group id</param>
         /// <returns>MachineId</returns>
         public override MachineId CreateMachine(Type type, Event e = null, Guid? operationGroupId = null)
         {
@@ -83,8 +82,8 @@ namespace Microsoft.PSharp
         /// </summary>
         /// <param name="type">Type of the machine</param>
         /// <param name="friendlyName">Friendly machine name used for logging</param>
-        /// <param name="operationGroupId">Operation group id</param>
         /// <param name="e">Event</param>
+        /// <param name="operationGroupId">Operation group id</param>
         /// <returns>MachineId</returns>
         public override MachineId CreateMachine(Type type, string friendlyName, Event e = null, Guid? operationGroupId = null)
         {
@@ -98,8 +97,8 @@ namespace Microsoft.PSharp
         /// the machine is initialized and the <see cref="Event"/> (if any) is handled.
         /// </summary>
         /// <param name="type">Type of the machine</param>
-        /// <param name="operationGroupId">Operation group id</param>
         /// <param name="e">Event</param>
+        /// <param name="operationGroupId">Operation group id</param>
         /// <returns>MachineId</returns>
         public override Task<MachineId> CreateMachineAndExecute(Type type, Event e = null, Guid? operationGroupId = null)
         {
@@ -131,8 +130,8 @@ namespace Microsoft.PSharp
         /// </summary>
         /// <param name="type">Type of the machine</param>
         /// <param name="friendlyName">Friendly machine name used for logging</param>
-        /// <param name="operationGroupId">Operation group id</param>
         /// <param name="e">Event</param>
+        /// <param name="operationGroupId">Operation group id</param>
         /// <returns>MachineId</returns>
         public override Task<MachineId> CreateMachineAndExecute(Type type, string friendlyName, Event e = null, Guid? operationGroupId = null)
         {
@@ -146,8 +145,8 @@ namespace Microsoft.PSharp
         /// </summary>
         /// <param name="type">Type of the machine</param>
         /// <param name="endpoint">Endpoint</param>
-        /// <param name="operationGroupId">Operation group id</param>
         /// <param name="e">Event</param>
+        /// <param name="operationGroupId">Operation group id</param>
         /// <returns>MachineId</returns>
         public override MachineId RemoteCreateMachine(Type type, string endpoint, Event e = null, Guid? operationGroupId = null)
         {
@@ -162,8 +161,8 @@ namespace Microsoft.PSharp
         /// <param name="type">Type of the machine</param>
         /// <param name="friendlyName">Friendly machine name used for logging</param>
         /// <param name="endpoint">Endpoint</param>
-        /// <param name="operationGroupId">Operation group id</param>
         /// <param name="e">Event</param>
+        /// <param name="operationGroupId">Operation group id</param>
         /// <returns>MachineId</returns>
         public override MachineId RemoteCreateMachine(Type type, string friendlyName,
             string endpoint, Event e = null, Guid? operationGroupId = null)
@@ -180,9 +179,10 @@ namespace Microsoft.PSharp
         public override void SendEvent(MachineId target, Event e, SendOptions options = null)
         {
             // If the target machine is null then report an error and exit.
-            base.Assert(target != null, "Cannot send to a null machine.");
+            this.Assert(target != null, "Cannot send to a null machine.");
+
             // If the event is null then report an error and exit.
-            base.Assert(e != null, "Cannot send a null event.");
+            this.Assert(e != null, "Cannot send a null event.");
             this.SendEvent(target, e, null, options);
         }
 
@@ -198,9 +198,10 @@ namespace Microsoft.PSharp
         public override Task<bool> SendEventAndExecute(MachineId target, Event e, SendOptions options = null)
         {
             // If the target machine is null then report an error and exit.
-            base.Assert(target != null, "Cannot send to a null machine.");
+            this.Assert(target != null, "Cannot send to a null machine.");
+
             // If the event is null then report an error and exit.
-            base.Assert(e != null, "Cannot send a null event.");
+            this.Assert(e != null, "Cannot send a null event.");
             return this.SendEventAndExecute(target, e, null, options);
         }
 
@@ -213,9 +214,10 @@ namespace Microsoft.PSharp
         public override void RemoteSendEvent(MachineId target, Event e, SendOptions options = null)
         {
             // If the target machine is null then report an error and exit.
-            base.Assert(target != null, "Cannot send to a null machine.");
+            this.Assert(target != null, "Cannot send to a null machine.");
+
             // If the event is null then report an error and exit.
-            base.Assert(e != null, "Cannot send a null event.");
+            this.Assert(e != null, "Cannot send a null event.");
             this.SendEventRemotely(target, e, null, options);
         }
 
@@ -246,7 +248,7 @@ namespace Microsoft.PSharp
         public override void InvokeMonitor(Type type, Event e)
         {
             // If the event is null then report an error and exit.
-            base.Assert(e != null, "Cannot monitor a null event.");
+            this.Assert(e != null, "Cannot monitor a null event.");
             this.Monitor(type, null, e);
         }
 
@@ -274,7 +276,7 @@ namespace Microsoft.PSharp
         /// </summary>
         public override void Stop()
         {
-            base.IsRunning = false;
+            this.IsRunning = false;
         }
 
         /// <summary>
@@ -284,13 +286,13 @@ namespace Microsoft.PSharp
         /// <param name="type">Type of the machine</param>
         /// <param name="friendlyName">Friendly machine name used for logging</param>
         /// <param name="e">Event passed during machine construction</param>
-        /// <param name="operationGroupId">Operation group id</param>
         /// <param name="creator">Creator machine</param>
+        /// <param name="operationGroupId">Operation group id</param>
         /// <returns>MachineId</returns>
         internal override MachineId CreateMachine(MachineId mid, Type type, string friendlyName, Event e, Machine creator, Guid? operationGroupId)
         {
             Machine machine = this.CreateMachine(mid, type, friendlyName);
-            base.Logger.OnCreateMachine(machine.Id, creator?.Id);
+            this.Logger.OnCreateMachine(machine.Id, creator?.Id);
             this.SetOperationGroupIdForMachine(machine, creator, operationGroupId);
             this.RunMachineEventHandler(machine, e, true);
             return machine.Id;
@@ -304,14 +306,14 @@ namespace Microsoft.PSharp
         /// <param name="type">Type of the machine</param>
         /// <param name="friendlyName">Friendly machine name used for logging</param>
         /// <param name="e">Event passed during machine construction</param>
-        /// <param name="operationGroupId">Operation group id</param>
         /// <param name="creator">Creator machine</param>
+        /// <param name="operationGroupId">Operation group id</param>
         /// <returns>MachineId</returns>
         internal override async Task<MachineId> CreateMachineAndExecute(MachineId mid, Type type, string friendlyName, Event e,
             Machine creator, Guid? operationGroupId)
         {
             Machine machine = this.CreateMachine(mid, type, friendlyName);
-            base.Logger.OnCreateMachine(machine.Id, creator?.Id);
+            this.Logger.OnCreateMachine(machine.Id, creator?.Id);
             this.SetOperationGroupIdForMachine(machine, creator, operationGroupId);
             await this.RunMachineEventHandlerAsync(machine, e, true);
             return machine.Id;
@@ -324,14 +326,14 @@ namespace Microsoft.PSharp
         /// <param name="friendlyName">Friendly machine name used for logging</param>
         /// <param name="endpoint">Endpoint</param>
         /// <param name="e">Event passed during machine construction</param>
-        /// <param name="operationGroupId">Operation group id</param>
         /// <param name="creator">Creator machine</param>
+        /// <param name="operationGroupId">Operation group id</param>
         /// <returns>MachineId</returns>
         internal override MachineId CreateRemoteMachine(Type type, string friendlyName, string endpoint,
             Event e, Machine creator, Guid? operationGroupId)
         {
-            base.Assert(type.IsSubclassOf(typeof(Machine)), $"Type '{type.Name}' is not a machine.");
-            return base.NetworkProvider.RemoteCreateMachine(type, friendlyName, endpoint, e);
+            this.Assert(type.IsSubclassOf(typeof(Machine)), $"Type '{type.Name}' is not a machine.");
+            return this.NetworkProvider.RemoteCreateMachine(type, friendlyName, endpoint, e);
         }
 
         /// <summary>
@@ -363,7 +365,7 @@ namespace Microsoft.PSharp
             machine.InitializeStateInformation();
 
             bool result = this.MachineMap.TryAdd(mid, machine);
-            this.Assert(result, "Machine with id '{0}' was already created in generation '{1}'. This typically occurs " +
+            this.Assert(result, @"Machine with id '{0}' was already created in generation '{1}'. This typically occurs " +
                 "either if the machine id was created by another runtime instance, or if a machine id from a previous " +
                 "runtime generation was deserialized, but the current runtime has not increased its generation value.",
                 mid.Value, mid.Generation);
@@ -380,8 +382,8 @@ namespace Microsoft.PSharp
         /// <param name="options">Optional parameters of a send operation.</param>
         internal override void SendEvent(MachineId mid, Event e, AbstractMachine sender, SendOptions options)
         {
-            var operationGroupId = base.GetNewOperationGroupId(sender, options?.OperationGroupId);
-            if (!base.GetTargetMachine(mid, e, sender, operationGroupId, out Machine machine))
+            var operationGroupId = this.GetNewOperationGroupId(sender, options?.OperationGroupId);
+            if (!this.GetTargetMachine(mid, e, sender, operationGroupId, out Machine machine))
             {
                 return;
             }
@@ -406,8 +408,8 @@ namespace Microsoft.PSharp
         /// <returns>True if event was handled, false if the event was only enqueued</returns>
         internal override async Task<bool> SendEventAndExecute(MachineId mid, Event e, AbstractMachine sender, SendOptions options)
         {
-            var operationGroupId = base.GetNewOperationGroupId(sender, options?.OperationGroupId);
-            if (!base.GetTargetMachine(mid, e, sender, operationGroupId, out Machine machine))
+            var operationGroupId = this.GetNewOperationGroupId(sender, options?.OperationGroupId);
+            if (!this.GetTargetMachine(mid, e, sender, operationGroupId, out Machine machine))
             {
                 return true;
             }
@@ -419,6 +421,7 @@ namespace Microsoft.PSharp
                 await this.RunMachineEventHandlerAsync(machine, null, false);
                 return true;
             }
+
             return false;
         }
 
@@ -431,7 +434,7 @@ namespace Microsoft.PSharp
         /// <param name="options">Optional parameters of a send operation.</param>
         internal override void SendEventRemotely(MachineId mid, Event e, AbstractMachine sender, SendOptions options)
         {
-            base.NetworkProvider.RemoteSend(mid, e);
+            this.NetworkProvider.RemoteSend(mid, e);
         }
 
         /// <summary>
@@ -448,7 +451,7 @@ namespace Microsoft.PSharp
             eventInfo.SetOperationGroupId(operationGroupId);
 
             var senderState = (sender as Machine)?.CurrentStateName ?? string.Empty;
-            base.Logger.OnSend(machine.Id, sender?.Id, senderState,
+            this.Logger.OnSend(machine.Id, sender?.Id, senderState,
                 e.GetType().FullName, operationGroupId, isTargetHalted: false);
 
             machine.Enqueue(eventInfo, ref runNewHandler);
@@ -476,8 +479,8 @@ namespace Microsoft.PSharp
                 }
                 catch (Exception ex)
                 {
-                    base.IsRunning = false;
-                    base.RaiseOnFailureEvent(ex);
+                    this.IsRunning = false;
+                    this.RaiseOnFailureEvent(ex);
                 }
             });
         }
@@ -488,6 +491,7 @@ namespace Microsoft.PSharp
         /// <param name="machine">Machine that executes this event handler.</param>
         /// <param name="initialEvent">Event for initializing the machine.</param>
         /// <param name="isFresh">If true, then this is a new machine.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
         private async Task RunMachineEventHandlerAsync(Machine machine, Event initialEvent, bool isFresh)
         {
             try
@@ -501,16 +505,16 @@ namespace Microsoft.PSharp
             }
             catch (Exception ex)
             {
-                base.IsRunning = false;
-                base.RaiseOnFailureEvent(ex);
+                this.IsRunning = false;
+                this.RaiseOnFailureEvent(ex);
                 return;
             }
         }
 
         /// <summary>
-        /// Return the timer machine type
+        /// Returns the timer machine type.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The timer machine type.</returns>
         internal override Type GetTimerMachineType()
         {
             var timerType = base.GetTimerMachineType();
@@ -528,14 +532,13 @@ namespace Microsoft.PSharp
         /// <param name="type">Type of the monitor</param>
         internal override void TryCreateMonitor(Type type)
         {
-            if (!base.Configuration.EnableMonitorsInProduction)
+            if (!this.Configuration.EnableMonitorsInProduction)
             {
                 // No-op in production.
                 return;
             }
 
-            base.Assert(type.IsSubclassOf(typeof(Monitor)), $"Type '{type.Name}' " +
-                "is not a subclass of Monitor.\n");
+            this.Assert(type.IsSubclassOf(typeof(Monitor)), $"Type '{type.Name}' is not a subclass of Monitor.\n");
 
             MachineId mid = new MachineId(type, null, this);
             Monitor monitor = (Monitor)Activator.CreateInstance(type);
@@ -548,7 +551,7 @@ namespace Microsoft.PSharp
                 this.Monitors.Add(monitor);
             }
 
-            base.Logger.OnCreateMonitor(type.Name, monitor.Id);
+            this.Logger.OnCreateMonitor(type.Name, monitor.Id);
 
             monitor.GotoStartState();
         }
@@ -556,12 +559,12 @@ namespace Microsoft.PSharp
         /// <summary>
         /// Invokes the specified <see cref="PSharp.Monitor"/> with the specified <see cref="Event"/>.
         /// </summary>
-        /// <param name="sender">Sender machine</param>
         /// <param name="type">Type of the monitor</param>
+        /// <param name="sender">Sender machine</param>
         /// <param name="e">Event</param>
         internal override void Monitor(Type type, AbstractMachine sender, Event e)
         {
-            if (!base.Configuration.EnableMonitorsInProduction)
+            if (!this.Configuration.EnableMonitorsInProduction)
             {
                 // No-op in production.
                 return;
@@ -607,7 +610,7 @@ namespace Microsoft.PSharp
                 result = true;
             }
 
-            base.Logger.OnRandom(machine?.Id, result);
+            this.Logger.OnRandom(machine?.Id, result);
 
             return result;
         }
@@ -636,7 +639,7 @@ namespace Microsoft.PSharp
             Random random = new Random(DateTime.Now.Millisecond);
             var result = random.Next(maxValue);
 
-            base.Logger.OnRandom(machine?.Id, result);
+            this.Logger.OnRandom(machine?.Id, result);
 
             return result;
         }
@@ -647,12 +650,12 @@ namespace Microsoft.PSharp
         /// <param name="machine">Machine</param>
         internal override void NotifyEnteredState(Machine machine)
         {
-            if (base.Configuration.Verbose <= 1)
+            if (this.Configuration.Verbose <= 1)
             {
                 return;
             }
 
-            base.Logger.OnMachineState(machine.Id, machine.CurrentStateName, isEntry:true);
+            this.Logger.OnMachineState(machine.Id, machine.CurrentStateName, isEntry: true);
         }
 
         /// <summary>
@@ -661,13 +664,13 @@ namespace Microsoft.PSharp
         /// <param name="monitor">Monitor</param>
         internal override void NotifyEnteredState(Monitor monitor)
         {
-            if (base.Configuration.Verbose <= 1)
+            if (this.Configuration.Verbose <= 1)
             {
                 return;
             }
 
             string monitorState = monitor.CurrentStateNameWithTemperature;
-            base.Logger.OnMonitorState(monitor.GetType().Name, monitor.Id, monitorState, true, monitor.GetHotState());
+            this.Logger.OnMonitorState(monitor.GetType().Name, monitor.Id, monitorState, true, monitor.GetHotState());
         }
 
         /// <summary>
@@ -676,12 +679,12 @@ namespace Microsoft.PSharp
         /// <param name="machine">Machine</param>
         internal override void NotifyExitedState(Machine machine)
         {
-            if (base.Configuration.Verbose <= 1)
+            if (this.Configuration.Verbose <= 1)
             {
                 return;
             }
 
-            base.Logger.OnMachineState(machine.Id, machine.CurrentStateName, isEntry: false);
+            this.Logger.OnMachineState(machine.Id, machine.CurrentStateName, isEntry: false);
         }
 
         /// <summary>
@@ -690,13 +693,13 @@ namespace Microsoft.PSharp
         /// <param name="monitor">Monitor</param>
         internal override void NotifyExitedState(Monitor monitor)
         {
-            if (base.Configuration.Verbose <= 1)
+            if (this.Configuration.Verbose <= 1)
             {
                 return;
             }
 
             string monitorState = monitor.CurrentStateNameWithTemperature;
-            base.Logger.OnMonitorState(monitor.GetType().Name,monitor.Id, monitorState, false, monitor.GetHotState());
+            this.Logger.OnMonitorState(monitor.GetType().Name, monitor.Id, monitorState, false, monitor.GetHotState());
         }
 
         /// <summary>
@@ -707,12 +710,12 @@ namespace Microsoft.PSharp
         /// <param name="receivedEvent">Event</param>
         internal override void NotifyInvokedAction(Machine machine, MethodInfo action, Event receivedEvent)
         {
-            if (base.Configuration.Verbose <= 1)
+            if (this.Configuration.Verbose <= 1)
             {
                 return;
             }
 
-            base.Logger.OnMachineAction(machine.Id, machine.CurrentStateName, action.Name);
+            this.Logger.OnMachineAction(machine.Id, machine.CurrentStateName, action.Name);
         }
 
         /// <summary>
@@ -723,12 +726,12 @@ namespace Microsoft.PSharp
         /// <param name="receivedEvent">Event</param>
         internal override void NotifyInvokedAction(Monitor monitor, MethodInfo action, Event receivedEvent)
         {
-            if (base.Configuration.Verbose <= 1)
+            if (this.Configuration.Verbose <= 1)
             {
                 return;
             }
 
-            base.Logger.OnMonitorAction(monitor.GetType().Name, monitor.Id, action.Name, monitor.CurrentStateName);
+            this.Logger.OnMonitorAction(monitor.GetType().Name, monitor.Id, action.Name, monitor.CurrentStateName);
         }
 
         /// <summary>
@@ -738,14 +741,14 @@ namespace Microsoft.PSharp
         /// <param name="eventInfo">EventInfo</param>
         internal override void NotifyRaisedEvent(Machine machine, EventInfo eventInfo)
         {
-            eventInfo.SetOperationGroupId(base.GetNewOperationGroupId(machine, null));
+            eventInfo.SetOperationGroupId(this.GetNewOperationGroupId(machine, null));
 
-            if (base.Configuration.Verbose <= 1)
+            if (this.Configuration.Verbose <= 1)
             {
                 return;
             }
 
-            base.Logger.OnMachineEvent(machine.Id, machine.CurrentStateName, eventInfo.EventName);
+            this.Logger.OnMachineEvent(machine.Id, machine.CurrentStateName, eventInfo.EventName);
         }
 
         /// <summary>
@@ -755,13 +758,13 @@ namespace Microsoft.PSharp
         /// <param name="eventInfo">EventInfo</param>
         internal override void NotifyRaisedEvent(Monitor monitor, EventInfo eventInfo)
         {
-            if (base.Configuration.Verbose <= 1)
+            if (this.Configuration.Verbose <= 1)
             {
                 return;
             }
 
-            base.Logger.OnMonitorEvent(monitor.GetType().Name, monitor.Id, monitor.CurrentStateName,
-                eventInfo.EventName, isProcessing:false);
+            this.Logger.OnMonitorEvent(monitor.GetType().Name, monitor.Id, monitor.CurrentStateName,
+                eventInfo.EventName, isProcessing: false);
         }
 
         /// <summary>
@@ -774,7 +777,7 @@ namespace Microsoft.PSharp
             // The machine inherits the operation group id of the dequeued event.
             machine.Info.OperationGroupId = eventInfo.OperationGroupId;
 
-            base.Logger.OnDequeue(machine.Id, machine.CurrentStateName, eventInfo.EventName);
+            this.Logger.OnDequeue(machine.Id, machine.CurrentStateName, eventInfo.EventName);
         }
 
         /// <summary>
@@ -786,7 +789,7 @@ namespace Microsoft.PSharp
         {
             if (eventInfoInInbox == null)
             {
-                base.Logger.OnWait(machine.Id, machine.CurrentStateName, string.Empty);
+                this.Logger.OnWait(machine.Id, machine.CurrentStateName, string.Empty);
                 machine.Info.IsWaitingToReceive = true;
             }
         }
@@ -798,7 +801,7 @@ namespace Microsoft.PSharp
         /// <param name="eventInfo">EventInfo</param>
         internal override void NotifyReceivedEvent(Machine machine, EventInfo eventInfo)
         {
-            base.Logger.OnReceive(machine.Id, machine.CurrentStateName, eventInfo.EventName, wasBlocked:true);
+            this.Logger.OnReceive(machine.Id, machine.CurrentStateName, eventInfo.EventName, wasBlocked: true);
 
             lock (machine)
             {
@@ -814,7 +817,7 @@ namespace Microsoft.PSharp
         /// <param name="inbox">Machine inbox.</param>
         internal override void NotifyHalted(Machine machine, LinkedList<EventInfo> inbox)
         {
-            base.Logger.OnHalt(machine.Id, inbox.Count);
+            this.Logger.OnHalt(machine.Id, inbox.Count);
             this.MachineMap.TryRemove(machine.Id, out machine);
         }
 

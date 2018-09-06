@@ -174,9 +174,8 @@ namespace Microsoft.PSharp
         public int MaxUnfairSchedulingSteps;
 
         /// <summary>
-        /// The maximum scheduling steps to explore
-        /// for both fair and unfair schedulers.
-        /// By default there is no bound.
+        /// Sets the maximum scheduling steps to explore for both fair
+        /// and unfair schedulers. By default there is no bound.
         /// </summary>
         public int MaxSchedulingSteps
         {

@@ -137,9 +137,9 @@ namespace Microsoft.PSharp
         {
             get
             {
-                return CurrentStateName +
-                    (IsInHotState() ? "[hot]" :
-                    IsInColdState() ? "[cold]" :
+                return this.CurrentStateName +
+                    (this.IsInHotState() ? "[hot]" :
+                    this.IsInColdState() ? "[cold]" :
                     string.Empty);
             }
         }
@@ -200,7 +200,7 @@ namespace Microsoft.PSharp
         protected void Goto<S>() where S : MonitorState
         {
 #pragma warning disable 618
-            Goto(typeof(S));
+            this.Goto(typeof(S));
 #pragma warning restore 618
         }
 
@@ -308,12 +308,14 @@ namespace Microsoft.PSharp
                     Type targetState = (e as GotoStateEvent).State;
                     this.GotoState(targetState, null);
                 }
+
                 // Checks if the event can trigger a goto state transition.
                 else if (this.GotoTransitions.ContainsKey(e.GetType()))
                 {
                     var transition = this.GotoTransitions[e.GetType()];
                     this.GotoState(transition.TargetState, transition.Lambda);
                 }
+
                 // Checks if the event can trigger an action.
                 else if (this.ActionBindings.ContainsKey(e.GetType()))
                 {
@@ -333,7 +335,7 @@ namespace Microsoft.PSharp
         private void Do(string actionName)
         {
             MethodInfo action = this.ActionMap[actionName];
-            this.Runtime.NotifyInvokedAction(this, action, ReceivedEvent);
+            this.Runtime.NotifyInvokedAction(this, action, this.ReceivedEvent);
             this.ExecuteAction(action);
         }
 

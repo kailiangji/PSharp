@@ -4,8 +4,6 @@
 // ------------------------------------------------------------------------------------------------
 
 using System;
-using System.Collections;
-using System.Collections.Generic;
 
 namespace Microsoft.PSharp
 {
@@ -28,18 +26,18 @@ namespace Microsoft.PSharp
         /// <summary>
         /// Constructor.
         /// </summary>
-        public GotoStateTransition(Type TargetState, string Lambda)
+        public GotoStateTransition(Type targetState, string lambda)
         {
-            this.TargetState = TargetState;
-            this.Lambda = Lambda;
+            this.TargetState = targetState;
+            this.Lambda = lambda;
         }
 
         /// <summary>
         /// Constructor.
         /// </summary>
-        public GotoStateTransition(Type TargetState)
+        public GotoStateTransition(Type targetState)
         {
-            this.TargetState = TargetState;
+            this.TargetState = targetState;
             this.Lambda = null;
         }
     }

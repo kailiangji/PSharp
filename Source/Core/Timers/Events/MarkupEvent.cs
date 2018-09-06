@@ -3,17 +3,14 @@
 // Licensed under the MIT license. See LICENSE.txt in the repo root for full license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace Microsoft.PSharp
+namespace Microsoft.PSharp.Timers
 {
     /// <summary>
-    /// The exception that is thrown in a P# machine upon cancellation
-    /// of execution by the P# runtime.
+    /// Event used to flush the queue of a machine of eTimeout events.
+    /// A single Markup event is dispatched to the queue. Then all
+    /// eTimeout events are removed until we see the Markup event.
     /// </summary>
-    public sealed class ExecutionCanceledException : RuntimeException
+    internal class MarkupEvent : Event
     {
-        /// <summary>
-        /// Initializes a new instance of the exception.
-        /// </summary>
-        internal ExecutionCanceledException() { }
     }
 }

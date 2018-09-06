@@ -437,7 +437,7 @@ namespace Microsoft.PSharp
         /// <returns></returns>
         internal virtual Type GetTimerMachineType()
         {
-            return TimerMachineType;
+            return this.TimerMachineType;
         }
 
         /// <summary>

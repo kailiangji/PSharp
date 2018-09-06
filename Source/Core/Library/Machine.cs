@@ -185,11 +185,11 @@ namespace Microsoft.PSharp
         {
             get
             {
-                return Info.OperationGroupId;
+                return this.Info.OperationGroupId;
             }
             set
             {
-                Info.OperationGroupId = value;
+                this.Info.OperationGroupId = value;
             }
         }
 
@@ -301,6 +301,7 @@ namespace Microsoft.PSharp
         {
             // If the target machine is null, then report an error and exit.
             this.Assert(mid != null, $"Machine '{base.Id}' is sending to a null machine.");
+
             // If the event is null, then report an error and exit.
             this.Assert(e != null, $"Machine '{base.Id}' is sending a null event.");
             base.Runtime.SendEvent(mid, e, this, options);
@@ -316,6 +317,7 @@ namespace Microsoft.PSharp
         {
             // If the target machine is null, then report an error and exit.
             this.Assert(mid != null, $"Machine '{base.Id}' is sending to a null machine.");
+
             // If the event is null, then report an error and exit.
             this.Assert(e != null, $"Machine '{base.Id}' is sending a null event.");
             base.Runtime.SendEventRemotely(mid, e, this, options);
@@ -348,10 +350,10 @@ namespace Microsoft.PSharp
         /// at the end of the current action.
         /// </summary>
         /// <typeparam name="S">Type of the state</typeparam>
-        protected void Goto<S>() where S: MachineState
+        protected void Goto<S>() where S : MachineState
         {
 #pragma warning disable 618
-            Goto(typeof(S));
+            this.Goto(typeof(S));
 #pragma warning restore 618
         }
 
@@ -364,6 +366,7 @@ namespace Microsoft.PSharp
         protected void Goto(Type s)
         {
             this.Assert(!this.Info.IsHalted, $"Machine '{base.Id}' invoked Goto while halted.");
+
             // If the state is not a state of the machine, then report an error and exit.
             this.Assert(StateTypeMap[this.GetType()].Any(val
                 => val.DeclaringType.Equals(s.DeclaringType) &&
@@ -380,7 +383,7 @@ namespace Microsoft.PSharp
         protected void Push<S>() where S : MachineState
         {
 #pragma warning disable 618
-            Push(typeof(S));
+            this.Push(typeof(S));
 #pragma warning restore 618
         }
 
@@ -394,6 +397,7 @@ namespace Microsoft.PSharp
         protected void Push(Type s)
         {
             this.Assert(!this.Info.IsHalted, $"Machine '{base.Id}' invoked Push while halted.");
+
             // If the state is not a state of the machine, then report an error and exit.
             this.Assert(StateTypeMap[this.GetType()].Any(val
                 => val.DeclaringType.Equals(s.DeclaringType) &&
@@ -409,6 +413,7 @@ namespace Microsoft.PSharp
         protected void Raise(Event e)
         {
             this.Assert(!this.Info.IsHalted, $"Machine '{base.Id}' invoked Raise while halted.");
+
             // If the event is null, then report an error and exit.
             this.Assert(e != null, $"Machine '{base.Id}' is raising a null event.");
             this.RaisedEvent = new EventInfo(e, new EventOriginInfo(
@@ -631,7 +636,7 @@ namespace Microsoft.PSharp
             EventInfo nextAvailableEventInfo = null;
 
             // Iterates through the events in the inbox.
-            var node = Inbox.First;
+            var node = this.Inbox.First;
             while (node != null)
             {
                 var nextNode = node.Next;
@@ -656,7 +661,7 @@ namespace Microsoft.PSharp
                         if (!checkOnly)
                         {
                             // Removes an ignored event.
-                            Inbox.Remove(node);
+                            this.Inbox.Remove(node);
                         }
 
                         node = nextNode;
@@ -669,7 +674,7 @@ namespace Microsoft.PSharp
                     if (!checkOnly)
                     {
                         // Removes an ignored event.
-                        Inbox.Remove(node);
+                        this.Inbox.Remove(node);
                     }
 
                     node = nextNode;
@@ -682,7 +687,7 @@ namespace Microsoft.PSharp
                     nextAvailableEventInfo = currentEventInfo;
                     if (!checkOnly)
                     {
-                        Inbox.Remove(node);
+                        this.Inbox.Remove(node);
                     }
 
                     break;
@@ -751,7 +756,7 @@ namespace Microsoft.PSharp
 
                 if (nextEventInfo == null)
                 {
-                    var hasDefaultHandler = HasDefaultHandler();
+                    var hasDefaultHandler = this.HasDefaultHandler();
                     if (hasDefaultHandler)
                     {
                         base.Runtime.NotifyDefaultEventHandlerCheck(this);
@@ -825,14 +830,14 @@ namespace Microsoft.PSharp
                     // is halt, then terminate the machine.
                     if (e.GetType().Equals(typeof(Halt)))
                     {
-                        HaltMachine();
+                        this.HaltMachine();
                         return;
                     }
 
                     var unhandledEx = new UnhandledEventException(this.Id, currentState, e, "Unhandled Event");
-                    if (OnUnhandledEventExceptionHandler("HandleEvent", unhandledEx))
+                    if (this.OnUnhandledEventExceptionHandler("HandleEvent", unhandledEx))
                     {
-                        HaltMachine();
+                        this.HaltMachine();
                         return;
                     }
                     else
@@ -849,12 +854,14 @@ namespace Microsoft.PSharp
                     Type targetState = (e as GotoStateEvent).State;
                     await this.GotoState(targetState, null);
                 }
+
                 // Checks if the event is a push state event.
                 else if (e.GetType() == typeof(PushStateEvent))
                 {
                     Type targetState = (e as PushStateEvent).State;
                     await this.PushState(targetState);
                 }
+
                 // Checks if the event can trigger a goto state transition.
                 else if (this.GotoTransitions.ContainsKey(e.GetType()))
                 {
@@ -866,6 +873,7 @@ namespace Microsoft.PSharp
                     var transition = this.GotoTransitions[typeof(WildCardEvent)];
                     await this.GotoState(transition.TargetState, transition.Lambda);
                 }
+
                 // Checks if the event can trigger a push state transition.
                 else if (this.PushTransitions.ContainsKey(e.GetType()))
                 {
@@ -877,6 +885,7 @@ namespace Microsoft.PSharp
                     Type targetState = this.PushTransitions[typeof(WildCardEvent)].TargetState;
                     await this.PushState(targetState);
                 }
+
                 // Checks if the event can trigger an action.
                 else if (this.CurrentActionHandlerMap.ContainsKey(e.GetType()) &&
                     this.CurrentActionHandlerMap[e.GetType()] is ActionBinding)
@@ -890,6 +899,7 @@ namespace Microsoft.PSharp
                     var handler = this.CurrentActionHandlerMap[typeof(WildCardEvent)] as ActionBinding;
                     await this.Do(handler.Name);
                 }
+
                 // If the current state cannot handle the event.
                 else
                 {
@@ -1024,11 +1034,10 @@ namespace Microsoft.PSharp
                         // We have no reliable stack for awaited operations.
                         await cachedAction.ExecuteAsync();
                     }
-                    catch (Exception ex) when (OnExceptionHandler(cachedAction.MethodInfo.Name, ex))
+                    catch (Exception ex) when (this.OnExceptionHandler(cachedAction.MethodInfo.Name, ex))
                     {
                         // user handled the exception, return normally
                     }
-
                 }
                 else
                 {
@@ -1037,11 +1046,11 @@ namespace Microsoft.PSharp
                     {
                         cachedAction.Execute();
                     }
-                    catch(Exception ex) when (OnExceptionHandler(cachedAction.MethodInfo.Name, ex))
+                    catch(Exception ex) when (this.OnExceptionHandler(cachedAction.MethodInfo.Name, ex))
                     {
                         // user handled the exception, return normally
                     }
-                    catch (Exception ex) when (!OnExceptionRequestedGracefulHalt && InvokeOnFailureExceptionFilter(cachedAction, ex))
+                    catch (Exception ex) when (!this.OnExceptionRequestedGracefulHalt && this.InvokeOnFailureExceptionFilter(cachedAction, ex))
                     {
                         // If InvokeOnFailureExceptionFilter does not fail-fast, it returns
                         // false to process the exception normally.
@@ -1073,10 +1082,10 @@ namespace Microsoft.PSharp
                     IO.Debug.WriteLine("<Exception> TaskSchedulerException was " +
                         $"thrown from Machine '{base.Id}'.");
                 }
-                else if (OnExceptionRequestedGracefulHalt)
+                else if (this.OnExceptionRequestedGracefulHalt)
                 {
                     // gracefully halt
-                    HaltMachine();
+                    this.HaltMachine();
                 }
                 else
                 {
@@ -1372,7 +1381,7 @@ namespace Microsoft.PSharp
                 if (this.Runtime.Configuration.EnableUserDefinedStateHashing)
                 {
                     // Adds the user-defined hashed machine state.
-                    hash = hash * 31 + HashedState;
+                    hash = hash * 31 + this.HashedState;
                 }
 
                 foreach (var state in this.StateStack)
@@ -1747,14 +1756,14 @@ namespace Microsoft.PSharp
         {
             this.Logger.OnMachineExceptionThrown(this.Id, ex.CurrentStateName, methodName, ex);
 
-            var ret = OnException(methodName, ex);
-            OnExceptionRequestedGracefulHalt = false;
+            var ret = this.OnException(methodName, ex);
+            this.OnExceptionRequestedGracefulHalt = false;
             switch (ret)
             {
                 case OnExceptionOutcome.HaltMachine:
                 case OnExceptionOutcome.HandledException:
                     this.Logger.OnMachineExceptionHandled(this.Id, ex.CurrentStateName, methodName, ex);
-                    OnExceptionRequestedGracefulHalt = true;
+                    this.OnExceptionRequestedGracefulHalt = true;
                     return true;
                 case OnExceptionOutcome.ThrowException:
                     return false;
@@ -1776,20 +1785,20 @@ namespace Microsoft.PSharp
                 return false;
             }
 
-            this.Logger.OnMachineExceptionThrown(this.Id, CurrentStateName, methodName, ex);
+            this.Logger.OnMachineExceptionThrown(this.Id, this.CurrentStateName, methodName, ex);
 
-            var ret = OnException(methodName, ex);
-            OnExceptionRequestedGracefulHalt = false;
+            var ret = this.OnException(methodName, ex);
+            this.OnExceptionRequestedGracefulHalt = false;
 
             switch (ret)
             {
                 case OnExceptionOutcome.ThrowException:
                     return false;
                 case OnExceptionOutcome.HandledException:
-                    this.Logger.OnMachineExceptionHandled(this.Id, CurrentStateName, methodName, ex);
+                    this.Logger.OnMachineExceptionHandled(this.Id, this.CurrentStateName, methodName, ex);
                     return true;
                 case OnExceptionOutcome.HaltMachine:
-                    OnExceptionRequestedGracefulHalt = true;
+                    this.OnExceptionRequestedGracefulHalt = true;
                     return false;
             }
 

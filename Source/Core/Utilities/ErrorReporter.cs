@@ -17,15 +17,15 @@ namespace Microsoft.PSharp.Utilities
         /// <summary>
         /// Configuration.
         /// </summary>
-        private Configuration Configuration;
+        private readonly Configuration Configuration;
 
         /// <summary>
-        /// The installed logger.
+        /// Gets or sets the installed logger.
         /// </summary>
         internal ILogger Logger { get; set; }
 
         /// <summary>
-        /// Constructor.
+        /// Initializes a new instance of the <see cref="ErrorReporter"/> class.
         /// </summary>
         /// <param name="configuration">Configuration</param>
         /// <param name="logger">ILogger</param>

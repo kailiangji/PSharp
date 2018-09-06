@@ -3,17 +3,11 @@
 // Licensed under the MIT license. See LICENSE.txt in the repo root for full license information.
 // ------------------------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Microsoft.PSharp.Timers
 {
-	/// <summary>
-	/// A timer model, used for testing purposes.
-	/// </summary>
+    /// <summary>
+    /// A timer model, used for testing purposes.
+    /// </summary>
     public class ModelTimerMachine : Machine
     {
         /// <summary>
@@ -22,80 +16,94 @@ namespace Microsoft.PSharp.Timers
         public static int NumStepsToSkip = 1;
 
         /// <summary>
-        /// Machine to which eTimeout events are dispatched.
+        /// The id of the machine to which eTimeout events are dispatched.
         /// </summary>
         private MachineId client;
 
-		/// <summary>
-		/// True if periodic eTimeout events are desired.
-		/// </summary>
-		private bool IsPeriodic;
+        /// <summary>
+        /// The id of the timer.
+        /// </summary>
+        private TimerId TimerId;
 
         /// <summary>
-        /// TimerId
+        /// True if periodic eTimeout events are desired.
         /// </summary>
-        private TimerId tid;
+        private bool IsPeriodic;
 
+        /// <summary>
+        /// The only state of the timer.
+        /// </summary>
         [Start]
-		[OnEntry(nameof(InitializeTimer))]
-		[OnEventDoAction(typeof(HaltTimerEvent), nameof(DisposeTimer))]
-        [OnEventDoAction(typeof(RepeatTimeout), nameof(SendTimeout))]
-        private class Init : MachineState { }
+        [OnEntry(nameof(InitializeTimer))]
+        [OnEventDoAction(typeof(HaltTimerEvent), nameof(DisposeTimer))]
+        [OnEventDoAction(typeof(RepeatTimeoutEvent), nameof(SendTimeout))]
+        private class Init : MachineState
+        {
+        }
 
+        /// <summary>
+        /// Initializes the timer.
+        /// </summary>
         private void InitializeTimer()
-		{
-			InitTimer e = (this.ReceivedEvent as InitTimer);
-			this.client = e.client;
-			this.IsPeriodic = e.IsPeriodic;
-            this.tid = e.tid;
-            this.Send(this.Id, new RepeatTimeout());
-		}
+        {
+            InitTimerEvent e = this.ReceivedEvent as InitTimerEvent;
+            this.client = e.Client;
+            this.IsPeriodic = e.IsPeriodic;
+            this.TimerId = e.TimerId;
+            this.Send(this.Id, new RepeatTimeoutEvent());
+        }
 
-		private void SendTimeout()
-		{
+        /// <summary>
+        /// Sends a timeout event.
+        /// </summary>
+        private void SendTimeout()
+        {
             this.Assert(NumStepsToSkip >= 0);
 
-            // If not periodic, send a single timeout event
+            // If not periodic, send a single timeout event.
             if (!this.IsPeriodic)
-			{
-                // Probability of firing timeout is atmost 1/N
+            {
+                // Probability of firing timeout is atmost 1/N.
                 if ((this.RandomInteger(NumStepsToSkip) == 0) && this.FairRandom())
                 {
-                    this.Send(this.client, new TimerElapsedEvent(tid));
+                    this.Send(this.client, new TimerElapsedEvent(this.TimerId));
                 }
                 else
                 {
-                    this.Send(this.Id, new RepeatTimeout());
+                    this.Send(this.Id, new RepeatTimeoutEvent());
                 }
             }
-			else
-			{
-				// Probability of firing timeout is atmost 1/N
-				if ((this.RandomInteger(NumStepsToSkip)==0) && this.FairRandom())
-				{
-				   this.Send(this.client, new TimerElapsedEvent(tid));
-				}
-				this.Send(this.Id, new RepeatTimeout());
-			}
+            else
+            {
+                // Probability of firing timeout is atmost 1/N.
+                if ((this.RandomInteger(NumStepsToSkip) == 0) && this.FairRandom())
+                {
+                   this.Send(this.client, new TimerElapsedEvent(this.TimerId));
+                }
 
-		}
+                this.Send(this.Id, new RepeatTimeoutEvent());
+            }
+        }
 
-		private void DisposeTimer()
-		{
-			HaltTimerEvent e = (this.ReceivedEvent as HaltTimerEvent);
+        /// <summary>
+        /// Disposes the timer.
+        /// </summary>
+        private void DisposeTimer()
+        {
+            HaltTimerEvent e = this.ReceivedEvent as HaltTimerEvent;
 
-			// The client attempting to stop this timer must be the one who created it.
-			this.Assert(e.client == this.client);
+            // The client attempting to stop this timer must be the one who created it.
+            this.Assert(e.Client == this.client);
 
-			// If the client wants to flush the inbox, send a markup event.
-			// This marks the endpoint of all timeout events sent by this machine.
-			if (e.flush)
-			{
-				this.Send(this.client, new Markup());
-			}
+            // If the client wants to flush the inbox, send a markup event.
+            // This marks the endpoint of all timeout events sent by this machine.
+            if (e.Flush)
+            {
+                this.Send(this.client, new MarkupEvent());
+            }
 
-			// Stop this machine
-			this.Raise(new Halt());
-		}
+            // Stop this machine.
+            this.Raise(new Halt());
+        }
     }
 }

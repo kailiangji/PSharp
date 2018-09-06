@@ -18,7 +18,7 @@ namespace Microsoft.PSharp.IO
         internal static bool IsEnabled;
 
         /// <summary>
-        /// Static constructor.
+        /// Initializes static members of the <see cref="Debug"/> class.
         /// </summary>
         static Debug()
         {

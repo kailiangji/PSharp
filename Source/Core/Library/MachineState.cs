@@ -113,7 +113,7 @@ namespace Microsoft.PSharp
 
             foreach (var attr in gotoAttributes)
             {
-                CheckEventHandlerAlreadyDeclared(attr.Event, handledEvents);
+                this.CheckEventHandlerAlreadyDeclared(attr.Event, handledEvents);
 
                 if (attr.Action == null)
                 {
@@ -153,7 +153,7 @@ namespace Microsoft.PSharp
                     continue;
                 }
 
-                CheckEventHandlerAlreadyInherited(attr.Event, baseState, handledEvents);
+                this.CheckEventHandlerAlreadyInherited(attr.Event, baseState, handledEvents);
 
                 if (attr.Action == null)
                 {
@@ -186,7 +186,7 @@ namespace Microsoft.PSharp
 
             foreach (var attr in pushAttributes)
             {
-                CheckEventHandlerAlreadyDeclared(attr.Event, handledEvents);
+                this.CheckEventHandlerAlreadyDeclared(attr.Event, handledEvents);
 
                 this.PushTransitions.Add(attr.Event, new PushStateTransition(attr.State));
                 handledEvents.Add(attr.Event);
@@ -218,7 +218,7 @@ namespace Microsoft.PSharp
                     continue;
                 }
 
-                CheckEventHandlerAlreadyInherited(attr.Event, baseState, handledEvents);
+                this.CheckEventHandlerAlreadyInherited(attr.Event, baseState, handledEvents);
 
                 pushTransitionsInherited.Add(attr.Event, new PushStateTransition(attr.State));
                 handledEvents.Add(attr.Event);
@@ -243,7 +243,7 @@ namespace Microsoft.PSharp
 
             foreach (var attr in doAttributes)
             {
-                CheckEventHandlerAlreadyDeclared(attr.Event, handledEvents);
+                this.CheckEventHandlerAlreadyDeclared(attr.Event, handledEvents);
 
                 this.ActionBindings.Add(attr.Event, new ActionBinding(attr.Action));
                 handledEvents.Add(attr.Event);
@@ -275,7 +275,7 @@ namespace Microsoft.PSharp
                     continue;
                 }
 
-                CheckEventHandlerAlreadyInherited(attr.Event, baseState, handledEvents);
+                this.CheckEventHandlerAlreadyInherited(attr.Event, baseState, handledEvents);
 
                 actionBindingsInherited.Add(attr.Event, new ActionBinding(attr.Action));
                 handledEvents.Add(attr.Event);
@@ -301,7 +301,7 @@ namespace Microsoft.PSharp
             {
                 foreach (var e in ignoreEventsAttribute.Events)
                 {
-                    CheckEventHandlerAlreadyDeclared(e, handledEvents);
+                    this.CheckEventHandlerAlreadyDeclared(e, handledEvents);
                 }
 
                 this.IgnoredEvents.UnionWith(ignoreEventsAttribute.Events);
@@ -334,7 +334,7 @@ namespace Microsoft.PSharp
                         continue;
                     }
 
-                    CheckEventHandlerAlreadyInherited(e, baseState, handledEvents);
+                    this.CheckEventHandlerAlreadyInherited(e, baseState, handledEvents);
                 }
 
                 this.IgnoredEvents.UnionWith(ignoreEventsAttribute.Events);
@@ -355,7 +355,7 @@ namespace Microsoft.PSharp
             {
                 foreach (var e in deferEventsAttribute.Events)
                 {
-                    CheckEventHandlerAlreadyDeclared(e, handledEvents);
+                    this.CheckEventHandlerAlreadyDeclared(e, handledEvents);
                 }
 
                 this.DeferredEvents.UnionWith(deferEventsAttribute.Events);
@@ -387,7 +387,7 @@ namespace Microsoft.PSharp
                         continue;
                     }
 
-                    CheckEventHandlerAlreadyInherited(e, baseState, handledEvents);
+                    this.CheckEventHandlerAlreadyInherited(e, baseState, handledEvents);
                 }
 
                 this.DeferredEvents.UnionWith(deferEventsAttribute.Events);

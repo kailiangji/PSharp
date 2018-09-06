@@ -3,26 +3,25 @@
 // Licensed under the MIT license. See LICENSE.txt in the repo root for full license information.
 // ------------------------------------------------------------------------------------------------
 
-using System;
-
-namespace Microsoft.PSharp
+namespace Microsoft.PSharp.Timers
 {
     /// <summary>
-    /// Defines a push state transition.
+    /// Timeout event sent by the timer.
     /// </summary>
-    internal sealed class PushStateTransition
+    public class TimerElapsedEvent : Event
     {
         /// <summary>
-        /// Target state.
+        /// The id of the timer.
         /// </summary>
-        public Type TargetState;
+        public readonly TimerId Tid;
 
         /// <summary>
-        /// Constructor.
+        /// Initializes a new instance of the <see cref="TimerElapsedEvent"/> class.
         /// </summary>
-        public PushStateTransition(Type targetState)
+        /// <param name="tid">The id of the timer.</param>
+        public TimerElapsedEvent(TimerId tid)
         {
-            this.TargetState = targetState;
+            this.Tid = tid;
         }
     }
 }

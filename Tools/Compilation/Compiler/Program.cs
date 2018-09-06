@@ -103,8 +103,8 @@ namespace Microsoft.PSharp
         /// <summary>
         /// Handler for unhandled exceptions.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="args"></param>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="args">Object that contains the event data.</param>
         static void UnhandledExceptionHandler(object sender, UnhandledExceptionEventArgs args)
         {
             var ex = (Exception)args.ExceptionObject;

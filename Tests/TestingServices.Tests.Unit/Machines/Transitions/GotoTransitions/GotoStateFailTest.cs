@@ -19,7 +19,7 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
 
             void EntryInit()
             {
-                // This line no longer builds after converting from Goto(typeof(T)) to Goto<T>() 
+                // This line no longer builds after converting from Goto(typeof(T)) to Goto<T>()
                 // due to the "where T: MachineState" constraint on Goto<T>().
                 //this.Goto<object>();
 

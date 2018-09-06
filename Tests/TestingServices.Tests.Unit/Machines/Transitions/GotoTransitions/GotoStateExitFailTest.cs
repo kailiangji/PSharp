@@ -28,7 +28,7 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
                 // This assert is reachable.
                 this.Assert(false, "Bug found.");
             }
-            
+
             class Done : MachineState { }
         }
 

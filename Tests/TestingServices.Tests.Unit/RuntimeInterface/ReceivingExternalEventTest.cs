@@ -46,7 +46,7 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
                 this.Assert((this.ReceivedEvent as E).Value == 2);
             }
         }
-        
+
         [Fact]
         public void TestReceivingExternalEvents()
         {

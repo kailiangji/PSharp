@@ -93,7 +93,7 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
                     throw new ParsingException(this.ErrorLog.ToString(), ex.ExpectedTokenTypes, ex);
                 }
             }
-            
+
             return this.Program;
         }
 
@@ -158,12 +158,12 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
                     break;
                 }
             }
-            
+
             for (int idx = nonWhiteIndex; idx < errorLine.Count; idx++)
             {
                 this.ErrorLog.Append(string.Format("{0}", errorLine[idx].TextUnit.Text));
             }
-            
+
             for (int idx = nonWhiteIndex; idx < errorLine.Count; idx++)
             {
                 if (errorLine[idx].Equals(errorToken) && errorIndex == this.TokenStream.Index)

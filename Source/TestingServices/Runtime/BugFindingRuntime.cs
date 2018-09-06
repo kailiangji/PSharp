@@ -543,7 +543,7 @@ namespace Microsoft.PSharp.TestingServices
         {
             this.AssertCorrectCallerMachine(creator, "CreateMachineAndExecute");
             this.Assert(creator != null, "Only a machine can execute CreateMachineAndExecute. " +
-                "Avoid calling directly from the PSharp Test method. " + 
+                "Avoid calling directly from the PSharp Test method. " +
                 "Instead call through a 'harness' machine.");
             this.AssertNoPendingTransitionStatement(creator, "CreateMachine");
 
@@ -698,9 +698,9 @@ namespace Microsoft.PSharp.TestingServices
 
             // This is set true by CheckStartEventHandler, called by EnqueueEvent. runNewHandler is not
             // set to true by EnqueueEvent (even when the machine was previously Idle) when the event
-            // e requires no action by the machine (i.e., it implicitly handles the event). In such a case, 
+            // e requires no action by the machine (i.e., it implicitly handles the event). In such a case,
             // CheckStartEventHandler must have been called.
-            startEventHandlerCalled = false; 
+            startEventHandlerCalled = false;
 
             EventInfo eventInfo = this.EnqueueEvent(machine, e, sender, operationGroupId, options?.MustHandle ?? false, ref runNewHandler);
             if (runNewHandler)
@@ -712,7 +712,7 @@ namespace Microsoft.PSharp.TestingServices
                     rev => (rev as QuiescentEvent).mid == mid);
                 return true;
             }
-            return startEventHandlerCalled;  
+            return startEventHandlerCalled;
         }
 
         /// <summary>
@@ -749,7 +749,7 @@ namespace Microsoft.PSharp.TestingServices
             if (sender != null && sender is Machine)
             {
                 originInfo = new EventOriginInfo(sender.Id, (sender as Machine).GetType().Name,
-                    (sender as Machine).CurrentState == null ? "None" : 
+                    (sender as Machine).CurrentState == null ? "None" :
                     StateGroup.GetQualifiedStateName((sender as Machine).CurrentState));
             }
             else

@@ -450,13 +450,13 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
                     tokens.Insert(0, group.Identifier.TextUnit.Text);
                     group = group.Group;
                 }
-                
+
                 // Qualify the name of each state in this group.
                 foreach (var method in state.RewrittenMethods)
                 {
                     method.QualifiedStateName = tokens;
                     this.RewrittenMethods.Add(method);
-                } 
+                }
             }
         }
 

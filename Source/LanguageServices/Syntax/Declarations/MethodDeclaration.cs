@@ -129,7 +129,7 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
         {
             var indent = GetIndent(indentLevel);
             string text = indent;
-            
+
             if (this.AccessModifier == AccessModifier.Protected)
             {
                 text += "protected ";

@@ -13,10 +13,10 @@ namespace Microsoft.PSharp.TestingServices.Tests.Integration
     /// <summary>
     /// A single-process implementation of the chain replication protocol written
     /// using P# as a C# library.
-    /// 
+    ///
     /// The chain replication protocol is described in the following paper:
     /// http://www.cs.cornell.edu/home/rvr/papers/OSDI04.pdf
-    ///  
+    ///
     /// This test contains a bug that leads to a safety assertion failure.
     /// </summary>
     public class ChainReplicationTest : BaseTest

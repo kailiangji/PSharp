@@ -100,7 +100,7 @@ namespace Microsoft.PSharp.StaticAnalysis
                     {
                         continue;
                     }
-                    
+
                     this.AnalyzeProject(project);
                 }
             }

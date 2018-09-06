@@ -71,7 +71,7 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Framework
             {
                 this.DiscoverMachineActions(machine, compilation);
                 this.DiscoverMachineActionsThatRaise(machine, compilation);
-                
+
                 if (!this.GetTypeOfMachine().Equals("Monitor"))
                 {
                     this.DiscoverMachineActionsThatPop(machine, compilation);
@@ -206,7 +206,7 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Framework
                 Select(val => val.ArgumentList.Arguments[0].Expression as IdentifierNameSyntax).
                 Select(val => val.Identifier.ValueText).
                 ToList();
-            
+
             var onEventDoActionNames = machine.DescendantNodes().OfType<ClassDeclarationSyntax>().
                 Where(val => this.IsState(compilation, val)).
                 SelectMany(val => val.AttributeLists).
@@ -438,7 +438,7 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Framework
         private void CheckForStartState(ClassDeclarationSyntax machine, CodeAnalysis.Compilation compilation)
         {
             var model = compilation.GetSemanticModel(machine.SyntaxTree);
-            
+
             var stateAttributes = machine.DescendantNodes().OfType<ClassDeclarationSyntax>().
                 Where(val => this.IsState(compilation, val)).
                 SelectMany(val => val.AttributeLists).
@@ -535,7 +535,7 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Framework
             var methods = machine.DescendantNodes().OfType<MethodDeclarationSyntax>().
                 Where(val => !this.Actions[machine].Contains(val)).
                 ToList();
-            
+
             foreach (var method in methods)
             {
                 var hasRaise = method.DescendantNodes().OfType<InvocationExpressionSyntax>().

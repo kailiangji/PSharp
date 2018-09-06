@@ -9,7 +9,7 @@ using Xunit;
 
 namespace Microsoft.PSharp.Core.Tests.Unit
 {
-    public class GetOperationGroupIdTest 
+    public class GetOperationGroupIdTest
     {
         static Guid OperationGroup = Guid.NewGuid();
 

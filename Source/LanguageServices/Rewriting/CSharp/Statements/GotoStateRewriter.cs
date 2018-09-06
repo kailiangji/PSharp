@@ -42,7 +42,7 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.CSharp
                 Where(val => val.Expression is InvocationExpressionSyntax).
                 Where(val => base.IsExpectedExpression(val.Expression, "Microsoft.PSharp.Goto", model)).
                 ToList();
-            
+
             if (statements.Count == 0)
             {
                 return;

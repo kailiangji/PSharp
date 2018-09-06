@@ -87,7 +87,7 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
         #endregion
 
         #region public methods
-        
+
         /// <summary>
         /// Checks the node is a successor of the specified node.
         /// </summary>

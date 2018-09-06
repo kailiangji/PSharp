@@ -169,7 +169,7 @@ namespace Microsoft.PSharp.TestingServices.SchedulingStrategies
         {
             return ScheduledSteps;
         }
-        
+
         /// <summary>
         /// True if the scheduling strategy has reached the depth
         /// bound for the given scheduling iteration.

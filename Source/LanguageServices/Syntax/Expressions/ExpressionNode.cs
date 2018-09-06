@@ -70,7 +70,7 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
             this.Index = 0;
             this.RewrittenStmtTokens = this.StmtTokens.ToList();
             this.RewriteNextToken();
-            
+
             var text = GetIndent(indentLevel);
 
             foreach (var token in this.RewrittenStmtTokens)

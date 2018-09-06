@@ -96,7 +96,7 @@ class M : Machine
  }
 }
 }";
-            
+
             var configuration = base.GetConfiguration();
             configuration.DoStateTransitionAnalysis = false;
             base.AssertFailed(configuration, test, 4, isPSharpProgram: false);
@@ -179,7 +179,7 @@ class M : Machine
  }
 }
 }";
-            
+
             var configuration = base.GetConfiguration();
             configuration.DoStateTransitionAnalysis = false;
             base.AssertFailed(configuration, test, 2, isPSharpProgram: false);
@@ -258,7 +258,7 @@ class M : Machine
  }
 }
 }";
-            
+
             var configuration = base.GetConfiguration();
             configuration.DoStateTransitionAnalysis = false;
             base.AssertFailed(configuration, test, 2, isPSharpProgram: false);
@@ -337,7 +337,7 @@ class M : Machine
  }
 }
 }";
-            
+
             var configuration = base.GetConfiguration();
             configuration.DoStateTransitionAnalysis = false;
             base.AssertFailed(configuration, test, 3, isPSharpProgram: false);
@@ -412,7 +412,7 @@ class M : Machine
  }
 }
 }";
-            
+
             var configuration = base.GetConfiguration();
             configuration.DoStateTransitionAnalysis = false;
             base.AssertFailed(configuration, test, 6, isPSharpProgram: false);
@@ -482,7 +482,7 @@ class M : Machine
  }
 }
 }";
-            
+
             var configuration = base.GetConfiguration();
             configuration.DoStateTransitionAnalysis = false;
             base.AssertFailed(configuration, test, 5, isPSharpProgram: false);
@@ -546,7 +546,7 @@ class M : Machine
  }
 }
 }";
-            
+
             var configuration = base.GetConfiguration();
             configuration.DoStateTransitionAnalysis = false;
 
@@ -612,7 +612,7 @@ class M : Machine
  }
 }
 }";
-            
+
             var configuration = base.GetConfiguration();
             configuration.DoStateTransitionAnalysis = false;
 
@@ -679,7 +679,7 @@ class M : Machine
  }
 }
 }";
-            
+
             var configuration = base.GetConfiguration();
             configuration.DoStateTransitionAnalysis = false;
 
@@ -747,7 +747,7 @@ class M : Machine
  }
 }
 }";
-            
+
             var configuration = base.GetConfiguration();
             configuration.DoStateTransitionAnalysis = false;
 
@@ -830,7 +830,7 @@ class M : Machine
  }
 }
 }";
-            
+
             var configuration = base.GetConfiguration();
             configuration.DoStateTransitionAnalysis = false;
             base.AssertFailed(configuration, test, 2, isPSharpProgram: false);

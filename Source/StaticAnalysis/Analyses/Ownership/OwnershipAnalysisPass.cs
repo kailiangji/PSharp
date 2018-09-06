@@ -297,7 +297,7 @@ namespace Microsoft.PSharp.StaticAnalysis
                     return true;
                 }
             }
-            
+
             return false;
         }
 

@@ -14,10 +14,10 @@ namespace Microsoft.PSharp.TestingServices.Tests.Integration
     /// <summary>
     /// A single-process implementation of the chord peer-to-peer look up service
     /// written using P# as a C# library.
-    /// 
+    ///
     /// The Chord protocol is described in the following paper:
     /// https://pdos.csail.mit.edu/papers/chord:sigcomm01/chord_sigcomm.pdf
-    ///  
+    ///
     /// This test contains a bug that leads to a liveness assertion failure.
     /// </summary>
     public class ChordTest : BaseTest
@@ -858,7 +858,7 @@ namespace Microsoft.PSharp.TestingServices.Tests.Integration
             configuration.MaxSchedulingSteps = 100;
             configuration.RandomSchedulingSeed = seed;
             configuration.SchedulingIterations = 1;
-            
+
             var test = new Action<PSharpRuntime>((r) => {
                 r.RegisterMonitor(typeof(LivenessMonitor));
                 r.CreateMachine(typeof(ClusterManager));

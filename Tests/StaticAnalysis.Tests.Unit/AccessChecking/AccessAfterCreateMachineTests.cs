@@ -87,7 +87,7 @@ class M : Machine
  }
 }
 }";
-            base.AssertSucceeded(test, isPSharpProgram: false);            
+            base.AssertSucceeded(test, isPSharpProgram: false);
         }
 
         #endregion

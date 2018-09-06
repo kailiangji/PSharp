@@ -96,7 +96,7 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
             {
                 return null;
             }
-            
+
             return this.Tokens[this.Index];
         }
 
@@ -125,7 +125,7 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
             {
                 return null;
             }
-            
+
             return this.Tokens[index];
         }
 
@@ -173,7 +173,7 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
         #region private methods
 
         /// <summary>
-        /// Consumes the next token in the stream. Does nothing 
+        /// Consumes the next token in the stream. Does nothing
         /// if the stream is empty.
         /// </summary>
         private void Consume()

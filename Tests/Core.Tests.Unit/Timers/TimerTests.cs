@@ -59,7 +59,7 @@ namespace Microsoft.PSharp.Core.Tests.Unit
 			var result = await tcs.Task;
 			Assert.True(result);
 		}
-		
+
 		[Fact]
 		public async Task IllegalTimerStoppageTest()
 		{

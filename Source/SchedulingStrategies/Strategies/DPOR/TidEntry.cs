@@ -54,7 +54,7 @@ namespace Microsoft.PSharp.TestingServices.SchedulingStrategies.DPOR
         public int SendStepIndex;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="id"></param>
         /// <param name="enabled"></param>
@@ -75,12 +75,12 @@ namespace Microsoft.PSharp.TestingServices.SchedulingStrategies.DPOR
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static readonly Comparer ComparerSingleton = new Comparer();
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public class Comparer : IEqualityComparer<TidEntry>
         {

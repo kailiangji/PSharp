@@ -32,7 +32,7 @@ namespace Microsoft.PSharp.TestingServices.SchedulingStrategies.DPOR
             TidEntryList currTop = stack.GetTop();
 
             // For each thread on the top of stack (except previously selected thread and new threads):
-            //   if thread was slept previously 
+            //   if thread was slept previously
             //   and thread's op was independent with selected op then:
             //     the thread is still slept.
             //   else: not slept.
@@ -60,8 +60,8 @@ namespace Microsoft.PSharp.TestingServices.SchedulingStrategies.DPOR
         /// </summary>
         public static bool IsDependent(TidEntry a, TidEntry b)
         {
-            // This method will not detect the dependency between 
-            // Create and Start (because Create's target id is always -1), 
+            // This method will not detect the dependency between
+            // Create and Start (because Create's target id is always -1),
             // but this is probably fine because we will never be checking that;
             // we only check enabled ops against other enabled ops.
             // Similarly, we assume that Send and Receive will always be independent
@@ -70,9 +70,9 @@ namespace Microsoft.PSharp.TestingServices.SchedulingStrategies.DPOR
             // but they should always have different target ids anyway.
 
             if (
-                a.TargetId != b.TargetId || 
-                a.TargetType != b.TargetType || 
-                a.TargetId == -1 || 
+                a.TargetId != b.TargetId ||
+                a.TargetType != b.TargetType ||
+                a.TargetId == -1 ||
                 b.TargetId == -1)
             {
                 return false;

@@ -57,7 +57,7 @@ class M : Machine
  }
 }
 }";
-            
+
             var configuration = base.GetConfiguration();
             configuration.DoStateTransitionAnalysis = false;
 
@@ -123,7 +123,7 @@ class M : Machine
  }
 }
 }";
-            
+
             var configuration = base.GetConfiguration();
             configuration.DoStateTransitionAnalysis = false;
 
@@ -180,7 +180,7 @@ class M : Machine
  }
 }
 }";
-            
+
             var configuration = base.GetConfiguration();
             configuration.DoStateTransitionAnalysis = false;
             base.AssertFailed(configuration, test, 3, isPSharpProgram: false);

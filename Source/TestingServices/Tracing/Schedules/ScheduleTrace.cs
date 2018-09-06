@@ -162,7 +162,7 @@ namespace Microsoft.PSharp.TestingServices.Tracing.Schedule
             {
                 step = this.Steps[this.Count - 1];
             }
-            
+
             return step;
         }
 

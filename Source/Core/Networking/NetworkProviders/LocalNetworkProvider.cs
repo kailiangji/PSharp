@@ -52,7 +52,7 @@ namespace Microsoft.PSharp.Net
         /// <param name="friendlyName">Friendly machine name used for logging</param>
         /// <param name="endpoint">Endpoint</param>
         /// <param name="e">Event</param>
-        /// <returns>MachineId</returns> 
+        /// <returns>MachineId</returns>
         MachineId INetworkProvider.RemoteCreateMachine(Type type, string friendlyName,
             string endpoint, Event e)
         {

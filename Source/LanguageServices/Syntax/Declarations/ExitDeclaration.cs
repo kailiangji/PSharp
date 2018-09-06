@@ -66,7 +66,7 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
 
             var typeStr = this.IsAsync ? "async System.Threading.Tasks.Task" : "void";
             var suffix = this.IsAsync ? "_async()" : "()";
-            string text = GetIndent(indentLevel) + $"protected {typeStr} psharp_" + this.State.GetFullyQualifiedName() + 
+            string text = GetIndent(indentLevel) + $"protected {typeStr} psharp_" + this.State.GetFullyQualifiedName() +
                 $"_on_exit_action{suffix}";
             text += "\n" + StatementBlock.TextUnit.Text + "\n";
 

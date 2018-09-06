@@ -147,7 +147,7 @@ namespace Microsoft.PSharp
         {
             get
             {
-                return CurrentStateName + 
+                return CurrentStateName +
                     (IsInHotState() ? "[hot]" :
                     IsInColdState() ? "[cold]" :
                     "");
@@ -610,7 +610,7 @@ namespace Microsoft.PSharp
                 hash = hash * 31 + this.CurrentState.GetHashCode();
 
                 // Adds the user-defined hashed state.
-                hash = hash * 31 + this.GetHashedState(); 
+                hash = hash * 31 + this.GetHashedState();
 
                 return hash;
             }

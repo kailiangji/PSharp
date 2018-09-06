@@ -57,7 +57,7 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Syntax
                     TokenType.Identifier
                 });
             }
-            
+
             var line = base.TokenStream.Peek().TextUnit.Line;
 
             bool expectsDot = false;

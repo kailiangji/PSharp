@@ -116,7 +116,7 @@ namespace Microsoft.PSharp.TestingServices.SchedulingStrategies
                 var previousChoice = ScheduleStack[SchIndex - 1].Last(val => val.IsDone);
                 previousChoice.IsDone = false;
             }
-            
+
             next = enabledChoices.Find(task => task.Id == nextChoice.Id);
             nextChoice.IsDone = true;
             SchIndex++;

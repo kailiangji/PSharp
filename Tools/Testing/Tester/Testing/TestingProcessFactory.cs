@@ -113,12 +113,12 @@ namespace Microsoft.PSharp.TestingServices
             {
                 arguments.Append($"/coverage:activity ");
             }
-            
+
             if (configuration.EnableCycleDetection)
             {
                 arguments.Append($"/cycle-detection ");
             }
-            
+
             if (configuration.OutputFilePath.Length > 0)
             {
                 arguments.Append($"/o:{configuration.OutputFilePath} ");

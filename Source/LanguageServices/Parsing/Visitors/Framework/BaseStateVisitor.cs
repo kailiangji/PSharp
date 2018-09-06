@@ -334,7 +334,7 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Framework
             var transitionEvents = convertToStringSet(transitionTypes);
 
             var isWildCard = new Func<string, bool>(s => s == "WildCardEvent" || s == "Microsoft.PSharp.WildCardEvent");
-            var hasWildCard = new Func<HashSet<string>, bool>(set => set.Contains("WildCardEvent") || 
+            var hasWildCard = new Func<HashSet<string>, bool>(set => set.Contains("WildCardEvent") ||
               set.Contains("Microsoft.PSharp.WildCardEvent"));
 
             if (hasWildCard(deferredEvents))

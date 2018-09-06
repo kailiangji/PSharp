@@ -14,9 +14,9 @@ namespace Microsoft.PSharp.TestingServices.Tests.Integration
     /// <summary>
     /// This is a (much) simplified version of the replicating storage system described
     /// in the following paper:
-    /// 
+    ///
     /// https://www.usenix.org/system/files/conference/fast16/fast16-papers-deligiannis.pdf
-    /// 
+    ///
     /// This test contains the liveness bug discussed in the above paper.
     /// </summary>
     public class ReplicatingStorageTest : BaseTest
@@ -327,7 +327,7 @@ namespace Microsoft.PSharp.TestingServices.Tests.Integration
 
             internal class ShutDown : Event { }
             private class LocalEvent : Event { }
-            
+
             private MachineId Environment;
             private MachineId NodeManager;
             private int NodeId;

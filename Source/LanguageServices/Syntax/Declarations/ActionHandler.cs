@@ -31,7 +31,7 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
             this.BlockSyntax = blockSyntax;
             this.IsAsync = isAsync;
         }
-        
+
         #endregion
     }
 }

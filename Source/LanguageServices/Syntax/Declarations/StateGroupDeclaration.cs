@@ -186,7 +186,7 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
         {
             var indent = GetIndent(indentLevel);
             string text = indent;
-            
+
             if (this.Group != null)
             {
                 // When inside a group, the state should be made public.

@@ -271,7 +271,7 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Syntax
 
         /// <summary>
         /// Consumes a generic event name.
-        /// GEN = halt || default || * || GEN 
+        /// GEN = halt || default || * || GEN
         /// </summary>
         /// <param name="replacement">TokenType</param>
         /// <returns>Tokens</returns>
@@ -295,7 +295,7 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Syntax
                 });
             }
 
-            if (base.TokenStream.Peek().Type == TokenType.MulOp || 
+            if (base.TokenStream.Peek().Type == TokenType.MulOp ||
                 base.TokenStream.Peek().Type == TokenType.HaltEvent ||
                 base.TokenStream.Peek().Type == TokenType.DefaultEvent)
             {

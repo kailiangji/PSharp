@@ -69,7 +69,7 @@ namespace Microsoft.PSharp.TestingServices.SchedulingStrategies.DPOR
                         (int) machineInfo.NextTargetId,
                         (int) machineInfo.NextOperationMatchingSendIndex));
             }
-            
+
             Contract.Assert(NextStackPos <= StackInternal.Count, "DFS strategy unexpected stack state.");
 
             bool added = NextStackPos == StackInternal.Count;
@@ -89,7 +89,7 @@ namespace Microsoft.PSharp.TestingServices.SchedulingStrategies.DPOR
         }
 
         /// <summary>
-        /// Get the number of entries on the stack 
+        /// Get the number of entries on the stack
         /// (not including those that are yet to be replayed).
         /// </summary>
         /// <returns></returns>
@@ -170,13 +170,13 @@ namespace Microsoft.PSharp.TestingServices.SchedulingStrategies.DPOR
             // Deadlock / sleep set blocked; no selected tid entry.
             {
                 TidEntryList top = GetTopAsRealTop();
-                
+
                 if (top.IsNoneSelected(Contract))
                 {
                     Pop();
                 }
             }
-            
+
 
             // Pop until there are some tid entries that are not done/slept OR stack is empty.
             while (StackInternal.Count > 0)
@@ -212,7 +212,7 @@ namespace Microsoft.PSharp.TestingServices.SchedulingStrategies.DPOR
         private void CheckMatches(List<TidEntry> list)
         {
             Contract.Assert(
-                StackInternal[NextStackPos].List.SequenceEqual(list, TidEntry.ComparerSingleton), 
+                StackInternal[NextStackPos].List.SequenceEqual(list, TidEntry.ComparerSingleton),
                 "DFS strategy detected nondeterminism when replaying.");
         }
 

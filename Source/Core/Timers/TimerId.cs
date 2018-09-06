@@ -12,9 +12,9 @@ using System.Threading.Tasks;
 namespace Microsoft.PSharp.Timers
 {
     /// <summary>
-    /// Unique identifier for a timer 
+    /// Unique identifier for a timer
     /// </summary>
-    public class TimerId 
+    public class TimerId
     {
         /// <summary>
         /// The timer machine id

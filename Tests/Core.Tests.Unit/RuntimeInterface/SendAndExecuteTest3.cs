@@ -10,7 +10,7 @@ using Xunit;
 
 namespace Microsoft.PSharp.Core.Tests.Unit
 {
-    public class SendAndExecuteTest3 
+    public class SendAndExecuteTest3
     {
         class Conf : Event
         {

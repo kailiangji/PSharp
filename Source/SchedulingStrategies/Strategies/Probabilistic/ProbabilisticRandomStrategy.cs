@@ -72,7 +72,7 @@ namespace Microsoft.PSharp.TestingServices.SchedulingStrategies
 
             int idx = RandomNumberGenerator.Next(enabledChoices.Count);
             next = enabledChoices[idx];
-            
+
             return true;
         }
 

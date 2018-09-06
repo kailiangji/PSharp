@@ -73,7 +73,7 @@ namespace Microsoft.PSharp
             FriendlyName = friendlyName;
             Runtime = runtime;
             Endpoint = Runtime.NetworkProvider.GetLocalEndpoint();
-            
+
             // Atomically increments and safely wraps into an unsigned long.
             Value = (ulong)Interlocked.Increment(ref runtime.MachineIdCounter) - 1;
 
@@ -133,7 +133,7 @@ namespace Microsoft.PSharp
         #endregion
 
         #region generic public and override methods
-        
+
         /// <summary>
         /// Determines whether the specified System.Object is equal
         /// to the current System.Object.

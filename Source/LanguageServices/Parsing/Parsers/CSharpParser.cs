@@ -195,7 +195,7 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
             {
                 var report = error.Item2;
                 var errorLine = base.SyntaxTree.GetLineSpan(error.Item1.Span).StartLinePosition.Line + 1;
-                
+
                 var root = base.SyntaxTree.GetRoot();
                 var lines = System.Text.RegularExpressions.Regex.Split(root.ToFullString(), "\r\n|\r|\n");
 

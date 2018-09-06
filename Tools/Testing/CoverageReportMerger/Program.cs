@@ -45,7 +45,7 @@ namespace Microsoft.PSharp
                 Console.WriteLine("Error: No input files provided");
                 return;
             }
-            
+
             var cinfo = new CoverageInfo();
             foreach(var other in InputFiles)
             {

@@ -50,7 +50,7 @@ namespace Microsoft.PSharp.TestingServices.Tests.Integration
                 b = IsSorted(rev);
                 this.Assert(!b);
 
-                // Assert that BubbleSort returns the sorted list 
+                // Assert that BubbleSort returns the sorted list
                 sorted = BubbleSort(rev);
                 this.Assert(sorted.Count == 10);
                 b = IsSorted(sorted);

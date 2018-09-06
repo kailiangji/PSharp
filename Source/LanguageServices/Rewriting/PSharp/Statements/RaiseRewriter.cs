@@ -82,7 +82,7 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.PSharp
                     payload += invocation.ArgumentList.Arguments[i].ToString() + ", ";
                 }
             }
-            
+
             arguments[0] = SyntaxFactory.Argument(SyntaxFactory.ParseExpression(
                 "new " + arguments[0].ToString() + "(" + payload + ")"));
             invocation = invocation.WithArgumentList(SyntaxFactory.ArgumentList(

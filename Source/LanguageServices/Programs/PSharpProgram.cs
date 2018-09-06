@@ -22,7 +22,7 @@ namespace Microsoft.PSharp.LanguageServices
     public sealed class PSharpProgram : AbstractPSharpProgram
     {
         #region fields
-        
+
         /// <summary>
         /// List of using declarations.
         /// </summary>
@@ -141,7 +141,7 @@ namespace Microsoft.PSharp.LanguageServices
             var list = new List<UsingDirectiveSyntax>();
             var otherUsings = base.GetSyntaxTree().GetCompilationUnitRoot().Usings;
             var psharpLib = base.CreateLibrary("Microsoft.PSharp");
-            
+
             list.Add(psharpLib);
             list.AddRange(otherUsings);
 

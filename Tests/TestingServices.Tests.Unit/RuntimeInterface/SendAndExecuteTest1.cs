@@ -47,7 +47,7 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
 
                 if (e.ExecuteSynchronously)
                 {
-                     b = await this.Runtime.CreateMachineAndExecute(typeof(B)); 
+                     b = await this.Runtime.CreateMachineAndExecute(typeof(B));
                 }
                 else
                 {

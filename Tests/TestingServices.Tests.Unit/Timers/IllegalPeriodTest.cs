@@ -47,7 +47,7 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
 		{
 			var config = Configuration.Create().WithNumberOfIterations(1000);
 			config.MaxSchedulingSteps = 200;
-			
+
 			var test = new Action<PSharpRuntime>((r) => {
 				r.CreateMachine(typeof(T4));
 			});

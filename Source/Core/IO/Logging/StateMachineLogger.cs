@@ -79,7 +79,7 @@ namespace Microsoft.PSharp.IO
         /// <summary>
         /// Called when an event is about to be enqueued to a machine.
         /// </summary>
-        /// <param name="machineId">Id of the machine that the event is being enqueued to.</param>        
+        /// <param name="machineId">Id of the machine that the event is being enqueued to.</param>
         /// <param name="eventName">Name of the event.</param>
         public virtual void OnEnqueue(MachineId machineId, string eventName)
         {
@@ -92,7 +92,7 @@ namespace Microsoft.PSharp.IO
         /// <summary>
         /// Returns a string formatted for the <see cref="OnEnqueue"/> event and its parameters.
         /// </summary>
-        /// <param name="machineId">Id of the machine that the event is being enqueued to.</param>        
+        /// <param name="machineId">Id of the machine that the event is being enqueued to.</param>
         /// <param name="eventName">Name of the event.</param>
         public virtual string FormatOnEnqueueString(MachineId machineId, string eventName)
         {
@@ -171,7 +171,7 @@ namespace Microsoft.PSharp.IO
         {
             return $"<GotoLog> Machine '{machineId}' is transitioning from state '{currentStateName}' to state '{newStateName}'.";
         }
-        
+
         /// <summary>
         /// Called when a machine is being pushed to a state.
         /// </summary>
@@ -225,7 +225,7 @@ namespace Microsoft.PSharp.IO
         }
 
         /// <summary>
-        /// When an event cannot be handled in the current state, its exit handler is executed and then the state is 
+        /// When an event cannot be handled in the current state, its exit handler is executed and then the state is
         /// popped and any previous "current state" is reentered. This handler is called when that pop has been done.
         /// </summary>
         /// <param name="machineId">Id of the machine that the pop executed in.</param>
@@ -317,7 +317,7 @@ namespace Microsoft.PSharp.IO
         /// <summary>
         /// Called when an event is sent to a target machine.
         /// </summary>
-        /// <param name="targetMachineId">Id of the target machine.</param>        
+        /// <param name="targetMachineId">Id of the target machine.</param>
         /// <param name="senderId">The id of the machine that sent the event, if any.</param>
         /// <param name="senderStateName">The name of the current state of the sender machine, if applicable
         ///     (if it is a non-Machine specialization of an AbstractMachine, it is not applicable).</param>
@@ -336,7 +336,7 @@ namespace Microsoft.PSharp.IO
         /// <summary>
         /// Returns a string formatted for the <see cref="OnSend"/> event and its parameters.
         /// </summary>
-        /// <param name="targetMachineId">Id of the target machine.</param>        
+        /// <param name="targetMachineId">Id of the target machine.</param>
         /// <param name="senderId">The id of the machine that sent the event, if any.</param>
         /// <param name="senderStateName">The name of the current state of the sender machine, if applicable
         ///     (if it is a non-Machine specialization of an AbstractMachine, it is not applicable).</param>

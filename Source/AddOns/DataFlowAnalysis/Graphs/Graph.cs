@@ -129,7 +129,7 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
         #endregion
 
         #region protected methods
-        
+
         /// <summary>
         /// Merges empty nodes.
         /// </summary>

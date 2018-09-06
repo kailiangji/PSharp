@@ -74,7 +74,7 @@ namespace Microsoft.PSharp.SharedObjects.Tests.Unit
                 {
                     this.Assert(
                         (v1 == 5 && v2 == 5) ||
-                        (v1 == 0 && v2 == 10) 
+                        (v1 == 0 && v2 == 10)
                         );
                 }
             }

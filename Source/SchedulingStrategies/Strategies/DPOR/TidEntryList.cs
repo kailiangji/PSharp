@@ -11,7 +11,7 @@ using System.Text;
 namespace Microsoft.PSharp.TestingServices.SchedulingStrategies.DPOR
 {
     /// <summary>
-    /// The elements of the <see cref="Stack"/> 
+    /// The elements of the <see cref="Stack"/>
     /// used by <see cref="DPORStrategy"/>.
     /// Stores a list of <see cref="TidEntry"/>;
     /// one for each <see cref="ISchedulable"/>.
@@ -304,7 +304,7 @@ namespace Microsoft.PSharp.TestingServices.SchedulingStrategies.DPOR
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <returns>true if some threads are: in backtrack and not slept and not selected.</returns>
         public bool HasBacktrackNotSleptNotSelected()
@@ -332,7 +332,7 @@ namespace Microsoft.PSharp.TestingServices.SchedulingStrategies.DPOR
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <returns>true if all threads are done or slept.</returns>
         public bool AllDoneOrSlept()

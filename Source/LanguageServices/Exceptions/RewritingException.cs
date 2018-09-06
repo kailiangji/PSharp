@@ -21,7 +21,7 @@ namespace Microsoft.PSharp.LanguageServices
         {
 
         }
-        
+
         /// <summary>
         /// Constructor.
         /// </summary>

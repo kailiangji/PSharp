@@ -77,7 +77,7 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
 				r.RegisterMonitor(typeof(LivenessMonitor));
 				r.CreateMachine(typeof(Client));
 			});
-            
+
 			base.AssertFailed(config, test,
                 "Monitor 'LivenessMonitor' detected liveness bug in hot state 'Microsoft.PSharp.TestingServices.Tests.Unit.StartStopTimerTest+LivenessMonitor.NoTimeoutReceived' at the end of program execution.",
                 true);

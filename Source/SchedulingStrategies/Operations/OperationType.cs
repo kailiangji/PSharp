@@ -40,7 +40,7 @@ namespace Microsoft.PSharp.TestingServices.SchedulingStrategies
         /// that the current <see cref="ISchedulable"/> is not making progress. An
         /// unfair scheduler could disable these <see cref="ISchedulable"/> until
         /// quiescence, and then re-enable them.
-        /// 
+        ///
         /// This operation is not currently supported in P#.
         /// </summary>
         Yield,
@@ -48,14 +48,14 @@ namespace Microsoft.PSharp.TestingServices.SchedulingStrategies
         /// Operation used when an <see cref="ISchedulable"/> wants to wait for
         /// quiescence. A scheduler could disable the <see cref="ISchedulable"/>
         /// until quiescence, and then re-enable it.
-        /// 
+        ///
         /// This operation is not currently supported in P#.
         /// </summary>
         WaitForQuiescence,
         /// <summary>
         /// Operation used when an <see cref="ISchedulable"/> wants to wait for
         /// another <see cref="ISchedulable"/> to <see cref="Stop"/>.
-        /// 
+        ///
         /// This operation is not currently supported in P#.
         /// </summary>
         Join

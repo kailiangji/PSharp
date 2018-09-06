@@ -227,7 +227,7 @@ namespace Microsoft.PSharp.TestingServices.RaceDetection.Util
         }
 
         ///<summary>
-        /// Sets the clock component for mId to v. 
+        /// Sets the clock component for mId to v.
         /// Here, v is an epoch, not a simple long.
         /// Requires: exclusive access to this.
         ///</summary>

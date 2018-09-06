@@ -65,7 +65,7 @@ namespace Microsoft.PSharp.TestingServices.Tests.Integration
                 this.Assert(test == false); // reachable
             }
         }
-        
+
         /// <summary>
         /// P# semantics test: one machine, "goto" transition, action is not inherited
         /// by the destination state. This test checks that after "goto" transition,

@@ -38,7 +38,7 @@ namespace Microsoft.PSharp.TestingServices.Scheduling
         /// The scheduler completion source.
         /// </summary>
         private readonly TaskCompletionSource<bool> CompletionSource;
-        
+
         /// <summary>
         /// Checks if the scheduler is running.
         /// </summary>
@@ -47,7 +47,7 @@ namespace Microsoft.PSharp.TestingServices.Scheduling
         #endregion
 
         #region properties
-        
+
         /// <summary>
         /// The currently schedulable info.
         /// </summary>
@@ -156,7 +156,7 @@ namespace Microsoft.PSharp.TestingServices.Scheduling
                     this.ScheduledMachine.IsActive = true;
                     System.Threading.Monitor.PulseAll(next);
                 }
-                
+
                 lock (current)
                 {
                     if (!current.IsEventHandlerRunning)
@@ -208,7 +208,7 @@ namespace Microsoft.PSharp.TestingServices.Scheduling
             {
                 this.Runtime.ScheduleTrace.AddFairNondeterministicBooleanChoice(uniqueId, choice);
             }
-            
+
             return choice;
         }
 

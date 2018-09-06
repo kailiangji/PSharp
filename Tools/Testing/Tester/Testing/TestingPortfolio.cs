@@ -34,9 +34,9 @@ namespace Microsoft.PSharp.TestingServices
             else if (configuration.TestingProcessId == 1)
             {
                 configuration.SchedulingStrategy = SchedulingStrategy.FairPCT;
-                configuration.PrioritySwitchBound = 1; 
+                configuration.PrioritySwitchBound = 1;
             }
-            else 
+            else
             {
                 configuration.SchedulingStrategy = SchedulingStrategy.FairPCT;
                 configuration.PrioritySwitchBound = 5 * (int)((configuration.TestingProcessId + 1)/ 2);

@@ -11,7 +11,7 @@ namespace Microsoft.PSharp.SharedObjects
     /// <summary>
     /// A shared dictionary modeled using a state-machine for testing.
     /// </summary>
-    internal sealed class SharedDictionaryMachine<TKey, TValue> : Machine 
+    internal sealed class SharedDictionaryMachine<TKey, TValue> : Machine
     {
         /// <summary>
         /// The internal shared dictionary.

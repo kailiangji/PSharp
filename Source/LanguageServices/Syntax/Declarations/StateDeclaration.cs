@@ -348,7 +348,7 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
                 Error.ReportAndExit("Failed to rewrite state '{0}' of machine '{1}'.",
                     this.Identifier.TextUnit.Text, this.Machine.Identifier.TextUnit.Text);
             }
-            
+
             base.TextUnit = new TextUnit(text, this.StateKeyword.TextUnit.Line);
         }
 
@@ -568,7 +568,7 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
                 var stateIdentifier = transition.Value.
                     Select(token => token.TextUnit.Text).
                     Aggregate("", (acc, id) => (acc == "") ? id : acc + "." + id);
-                    
+
                 text += ", typeof(" + stateIdentifier + ")";
 
                 if (onExitName.Length > 0)

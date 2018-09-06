@@ -24,7 +24,7 @@ namespace Microsoft.PSharp.SharedObjects.Tests.Unit
                 counter.TryAdd(1, "M");
 
                 // key not present; will throw an exception
-                var v = counter[2]; 
+                var v = counter[2];
             }
         }
 
@@ -32,7 +32,7 @@ namespace Microsoft.PSharp.SharedObjects.Tests.Unit
         public void TestDictionaryException()
         {
             var config = Configuration.Create().WithNumberOfIterations(50);
-            
+
             var test = new Action<PSharpRuntime>((r) => {
                 r.CreateMachine(typeof(M));
             });

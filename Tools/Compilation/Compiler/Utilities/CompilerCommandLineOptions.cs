@@ -18,7 +18,7 @@ namespace Microsoft.PSharp.Utilities
         public CompilerCommandLineOptions(string[] args)
             : base (args)
         {
-            
+
         }
 
         #endregion

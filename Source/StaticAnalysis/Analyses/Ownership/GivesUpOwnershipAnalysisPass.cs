@@ -146,7 +146,7 @@ namespace Microsoft.PSharp.StaticAnalysis
         {
             IdentifierNameSyntax leftIdentifier = base.AnalysisContext.GetRootIdentifier(assignment.Left);
             ISymbol leftSymbol = model.GetSymbolInfo(leftIdentifier).Symbol;
-            
+
             this.AnalyzeGivingUpFieldOwnership(givenUpSymbol, leftSymbol, statement, machine, trace);
             this.AnalyzeOwnershipInExpression(givenUpSymbol, assignment.Right,
                 statement, machine, model, trace);
@@ -181,7 +181,7 @@ namespace Microsoft.PSharp.StaticAnalysis
                 {
                     continue;
                 }
-                
+
                 ISymbol argSymbol = model.GetSymbolInfo(argIdentifier).Symbol;
                 if (statement.Summary.DataFlowAnalysis.FlowsIntoSymbol(argSymbol,
                     givenUpSymbol.ContainingSymbol, statement, givenUpSymbol.Statement))

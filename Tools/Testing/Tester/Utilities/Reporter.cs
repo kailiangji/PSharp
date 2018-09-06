@@ -68,7 +68,7 @@ namespace Microsoft.PSharp.TestingServices
                 }
 
                 directoryPath = subpath +
-                    Path.DirectorySeparatorChar + "Output" + Path.DirectorySeparatorChar + 
+                    Path.DirectorySeparatorChar + "Output" + Path.DirectorySeparatorChar +
                     Path.GetFileName(assemblyPath) + Path.DirectorySeparatorChar;
             }
 

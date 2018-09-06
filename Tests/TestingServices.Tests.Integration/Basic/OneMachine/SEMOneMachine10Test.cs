@@ -61,7 +61,7 @@ namespace Microsoft.PSharp.TestingServices.Tests.Integration
             var test = new Action<PSharpRuntime>((r) => {
                 r.CreateMachine(typeof(Real1));
             });
-            
+
             base.AssertFailed(test, 1);
         }
     }

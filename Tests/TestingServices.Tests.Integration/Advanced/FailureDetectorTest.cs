@@ -82,7 +82,7 @@ namespace Microsoft.PSharp.TestingServices.Tests.Integration
             [OnEntry(nameof(InjectFailuresOnEntry))]
             [OnEventDoAction(typeof(FailureDetector.NodeFailed), nameof(NodeFailedAction))]
             class InjectFailures : MachineState { }
-            
+
             void InjectFailuresOnEntry()
             {
                 foreach (var node in this.Nodes)

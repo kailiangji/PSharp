@@ -24,7 +24,7 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Syntax
         {
 
         }
-        
+
         /// <summary>
         /// Visits the syntax node.
         /// </summary>

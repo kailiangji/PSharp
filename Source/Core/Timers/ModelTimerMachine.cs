@@ -82,7 +82,7 @@ namespace Microsoft.PSharp.Timers
                 }
             }
 			else
-			{				
+			{
 				// Probability of firing timeout is atmost 1/N
 				if ((this.RandomInteger(NumStepsToSkip)==0) && this.FairRandom())
 				{
@@ -90,7 +90,7 @@ namespace Microsoft.PSharp.Timers
 				}
 				this.Send(this.Id, new RepeatTimeout());
 			}
-			
+
 		}
 
 		private void DisposeTimer()

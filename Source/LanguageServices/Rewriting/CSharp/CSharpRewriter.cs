@@ -75,7 +75,7 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.CSharp
                     return true;
                 }
             }
-            
+
             return false;
         }
 

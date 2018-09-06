@@ -301,7 +301,7 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
             }
 
             this.PrintTaintedDefinitions(indent);
-            
+
             this.PrintFieldFlowParamIndexes(indent);
             this.PrintFieldAccesses(indent);
             this.PrintParameterAccesses(indent);

@@ -190,7 +190,7 @@ namespace Microsoft.PSharp.TestingServices.Coverage
             }
 
             writer.WriteLine("Total event coverage: {0}%",
-                this.CoverageInfo.RegisteredEvents.Count == 0 ? "100" : 
+                this.CoverageInfo.RegisteredEvents.Count == 0 ? "100" :
                 ((this.CoverageInfo.RegisteredEvents.Count - uncoveredEvents.Count) * 100.0 /
                 this.CoverageInfo.RegisteredEvents.Count).ToString("F1"));
 
@@ -271,7 +271,7 @@ namespace Microsoft.PSharp.TestingServices.Coverage
                     numUncoveredEvents += tup.Value.Count;
                 }
 
-                writer.WriteLine("Machine event coverage: {0}%", 
+                writer.WriteLine("Machine event coverage: {0}%",
                     numTotalEvents == 0 ? "100" :
                     ((numTotalEvents - numUncoveredEvents) * 100.0 / numTotalEvents).ToString("F1"));
 

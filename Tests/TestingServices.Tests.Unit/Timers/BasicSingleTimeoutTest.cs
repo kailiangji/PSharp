@@ -16,7 +16,7 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
 {
 	public class BasicSingleTimeoutTest : BaseTest
     {
-		
+
 		#region check basic StartTimer/StopTimer
 		private class T1 : TimedMachine
 		{
@@ -38,12 +38,12 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
 
 			#region handlers
 			void InitOnEntry()
-			{ 
+			{
 				count = 0;
 
-				// Start a one-off timer 
+				// Start a one-off timer
 				tid = StartTimer(payload, 10, false);
-				
+
 			}
 
 			void HandleTimeout()
@@ -61,7 +61,7 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
 		{
 			var config = Configuration.Create().WithNumberOfIterations(1000);
 			config.MaxSchedulingSteps = 200;
-			
+
 			var test = new Action<PSharpRuntime>((r) => {
 				r.CreateMachine(typeof(T1));
 			});

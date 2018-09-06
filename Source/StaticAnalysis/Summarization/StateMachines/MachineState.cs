@@ -162,7 +162,7 @@ namespace Microsoft.PSharp.StaticAnalysis
                     {
                         continue;
                     }
-                    
+
                     this.MachineActions.Add(new OnEntryMachineAction(action, this, this.AnalysisContext));
                 }
                 else if (type.ToString().Equals(typeof(Microsoft.PSharp.OnExit).FullName) &&

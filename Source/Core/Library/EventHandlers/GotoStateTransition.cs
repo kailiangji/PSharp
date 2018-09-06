@@ -12,7 +12,7 @@ namespace Microsoft.PSharp
     /// <summary>
     /// Defines a goto state transition.
     /// </summary>
-    internal sealed class GotoStateTransition 
+    internal sealed class GotoStateTransition
     {
         /// <summary>
         /// Target state.

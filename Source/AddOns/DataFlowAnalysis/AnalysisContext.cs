@@ -136,7 +136,7 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
             {
                 name = (node as ConstructorDeclarationSyntax).Identifier.ValueText;
             }
-            
+
             return this.GetFullQualifierNameOfSyntaxNode(node) + name;
         }
 
@@ -194,7 +194,7 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
             {
                 return true;
             }
-            
+
             if (this.RegisteredImmutableTypes.Any(t => t.FullName.Equals(typeName)))
             {
                 return true;

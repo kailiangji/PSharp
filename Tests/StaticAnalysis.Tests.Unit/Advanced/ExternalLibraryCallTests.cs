@@ -56,7 +56,7 @@ class M : Machine
  }
 }
 }";
-            
+
             var warning = "Warning: Method 'FirstOnEntryAction' of machine 'Foo.M' calls a " +
                 "method with unavailable source code, which might be a source of errors." +
                 "   at 'System.Console.WriteLine(letter.Text)' in Program.cs:line 39" +

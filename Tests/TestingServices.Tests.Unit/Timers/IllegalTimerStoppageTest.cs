@@ -71,8 +71,8 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
 			async Task Initialize()
 			{
 				TimerId tid = (this.ReceivedEvent as TransferTimer).tid;
-	
-				// trying to stop a timer created by a different machine. 
+
+				// trying to stop a timer created by a different machine.
 				// should throw an assertion violation
 				await this.StopTimer(tid, true);
 				this.Raise(new Halt());
@@ -87,7 +87,7 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
 		{
 			var config = Configuration.Create().WithNumberOfIterations(1000);
 			config.MaxSchedulingSteps = 200;
-		
+
 			var test = new Action<PSharpRuntime>((r) => {
 				r.CreateMachine(typeof(T2));
 			});

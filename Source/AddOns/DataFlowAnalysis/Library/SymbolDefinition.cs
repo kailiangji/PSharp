@@ -13,7 +13,7 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
     public class SymbolDefinition
     {
         #region fields
-        
+
         /// <summary>
         /// Node that defined the symbol.
         /// </summary>

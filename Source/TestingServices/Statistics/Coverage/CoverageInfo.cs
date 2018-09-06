@@ -11,7 +11,7 @@ namespace Microsoft.PSharp.TestingServices.Coverage
 {
     /// <summary>
     /// Class for storing coverage-specific data
-    /// across multiple testing iterations. 
+    /// across multiple testing iterations.
     /// </summary>
     [DataContract]
     public class CoverageInfo

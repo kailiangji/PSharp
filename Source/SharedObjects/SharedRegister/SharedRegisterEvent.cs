@@ -8,7 +8,7 @@ namespace Microsoft.PSharp.SharedObjects
     /// <summary>
     /// Event used to communicate with a shared register machine.
     /// </summary>
-    internal class SharedRegisterEvent: Event 
+    internal class SharedRegisterEvent: Event
     {
         /// <summary>
         /// Supported shared register operations.

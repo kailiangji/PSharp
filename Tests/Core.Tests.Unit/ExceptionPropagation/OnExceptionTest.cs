@@ -87,7 +87,7 @@ namespace Microsoft.PSharp.Core.Tests.Unit
             {
                 await Task.FromResult(true);
                 this.e = this.ReceivedEvent as E;
-                throw new NotImplementedException();                
+                throw new NotImplementedException();
             }
 
             void OnF()

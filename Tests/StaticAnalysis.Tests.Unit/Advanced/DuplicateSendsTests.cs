@@ -56,7 +56,7 @@ class M : Machine
  }
 }
 }";
-            
+
             var error = "Error: Method 'FirstOnEntryAction' of machine 'Foo.M' sends " +
                 "'letter', the ownership of which has already been given up.";
             base.AssertFailed(test, 1, error, isPSharpProgram: false);
@@ -112,7 +112,7 @@ class M : Machine
  }
 }
 }";
-            
+
             var error = "Error: Method 'FirstOnEntryAction' of machine 'Foo.M' sends " +
                 "'letter', the ownership of which has already been given up.";
             base.AssertFailed(test, 1, error, isPSharpProgram: false);
@@ -162,7 +162,7 @@ class M : Machine
  }
 }
 }";
-            
+
             var error = "Error: Method 'FirstOnEntryAction' of machine 'Foo.M' sends " +
                 "'letter', the ownership of which has already been given up.";
             base.AssertFailed(test, 1, error, isPSharpProgram: false);
@@ -213,7 +213,7 @@ class M : Machine
  }
 }
 }";
-            
+
             var error = "Error: Method 'FirstOnEntryAction' of machine 'Foo.M' sends " +
                 "'letter', the ownership of which has already been given up.";
             base.AssertFailed(test, 1, error, isPSharpProgram: false);
@@ -269,7 +269,7 @@ class M : Machine
  }
 }
 }";
-            
+
             var error = "Error: Method 'FirstOnEntryAction' of machine 'Foo.M' sends " +
                 "'letter', the ownership of which has already been given up.";
             base.AssertFailed(test, 1, error, isPSharpProgram: false);

@@ -61,7 +61,7 @@ namespace Microsoft.PSharp.TestingServices.Tests.Integration
                 this.Assert(test == false);  // reachable
             }
         }
-        
+
         /// <summary>
         /// P# semantics test: one machine, "push" transition, action inherited
         /// by the pushed state. This test checks that after "push" transition,

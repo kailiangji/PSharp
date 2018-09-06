@@ -10,39 +10,39 @@ namespace Microsoft.PSharp.TestingServices.SchedulingStrategies.DPOR
 {
     /// <summary>
     /// The actual DPOR algorithm used by <see cref="DPORStrategy"/>.
-    /// 
+    ///
     /// This is actually the "Source DPOR" algorithm.
-    /// 
+    ///
     /// Implementation notes:
-    /// 
-    /// 
+    ///
+    ///
     /// Note that when we store indexes, they start at 1.
     /// This allows 0 to mean: null / not yet seen.
     /// Thus, when accessing e.g. Vcs, we must subtract 1.
     /// But most accesses should be done via a method to hide this.
-    /// 
+    ///
     /// The happens-before relation (HBR) is assigned as follows:
     /// - create, start, stop with the same target id are totally-ordered
     /// - operations from the same thread are totally ordered.
     /// - corresponding send-receive operation pairs are ordered.
     /// - sends to the same target id are totally-ordered.
-    /// 
+    ///
     /// That last one is expected, but a bit annoying when doing random DPOR
     /// because it limits the races (see below) between send operations to the same target id.
-    /// 
+    ///
     /// The HBR is tracked using vector clocks (VCs).
-    /// 
+    ///
     /// A pair of operations A and B is a race iff:
-    /// - A happens-before B 
+    /// - A happens-before B
     /// - and A and B are from different threads
     /// - and there does not exist an operation C such that A happens-before C happens-before B.
-    /// 
+    ///
     /// In other words, A and B must be directly related in the HBR with no intervening operation
-    /// connecting them. They do not need to be adjacent though 
+    /// connecting them. They do not need to be adjacent though
     /// (i.e. in a schedule, ACB, A and B might still be a race, unless A hb C hb B).
-    /// We check this in the code by checking if A hb B *before* we update the 
+    /// We check this in the code by checking if A hb B *before* we update the
     /// VC of B to include the A-B edge; if A already happens-before B then this is not a race.
-    /// 
+    ///
     /// </summary>
     internal class DPORAlgorithm
     {
@@ -57,7 +57,7 @@ namespace Microsoft.PSharp.TestingServices.SchedulingStrategies.DPOR
         /// Will be increased as needed.
         /// </summary>
         private int NumSteps;
-        
+
         /// <summary>
         /// A map from thread id to the index of the last op
         /// performed by the thread.
@@ -125,7 +125,7 @@ namespace Microsoft.PSharp.TestingServices.SchedulingStrategies.DPOR
         public readonly List<TidForRaceReplay> RaceReplaySuffix;
 
         /// <summary>
-        /// An index for the <see cref="RaceReplaySuffix"/> (for convenience) to be used 
+        /// An index for the <see cref="RaceReplaySuffix"/> (for convenience) to be used
         /// when replaying a reversed race.
         /// </summary>
         public int ReplayRaceIndex;
@@ -257,7 +257,7 @@ namespace Microsoft.PSharp.TestingServices.SchedulingStrategies.DPOR
         public void DoDPOR(Stack stack, IRandomNumberGenerator rand)
         {
             UpdateFieldsAndRealocateDatastructuresIfNeeded(stack);
-            
+
             // Indexes start at 1.
 
             for (int i = 1; i < NumSteps; ++i)
@@ -332,8 +332,8 @@ namespace Microsoft.PSharp.TestingServices.SchedulingStrategies.DPOR
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
-                
-                    
+
+
                 if (lastAccessIndex > 0)
                 {
                     AddBacktrack(stack, rand != null, lastAccessIndex, i, step);
@@ -449,13 +449,13 @@ namespace Microsoft.PSharp.TestingServices.SchedulingStrategies.DPOR
             // In random DPOR, we don't just want the last race;
             // we want all races.
             // In random DPOR, we don't join the VCs of sends,
-            // so a send will potentially race with many prior sends to the 
-            // same mailbox. 
+            // so a send will potentially race with many prior sends to the
+            // same mailbox.
             // We scan the stack looking for concurrent sends.
             // We only need to start scanning from the first send to this mailbox.
             int firstSend = TargetIdToFirstSend[step.TargetId];
             Contract.Assert(
-                firstSend > 0, 
+                firstSend > 0,
                 "We should only get here if a send races with a prior send, but it does not.");
 
             for (int j = firstSend; j < i; j++)
@@ -467,7 +467,7 @@ namespace Microsoft.PSharp.TestingServices.SchedulingStrategies.DPOR
                 {
                     continue;
                 }
-                
+
                 Races.Add(new Race(j, i));
             }
         }
@@ -515,8 +515,8 @@ namespace Microsoft.PSharp.TestingServices.SchedulingStrategies.DPOR
             //     break
 
             var candidateThreadIds = new HashSet<int>();
-            
-            if (aTidEntries.List.Count > step.Id && 
+
+            if (aTidEntries.List.Count > step.Id &&
                 (aTidEntries.List[step.Id].Enabled || aTidEntries.List[step.Id].OpType == OperationType.Yield))
             {
                 candidateThreadIds.Add(step.Id);

@@ -126,7 +126,7 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
             {
                 return false;
             }
-            
+
             return this.FlowsIntoSymbol(symbol, targetSymbol, node, targetNode);
         }
 
@@ -148,7 +148,7 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
             var fromAliasDefinitions = fromNode.DataFlowInfo.ResolveOutputAliases(fromSymbol);
             var toAliasDefinitions = toNode.DataFlowInfo.ResolveOutputAliases(toSymbol);
             var commonDefinitions = fromAliasDefinitions.Intersect(toAliasDefinitions);
-            
+
             if (!commonDefinitions.Any())
             {
                 return false;

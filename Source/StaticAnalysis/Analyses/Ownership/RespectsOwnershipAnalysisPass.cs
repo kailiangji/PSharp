@@ -61,7 +61,7 @@ namespace Microsoft.PSharp.StaticAnalysis
             while (queue.Count > 0)
             {
                 IControlFlowNode node = queue.Dequeue();
-                
+
                 var statements = new List<Statement>();
                 if (!repeatGivesUpNode &&
                     node.Equals(givenUpSymbol.Statement.ControlFlowNode))
@@ -154,7 +154,7 @@ namespace Microsoft.PSharp.StaticAnalysis
         {
             var leftIdentifier = base.AnalysisContext.GetRootIdentifier(assignment.Left);
             ISymbol leftSymbol = model.GetSymbolInfo(leftIdentifier).Symbol;
-            
+
             if (assignment.Right is IdentifierNameSyntax)
             {
                 var rightIdentifier = base.AnalysisContext.GetRootIdentifier(assignment.Right);
@@ -229,7 +229,7 @@ namespace Microsoft.PSharp.StaticAnalysis
             {
                 return;
             }
-            
+
             var invocation = call as InvocationExpressionSyntax;
             if (invocation != null)
             {
@@ -366,7 +366,7 @@ namespace Microsoft.PSharp.StaticAnalysis
             {
                 arguments.Add(argExpr);
             }
-            
+
             var extractedArgs = base.ExtractArguments(arguments);
             foreach (var arg in extractedArgs)
             {

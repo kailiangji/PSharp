@@ -15,7 +15,7 @@ namespace Microsoft.PSharp.LanguageServices
     public abstract class AbstractPSharpProgram : IPSharpProgram
     {
         #region fields
-        
+
         /// <summary>
         /// The project that this program belongs to.
         /// </summary>

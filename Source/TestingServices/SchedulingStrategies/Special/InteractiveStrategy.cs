@@ -74,7 +74,7 @@ namespace Microsoft.PSharp.TestingServices.Scheduling
                 this.Logger.WriteLine(">> No available machines to schedule ...");
                 return false;
             }
-            
+
             this.ExploredSteps++;
 
             var parsed = false;
@@ -191,7 +191,7 @@ namespace Microsoft.PSharp.TestingServices.Scheduling
                     {
                         this.InputCache[this.ExploredSteps - 1] = "false";
                     }
-                    
+
                     parsed = true;
                     break;
                 }
@@ -330,7 +330,7 @@ namespace Microsoft.PSharp.TestingServices.Scheduling
         /// <returns>Boolean</returns>
         public void ForceNext(ISchedulable next, List<ISchedulable> choices, ISchedulable current)
         {
-            
+
         }
 
         /// <summary>
@@ -341,7 +341,7 @@ namespace Microsoft.PSharp.TestingServices.Scheduling
         /// <returns>Boolean</returns>
         public void ForceNextBooleanChoice(int maxValue, bool next)
         {
-            
+
         }
 
         /// <summary>
@@ -352,7 +352,7 @@ namespace Microsoft.PSharp.TestingServices.Scheduling
         /// <returns>Boolean</returns>
         public void ForceNextIntegerChoice(int maxValue, int next)
         {
-            
+
         }
 
         /// <summary>

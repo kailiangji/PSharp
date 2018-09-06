@@ -75,7 +75,7 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
                     line++;
                 }
             }
-            
+
             while (this.Index < this.TextUnits.Count)
             {
                 this.TokenizeNext();

@@ -146,7 +146,7 @@ namespace Microsoft.PSharp.StaticAnalysis
                 previousForegroundColor = Console.ForegroundColor;
                 Console.ForegroundColor = color;
             }
-            
+
             this.Logger.Write(value);
 
             if (this.EnableColoredConsoleOutput)
@@ -424,7 +424,7 @@ namespace Microsoft.PSharp.StaticAnalysis
             {
                 return;
             }
-            
+
             this.Report(message);
             this.PrintTrace(trace);
             this.ReportedMessages.Add(message);

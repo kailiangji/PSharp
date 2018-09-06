@@ -309,7 +309,7 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
                 case "false":
                     this.Tokens.Add(new Token(unit, TokenType.False));
                     break;
-                    
+
                 case "in":
                     this.Tokens.Add(new Token(unit, TokenType.In));
                     break;
@@ -465,7 +465,7 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
                 case "ulong":
                     this.Tokens.Add(new Token(unit, TokenType.Ulong));
                     break;
-                    
+
                 case "char":
                     this.Tokens.Add(new Token(unit, TokenType.Char));
                     break;
@@ -498,7 +498,7 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
 
                     break;
             }
-            
+
             this.Index++;
         }
 

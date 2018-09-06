@@ -51,7 +51,7 @@ namespace Microsoft.PSharp.TestingServices.SchedulingStrategies
         private readonly int StepLimit;
 
         /// <summary>
-        /// When doing random DPOR, we do an initial execution 
+        /// When doing random DPOR, we do an initial execution
         /// and then try to reverse races.
         /// This int specifies how many iterations of race reversing to perform
         /// before performing a new initial iteration.
@@ -72,11 +72,11 @@ namespace Microsoft.PSharp.TestingServices.SchedulingStrategies
         /// Creates the DPOR strategy.
         /// </summary>
         public DPORStrategy(
-            IContract contract, 
-            IRandomNumberGenerator rand = null, 
-            int raceReversalIterationsLimit = -1, 
-            int stepLimit = -1, 
-            bool useSleepSets = true, 
+            IContract contract,
+            IRandomNumberGenerator rand = null,
+            int raceReversalIterationsLimit = -1,
+            int stepLimit = -1,
+            bool useSleepSets = true,
             bool dpor = true)
         {
             Contract = contract;
@@ -341,7 +341,7 @@ namespace Microsoft.PSharp.TestingServices.SchedulingStrategies
             bool res = GetNextBooleanChoiceHelper(maxValue, ref nextTemp);
             Contract.Assert(res, "DPOR scheduler refused to schedule a forced boolean choice.");
             Contract.Assert(
-                nextTemp.HasValue && nextTemp.Value == next, 
+                nextTemp.HasValue && nextTemp.Value == next,
                 "DPOR scheduler changed forced next boolean choice.");
         }
 

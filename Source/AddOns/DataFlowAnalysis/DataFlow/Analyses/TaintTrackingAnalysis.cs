@@ -247,10 +247,10 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
 
             var leftIdentifier = this.AnalysisContext.GetIdentifier(assignment.Left);
             ISymbol leftSymbol = this.SemanticModel.GetSymbolInfo(leftIdentifier).Symbol;
-            
+
             node.DataFlowInfo.KillDefinitions(leftSymbol);
             node.DataFlowInfo.GenerateDefinition(leftSymbol);
-            
+
             ISet<Tuple<ISymbol, ITypeSymbol>> nestedLeftSymbolInfos;
             this.GetMemberExpressionSymbols(out nestedLeftSymbolInfos, assignment.Left);
 
@@ -456,7 +456,7 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
             {
                 argumentList = objCreation.ArgumentList;
             }
-            
+
             this.ResolveGivesUpOwnershipInCall(callSymbol, argumentList, node);
 
             foreach (var candidateCalleeSummary in candidateCalleeSummaries)
@@ -474,7 +474,7 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
 
                 returnTypes.UnionWith(candidateCalleeSummary.SideEffectsInfo.ReturnTypes);
             }
-            
+
             if (objCreation != null)
             {
                 returnTypes.Add(this.SemanticModel.GetTypeInfo(call).Type);
@@ -500,7 +500,7 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
             foreach (var predecessor in node.IPredecessors)
             {
                 node.DataFlowInfo.AssignInputDefinitions(predecessor.DataFlowInfo.OutputDefinitions);
-                
+
                 foreach (var pair in predecessor.DataFlowInfo.TaintedDefinitions)
                 {
                     if (!predecessor.DataFlowInfo.KilledDefinitions.Contains(pair.Key))
@@ -695,7 +695,7 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
                 SymbolDefinition definition = node.DataFlowInfo.GenerateDefinition(sideEffect.Key);
                 node.DataFlowInfo.AssignTypeToDefinition(sideEffect.Key.Type, definition);
                 node.DataFlowInfo.TaintDefinition(definition, definition);
-                
+
                 foreach (var symbol in sideEffect.Value)
                 {
                     node.DataFlowInfo.TaintSymbol(symbol, sideEffect.Key);
@@ -836,7 +836,7 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
                         this.Summary.SideEffectsInfo.GivesUpOwnershipParamIndexes.Add(idx);
                     }
                 }
-                
+
                 var argTypes = node.DataFlowInfo.GetCandidateTypesOfSymbol(argSymbol);
                 if (argTypes.Any(type => !this.AnalysisContext.IsTypePassedByValueOrImmutable(type)))
                 {

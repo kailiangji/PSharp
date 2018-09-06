@@ -19,7 +19,7 @@ namespace Microsoft.PSharp
         public Halt()
             : base()
         {
-            
+
         }
     }
 }

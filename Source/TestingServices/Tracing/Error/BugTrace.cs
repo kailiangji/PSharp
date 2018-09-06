@@ -250,7 +250,7 @@ namespace Microsoft.PSharp.TestingServices.Tracing.Error
             {
                 step = this.Steps[this.Count - 1];
             }
-            
+
             return step;
         }
 

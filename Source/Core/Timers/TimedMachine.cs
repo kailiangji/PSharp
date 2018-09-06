@@ -27,7 +27,7 @@ namespace Microsoft.PSharp.Timers
         #region Timer API
 
         /// <summary>
-        /// Start a timer. 
+        /// Start a timer.
         /// </summary>
         /// <param name="payload">Payload of the timeout event.</param>
         /// <param name="IsPeriodic">Specifies whether a periodic timer is desired.</param>

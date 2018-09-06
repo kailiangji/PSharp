@@ -38,7 +38,7 @@ namespace Microsoft.PSharp.TestingServices.Tests.Integration
             {
                 this.Send(this.Id, new E2());
             }
-            
+
             class S1 : MachineState { }
         }
 

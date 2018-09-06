@@ -169,7 +169,7 @@ namespace Microsoft.PSharp.LanguageServices.Compilation
 
             this.OutputDirectoryMap?.Add(compilation.AssemblyName, outputDirectory);
             this.ProjectAssemblyPathMap?.Add(compilation.AssemblyName, fileName);
-            
+
             EmitResult emitResult = null;
             using (FileStream outputFile = new FileStream(fileName, FileMode.Create, FileAccess.Write),
                 outputPdbFile = new FileStream(pdbFileName, FileMode.Create, FileAccess.Write))
@@ -262,7 +262,7 @@ namespace Microsoft.PSharp.LanguageServices.Compilation
             project = project.WithCompilationOptions(options);
 
             var compilation = project.GetCompilationAsync().Result;
-            
+
             try
             {
                 if (this.CompilationContext.Configuration.CompilationTarget == CompilationTarget.Library ||

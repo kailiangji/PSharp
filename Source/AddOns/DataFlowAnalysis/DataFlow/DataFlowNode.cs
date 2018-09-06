@@ -81,7 +81,7 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
             this.Graph = dfg;
             this.ControlFlowNode = cfgNode;
             this.Summary = summary;
-            
+
             this.ISuccessors = new HashSet<IDataFlowNode>();
             this.IPredecessors = new HashSet<IDataFlowNode>();
             dfg.Nodes.Add(this);
@@ -109,7 +109,7 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
         #endregion
 
         #region public methods
-        
+
         /// <summary>
         /// Checks the node is a successor of the specified node.
         /// </summary>
@@ -180,7 +180,7 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
             Dictionary<IControlFlowNode, DataFlowNode> visited)
         {
             visited.Add(cfgNode, this);
-            
+
             if (cfgNode.Statements.Count > 0)
             {
                 this.Statement = cfgNode.Statements[0];

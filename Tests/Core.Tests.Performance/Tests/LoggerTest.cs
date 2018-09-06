@@ -17,9 +17,9 @@ namespace Microsoft.PSharp.Core.Tests.Performance
         public partial class SimpleMachine
         {
             private PSharpRuntime instance;
-            
+
             public SimpleMachine()
-            {                
+            {
                 this.Counter = 0;
             }
 
@@ -137,7 +137,7 @@ namespace Microsoft.PSharp.Core.Tests.Performance
         public void RunWithLogger()
         {
             var configuration = PSharp.Configuration.Create().WithVerbosityEnabled(0);
-            var runtime = new StateMachineRuntime(configuration);            
+            var runtime = new StateMachineRuntime(configuration);
             ConcurrentQueue<MachineId> machines = new ConcurrentQueue<MachineId>();
             Parallel.For(0, Clients, index =>
             {
@@ -148,6 +148,6 @@ namespace Microsoft.PSharp.Core.Tests.Performance
             {
                 runtime.SendEvent(machine, new Halt());
             }
-        }        
+        }
     }
 }

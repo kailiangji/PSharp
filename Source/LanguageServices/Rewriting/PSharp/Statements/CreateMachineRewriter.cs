@@ -69,7 +69,7 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.PSharp
             if (node.ArgumentList.Arguments.Count > 1)
             {
                 arguments.Add(node.ArgumentList.Arguments[1]);
-                
+
                 int eventIndex = 1;
                 if (arguments[1].ToString().StartsWith("\"") &&
                     arguments[1].ToString().EndsWith("\""))

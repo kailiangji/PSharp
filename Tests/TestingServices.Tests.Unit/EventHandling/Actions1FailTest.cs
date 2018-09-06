@@ -120,7 +120,7 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
 
             class S2 : MachineState { }
         }
-        
+
         /// <summary>
         /// Tests basic semantics of actions and goto transitions.
         /// </summary>

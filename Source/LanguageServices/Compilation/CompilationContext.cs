@@ -111,7 +111,7 @@ namespace Microsoft.PSharp.LanguageServices.Compilation
                     Error.ReportAndExit("Please give a valid project name.");
                 }
             }
-            
+
             this.HasInitialized = true;
 
             return this;
@@ -248,7 +248,7 @@ namespace Microsoft.PSharp.LanguageServices.Compilation
             {
                 throw new Exception("ProgramInfo has not been initialized.");
             }
-            
+
             var doc = project.Documents.First(val => val.FilePath.Equals(tree.FilePath));
             var source = SourceText.From(text);
 

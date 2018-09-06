@@ -36,7 +36,7 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Framework
         #endregion
 
         #region protected API
-        
+
         /// <summary>
         /// Returns true if the given class declaration is a state.
         /// </summary>

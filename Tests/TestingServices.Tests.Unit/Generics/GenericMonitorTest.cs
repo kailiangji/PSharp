@@ -35,7 +35,7 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
         }
 
         class E : Event { }
-         
+
         class M<T> : Monitor
         {
             [Start]

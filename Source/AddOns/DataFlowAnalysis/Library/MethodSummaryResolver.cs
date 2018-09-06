@@ -18,7 +18,7 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
     internal static class MethodSummaryResolver
     {
         #region internal methods
-        
+
         /// <summary>
         /// Returns all cached method summaries for the specified invocation.
         /// </summary>
@@ -122,7 +122,7 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
             {
                 return candidateCallees;
             }
-            
+
             if (candidateMethodDeclaration.Modifiers.Any(SyntaxKind.AbstractKeyword) ||
                 candidateMethodDeclaration.Modifiers.Any(SyntaxKind.VirtualKeyword) ||
                 candidateMethodDeclaration.Modifiers.Any(SyntaxKind.OverrideKeyword))
@@ -198,7 +198,7 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
             ISymbol calleeSymbol = null;
             SimpleNameSyntax callee = null;
             bool isThis = false;
-            
+
             if (virtualCall.Expression is MemberAccessExpressionSyntax)
             {
                 var expr = virtualCall.Expression as MemberAccessExpressionSyntax;
@@ -217,7 +217,7 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
                 callee = virtualCall.Expression as IdentifierNameSyntax;
                 isThis = true;
             }
-            
+
             if (isThis)
             {
                 var typeDeclaration = node.Summary.Method.FirstAncestorOrSelf<TypeDeclarationSyntax>();
@@ -235,14 +235,14 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
 
                 return false;
             }
-            
+
             var calleeDefinitions = node.DataFlowInfo.ResolveOutputAliases(calleeSymbol);
             var calleeTypes = calleeDefinitions.SelectMany(def => def.CandidateTypes);
             if (!calleeTypes.Any())
             {
                 return false;
             }
-            
+
             foreach (var calleeType in calleeTypes)
             {
                 MethodDeclarationSyntax method = null;

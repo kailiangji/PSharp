@@ -18,6 +18,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
         void Run();
 
         #endregion
-        
+
     }
 }

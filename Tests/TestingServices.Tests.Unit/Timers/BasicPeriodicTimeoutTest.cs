@@ -39,7 +39,7 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
 			{
 				count = 0;
 
-				// Start a periodic timer 
+				// Start a periodic timer
 				tid = StartTimer(payload, 10, true);
 
 			}

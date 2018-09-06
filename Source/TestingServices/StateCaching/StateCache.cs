@@ -87,7 +87,7 @@ namespace Microsoft.PSharp.TestingServices.StateCaching
                 var hs = new List<int> { scheduleStep.Index };
                 fingerprintIndexMap.Add(fingerprint, hs);
             }
-            else 
+            else
             {
                 fingerprintIndexMap[fingerprint].Add(scheduleStep.Index);
             }

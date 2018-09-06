@@ -87,7 +87,7 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
             {
                 node.Rewrite(indentLevel + 1);
             }
-            
+
             foreach (var node in this.MachineDeclarations)
             {
                 node.Rewrite(indentLevel + 1);

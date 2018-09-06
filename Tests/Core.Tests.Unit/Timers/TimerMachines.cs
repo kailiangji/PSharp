@@ -89,7 +89,7 @@ namespace Microsoft.PSharp.Core.Tests.Unit
 			}
 			else
 			{
-				// Start a one-off timer 
+				// Start a one-off timer
 				tid = StartTimer(payload, 10, false);
 			}
 		}
@@ -178,7 +178,7 @@ namespace Microsoft.PSharp.Core.Tests.Unit
 		private async Task DoPing()
 		{
 			tcs = (this.ReceivedEvent as Configure).TCS;
-	
+
 			// Start a periodic timer with timeout interval of 1sec.
 			// The timer generates TimerElapsedEvent with 'm' as payload.
 			pingTimer = StartTimer(payload, 5, true);
@@ -211,14 +211,14 @@ namespace Microsoft.PSharp.Core.Tests.Unit
 				tcs.SetResult(false);
 				this.Raise(new Halt());
 			}
-			
+
 		}
 		#endregion
 	}
 	#endregion
 
 	#region check illegal timer stoppage
-	
+
 	class T2 : TimedMachine
 	{
 		#region fields
@@ -268,7 +268,7 @@ namespace Microsoft.PSharp.Core.Tests.Unit
 			TimerId tid = (this.ReceivedEvent as TransferTimerAndTCS).tid;
 			TaskCompletionSource<bool> tcs = (this.ReceivedEvent as TransferTimerAndTCS).TCS;
 
-			// trying to stop a timer created by a different machine. 
+			// trying to stop a timer created by a different machine.
 			// should throw an assertion violation
 			try
 			{

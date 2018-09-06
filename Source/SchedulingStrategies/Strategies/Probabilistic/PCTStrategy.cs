@@ -11,7 +11,7 @@ namespace Microsoft.PSharp.TestingServices.SchedulingStrategies
 {
     /// <summary>
     /// A priority-based probabilistic scheduling strategy.
-    /// 
+    ///
     /// This strategy is described in the following paper:
     /// https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/asplos277-pct.pdf
     /// </summary>

@@ -40,8 +40,8 @@ state S2 {
             catch (RewritingException ex)
             {
                 exception_hit = true;
-                Assert.Equal(ex.Message.Replace(Environment.NewLine, string.Empty), 
-                    "Multiple declarations of the state 'S2'" + 
+                Assert.Equal(ex.Message.Replace(Environment.NewLine, string.Empty),
+                    "Multiple declarations of the state 'S2'" +
                     "File: Program.psharp" +
                     "Lines: 5 and 8");
             }

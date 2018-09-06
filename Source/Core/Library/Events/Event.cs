@@ -28,10 +28,10 @@ namespace Microsoft.PSharp
         /// </summary>
         protected internal int Assume { get; private set; }
 
-        /// <summary> 
+        /// <summary>
         /// User-defined hash of the event payload. Override to improve the
         /// accuracy of liveness checking when state-caching is enabled.
-        /// </summary> 
+        /// </summary>
         public virtual int HashedState => 0;
 
         #endregion

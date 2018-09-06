@@ -7,7 +7,6 @@ using System;
 using System.Threading.Tasks;
 using Xunit;
 
-
 namespace Microsoft.PSharp.Core.Tests.Unit
 {
     public class OperationGroupingTest

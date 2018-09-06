@@ -20,8 +20,6 @@ namespace Microsoft.PSharp.StaticAnalysis
     /// </summary>
     internal sealed class MachineSummarizationPass : StateMachineAnalysisPass
     {
-        #region internal API
-
         /// <summary>
         /// Creates a new machine summarization pass.
         /// </summary>
@@ -61,10 +59,6 @@ namespace Microsoft.PSharp.StaticAnalysis
             this.PrintSummarizationInformation(machines);
         }
 
-        #endregion
-
-        #region constructors
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -76,12 +70,7 @@ namespace Microsoft.PSharp.StaticAnalysis
             ILogger logger, ErrorReporter errorReporter)
             : base(context, configuration, logger, errorReporter)
         {
-
         }
-
-        #endregion
-
-        #region private methods
 
         /// <summary>
         /// Summarizes the state-machines in the project.
@@ -172,10 +161,6 @@ namespace Microsoft.PSharp.StaticAnalysis
             }
         }
 
-        #endregion
-
-        #region profiling methods
-
         /// <summary>
         /// Prints profiling results.
         /// </summary>
@@ -184,7 +169,5 @@ namespace Microsoft.PSharp.StaticAnalysis
             base.Logger.WriteLine("... Data-flow analysis runtime: '" +
                 base.Profiler.Results() + "' seconds.");
         }
-
-        #endregion
     }
 }

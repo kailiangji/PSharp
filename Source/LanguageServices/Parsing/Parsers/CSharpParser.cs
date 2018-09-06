@@ -18,8 +18,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
     /// </summary>
     public sealed class CSharpParser : BaseParser
     {
-        #region fields
-
         /// <summary>
         /// The error log.
         /// </summary>
@@ -29,10 +27,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
         /// The warning log.
         /// </summary>
         private List<Tuple<SyntaxToken, string>> WarningLog;
-
-        #endregion
-
-        #region public API
 
         /// <summary>
         /// Constructor.
@@ -94,10 +88,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
             return this.ErrorLog;
         }
 
-        #endregion
-
-        #region protected API
-
         /// <summary>
         /// Returns a new C# program.
         /// </summary>
@@ -106,10 +96,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
         {
             return new CSharpProgram(base.Project, base.SyntaxTree);
         }
-
-        #endregion
-
-        #region private methods
 
         /// <summary>
         /// Parses the syntax tree for errors.
@@ -205,7 +191,5 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
                 reports.Add(report);
             }
         }
-
-        #endregion
     }
 }

@@ -10,8 +10,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
     /// </summary>
     public interface INode
     {
-        #region methods
-
         /// <summary>
         /// Checks if the node contains the specified item.
         /// </summary>
@@ -23,7 +21,5 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
         /// </summary>
         /// <returns>Boolean</returns>
         bool IsEmpty();
-
-        #endregion
     }
 }

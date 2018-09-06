@@ -12,8 +12,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
     /// </summary>
     public interface IControlFlowNode : INode, ITraversable<IControlFlowNode>
     {
-        #region properties
-
         /// <summary>
         /// List of statements contained in the node.
         /// </summary>
@@ -28,7 +26,5 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
         /// Method summary that contains this node.
         /// </summary>
         MethodSummary Summary { get; }
-
-        #endregion
     }
 }

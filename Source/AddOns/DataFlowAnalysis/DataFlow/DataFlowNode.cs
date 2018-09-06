@@ -12,8 +12,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
     /// </summary>
     internal class DataFlowNode : IDataFlowNode
     {
-        #region fields
-
         /// <summary>
         /// The unique id of the node.
         /// </summary>
@@ -64,10 +62,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
         /// </summary>
         public ISet<ISymbol> GivesUpOwnershipMap { get; private set; }
 
-        #endregion
-
-        #region constructors
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -105,10 +99,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
                 new Dictionary<IControlFlowNode, DataFlowNode>());
             return entryNode;
         }
-
-        #endregion
-
-        #region public methods
 
         /// <summary>
         /// Checks the node is a successor of the specified node.
@@ -165,10 +155,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
             return false;
         }
 
-        #endregion
-
-        #region construction methods
-
         /// <summary>
         /// Constructs the data-flow graph node from the
         /// specified control-flow graph node.
@@ -213,15 +199,9 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
             }
         }
 
-        #endregion
-
-        #region printing methods
-
         public override string ToString()
         {
             return $"{this.Id}";
         }
-
-        #endregion
     }
 }

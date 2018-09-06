@@ -9,7 +9,6 @@ using System.Collections.Generic;
 
 namespace Microsoft.PSharp
 {
-
     /// <summary>
     /// Defines a push state transition.
     /// </summary>

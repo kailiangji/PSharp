@@ -9,8 +9,6 @@ namespace Microsoft.PSharp.StaticAnalysis.Tests.Unit
 {
     public class ReadAccessAfterSendTests : BaseTest
     {
-        #region failure tests
-
         [Fact]
         public void TestReadAccessAfterSend1Fail()
         {
@@ -216,7 +214,5 @@ class M : Machine
                 "'letter' after giving up its ownership.";
             base.AssertFailed(test, 1, error, isPSharpProgram: false);
         }
-
-        #endregion
     }
 }

@@ -14,8 +14,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
     /// </summary>
     public sealed class TokenStream
     {
-        #region fields
-
         /// <summary>
         /// List of tokens in the stream.
         /// </summary>
@@ -52,10 +50,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
         /// The program this token stream belongs to.
         /// </summary>
         internal IPSharpProgram Program;
-
-        #endregion
-
-        #region public API
 
         /// <summary>
         /// Constructor.
@@ -168,10 +162,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
             }
         }
 
-        #endregion
-
-        #region private methods
-
         /// <summary>
         /// Consumes the next token in the stream. Does nothing
         /// if the stream is empty.
@@ -251,7 +241,5 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
 
             return true;
         }
-
-        #endregion
     }
 }

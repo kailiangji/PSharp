@@ -9,8 +9,6 @@ namespace Microsoft.PSharp.StaticAnalysis.Tests.Unit
 {
     public class ReturnAliasAccessTests : BaseTest
     {
-        #region correct tests
-
         [Fact]
         public void TestReturnAliasAccess1()
         {
@@ -123,10 +121,6 @@ class M : Machine
 }";
             base.AssertSucceeded(test, isPSharpProgram: false);
         }
-
-        #endregion
-
-        #region failure tests
 
         [Fact]
         public void TestReturnAliasAccess1Fail()
@@ -674,7 +668,5 @@ class M : Machine
                 "which contains data from field 'Foo.M.Letter'.";
             base.AssertFailed(configuration, test, 1, error, isPSharpProgram: false);
         }
-
-        #endregion
     }
 }

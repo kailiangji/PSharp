@@ -21,8 +21,6 @@ namespace Microsoft.PSharp
     /// </summary>
     public abstract class Monitor
     {
-        #region static fields
-
         /// <summary>
         /// Map from monitor types to a set of all
         /// possible states types.
@@ -40,10 +38,6 @@ namespace Microsoft.PSharp
         /// available actions.
         /// </summary>
         private static ConcurrentDictionary<Type, Dictionary<string, MethodInfo>> MonitorActionMap;
-
-        #endregion
-
-        #region fields
 
         /// <summary>
         /// The runtime that executes this monitor.
@@ -92,10 +86,6 @@ namespace Microsoft.PSharp
         /// Checks if the current action called a transition statement.
         /// </summary>
         internal bool CurrentActionCalledTransitionStatement;
-
-        #endregion
-
-        #region properties
 
         /// <summary>
         /// The unique monitor id.
@@ -170,10 +160,6 @@ namespace Microsoft.PSharp
         /// </summary>
         protected internal Event ReceivedEvent { get; private set; }
 
-        #endregion
-
-        #region initialization
-
         /// <summary>
         /// Static constructor.
         /// </summary>
@@ -205,10 +191,6 @@ namespace Microsoft.PSharp
             this.IsInsideOnExit = false;
             this.CurrentActionCalledTransitionStatement = false;
         }
-
-        #endregion
-
-        #region P# user API
 
         /// <summary>
         /// Returns from the execution context, and transitions
@@ -275,10 +257,6 @@ namespace Microsoft.PSharp
             this.Runtime.Assert(predicate, s, args);
         }
 
-        #endregion
-
-        #region monitoring
-
         /// <summary>
         /// Notifies the monitor to handle the received event.
         /// </summary>
@@ -289,10 +267,6 @@ namespace Microsoft.PSharp
                 e.GetType().FullName, isProcessing: true);
             this.HandleEvent(e);
         }
-
-        #endregion
-
-        #region event handling
 
         /// <summary>
         /// Handles the given event.
@@ -505,10 +479,6 @@ namespace Microsoft.PSharp
             return false;
         }
 
-        #endregion
-
-        #region liveness checking
-
         /// <summary>
         /// Checks the liveness temperature of the monitor and report
         /// a potential liveness bug if the temperature passes the
@@ -583,10 +553,6 @@ namespace Microsoft.PSharp
             return this.State.IsCold;
         }
 
-        #endregion
-
-        #region generic public and override methods
-
         /// <summary>
         /// Returns the hashed state of this monitor.
         /// </summary>
@@ -624,10 +590,6 @@ namespace Microsoft.PSharp
         {
             return this.GetType().Name;
         }
-
-        #endregion
-
-        #region initialization
 
         /// <summary>
         /// Transitions to the start state, and executes the
@@ -812,10 +774,6 @@ namespace Microsoft.PSharp
             this.IgnoredEvents = state.IgnoredEvents;
         }
 
-        #endregion
-
-        #region utilities
-
         /// <summary>
         /// Returns the action with the specified name.
         /// </summary>
@@ -846,10 +804,6 @@ namespace Microsoft.PSharp
             return method;
         }
 
-        #endregion
-
-        #region error checking
-
         /// <summary>
         /// Check monitor for state related errors.
         /// </summary>
@@ -876,10 +830,6 @@ namespace Microsoft.PSharp
                 $"   {ex.Message}\n" +
                 $"The stack trace is:\n{ex.StackTrace}");
         }
-
-        #endregion
-
-        #region code coverage methods
 
         /// <summary>
         /// Returns the set of all states in the monitor
@@ -927,10 +877,6 @@ namespace Microsoft.PSharp
             return pairs;
         }
 
-        #endregion
-
-        #region cleanup methods
-
         /// <summary>
         /// Resets the static caches.
         /// </summary>
@@ -940,7 +886,5 @@ namespace Microsoft.PSharp
             StateMap.Clear();
             MonitorActionMap.Clear();
         }
-
-        #endregion
     }
 }

@@ -22,7 +22,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Syntax
         internal StateExitDeclarationVisitor(TokenStream tokenStream)
             : base(tokenStream)
         {
-
         }
 
         /// <summary>

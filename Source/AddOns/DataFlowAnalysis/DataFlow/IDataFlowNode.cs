@@ -12,8 +12,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
     /// </summary>
     public interface IDataFlowNode : INode, ITraversable<IDataFlowNode>
     {
-        #region properties
-
         /// <summary>
         /// Statement contained in the node.
         /// </summary>
@@ -48,7 +46,5 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
         /// Set of gives-up ownership syntax statements.
         /// </summary>
         ISet<ISymbol> GivesUpOwnershipMap { get; }
-
-        #endregion
     }
 }

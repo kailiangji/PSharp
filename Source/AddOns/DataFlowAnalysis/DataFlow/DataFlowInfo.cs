@@ -14,8 +14,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
     /// </summary>
     public class DataFlowInfo
     {
-        #region fields
-
         /// <summary>
         /// The analysis context.
         /// </summary>
@@ -52,10 +50,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
         public IDictionary<SymbolDefinition, ISet<SymbolDefinition>>
             TaintedDefinitions { get; private set; }
 
-        #endregion
-
-        #region constructors
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -71,10 +65,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
             this.OutputDefinitions = new HashSet<SymbolDefinition>();
             this.TaintedDefinitions = new Dictionary<SymbolDefinition, ISet<SymbolDefinition>>();
         }
-
-        #endregion
-
-        #region reaching definitions methods
 
         /// <summary>
         /// Generates a new definition for the specified symbol.
@@ -119,10 +109,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
         {
             this.OutputDefinitions.UnionWith(this.GetOutputDefinitions());
         }
-
-        #endregion
-
-        #region type-tracking methods
 
         /// <summary>
         /// Assigns the specified types to the symbol.
@@ -183,10 +169,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
 
             return candidateTypes;
         }
-
-        #endregion
-
-        #region taint-tracking methods
 
         /// <summary>
         /// Taints the specified symbol.
@@ -260,10 +242,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
             this.TaintedDefinitions[definition].UnionWith(taintDefinitions);
         }
 
-        #endregion
-
-        #region alias resolution methods
-
         /// <summary>
         /// Resolves the aliases of the specified symbol in
         /// the input definitions of the data-flow node.
@@ -334,10 +312,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
             return aliasDefinitions;
         }
 
-        #endregion
-
-        #region internal helper methods
-
         /// <summary>
         /// Returns the generated definition for the specified symbol.
         /// </summary>
@@ -363,10 +337,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
 
             return false;
         }
-
-        #endregion
-
-        #region private helper methods
 
         /// <summary>
         /// Returns the input or generated definitions.
@@ -445,10 +415,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
             return resolvedDefinitions;
         }
 
-        #endregion
-
-        #region cloning
-
         /// <summary>
         /// Creates a new object that is a copy of
         /// the current instance.
@@ -470,7 +436,5 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
 
             return newInfo;
         }
-
-        #endregion
     }
 }

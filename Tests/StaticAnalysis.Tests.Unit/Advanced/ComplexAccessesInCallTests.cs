@@ -9,8 +9,6 @@ namespace Microsoft.PSharp.StaticAnalysis.Tests.Unit
 {
     public class ComplexAccessesInCallTests : BaseTest
     {
-        #region failure tests
-
         [Fact]
         public void TestComplexAccessesInCall1Fail()
         {
@@ -835,7 +833,5 @@ class M : Machine
             configuration.DoStateTransitionAnalysis = false;
             base.AssertFailed(configuration, test, 2, isPSharpProgram: false);
         }
-
-        #endregion
     }
 }

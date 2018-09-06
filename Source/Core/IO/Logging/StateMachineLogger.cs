@@ -42,8 +42,6 @@ namespace Microsoft.PSharp.IO
             this.LoggingVerbosity = loggingVerbosity;
         }
 
-        #region output
-
         /// <summary>
         /// Writes the specified string value.
         /// </summary>
@@ -71,10 +69,6 @@ namespace Microsoft.PSharp.IO
         /// <param name="format">Text</param>
         /// <param name="args">Arguments</param>
         public abstract void WriteLine(string format, params object[] args);
-
-        #endregion output
-
-        #region events
 
         /// <summary>
         /// Called when an event is about to be enqueued to a machine.
@@ -720,15 +714,9 @@ namespace Microsoft.PSharp.IO
             return $"<StrategyLog> Found bug using '{strategy}' strategy.{desc}";
         }
 
-        #endregion output
-
-        #region IDisposable
-
         /// <summary>
         /// Disposes the logger.
         /// </summary>
         public abstract void Dispose();
-
-        #endregion IDisposable
     }
 }

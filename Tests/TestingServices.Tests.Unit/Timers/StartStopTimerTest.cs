@@ -16,27 +16,18 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
 {
     public class StartStopTimerTest : BaseTest
     {
-		#region internal events
-		class TimeoutReceivedEvent : Event { }
+        class TimeoutReceivedEvent : Event { }
 
-		#endregion
-
-		#region machine/monitors
-		class Client : TimedMachine
+        class Client : TimedMachine
 		{
-			#region fields
-			object payload = new object();
-			#endregion
+            object payload = new object();
 
-			#region states
-			[Start]
+            [Start]
 			[OnEntry(nameof(Initialize))]
 			[OnEventDoAction(typeof(TimerElapsedEvent), nameof(HandleTimeout))]
 			class Init : MachineState { }
-			#endregion
 
-			#region handlers
-			async Task Initialize()
+            async Task Initialize()
 			{
 				// Start a timer, and stop it immediately
 				TimerId tid = StartTimer(payload, 10, true);
@@ -48,10 +39,9 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
 			{
 				this.Monitor<LivenessMonitor>(new TimeoutReceivedEvent());
 			}
-			#endregion
-		}
+        }
 
-		class LivenessMonitor : Monitor
+        class LivenessMonitor : Monitor
 		{
 			[Start]
 			[Hot]
@@ -61,11 +51,9 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
 			[Cold]
 			class TimeoutReceived : MonitorState { }
 		}
-		#endregion
 
-		#region test
-		// Test the fact that no timeouts may arrive between StartTimer and StopTimer
-		[Fact]
+        // Test the fact that no timeouts may arrive between StartTimer and StopTimer
+        [Fact]
 		public void StartStopTest()
 		{
 			var config = base.GetConfiguration();
@@ -82,7 +70,5 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
                 "Monitor 'LivenessMonitor' detected liveness bug in hot state 'Microsoft.PSharp.TestingServices.Tests.Unit.StartStopTimerTest+LivenessMonitor.NoTimeoutReceived' at the end of program execution.",
                 true);
 		}
-		#endregion
-
-	}
+    }
 }

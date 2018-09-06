@@ -221,7 +221,6 @@ namespace Microsoft.PSharp.TestingServices.SchedulingStrategies.DPOR
             return vca <= ForVCGetClock(vcb, /*aStep.Id*/ threadIdOfA);
         }
 
-
         private TidEntry GetSelectedTidEntry(Stack stack, int index)
         {
             var list = GetThreadsAt(stack, index);
@@ -332,7 +331,6 @@ namespace Microsoft.PSharp.TestingServices.SchedulingStrategies.DPOR
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
-
 
                 if (lastAccessIndex > 0)
                 {

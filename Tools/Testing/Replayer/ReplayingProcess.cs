@@ -14,16 +14,10 @@ namespace Microsoft.PSharp
     /// </summary>
     internal sealed class ReplayingProcess
     {
-        #region fields
-
         /// <summary>
         /// Configuration.
         /// </summary>
         private Configuration Configuration;
-
-        #endregion
-
-        #region public methods
 
         /// <summary>
         /// Creates a P# replaying process.
@@ -49,10 +43,6 @@ namespace Microsoft.PSharp
             Output.WriteLine(engine.Report());
         }
 
-        #endregion
-
-        #region private methods
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -63,7 +53,5 @@ namespace Microsoft.PSharp
             configuration.DisableEnvironmentExit = false;
             this.Configuration = configuration;
         }
-
-        #endregion
     }
 }

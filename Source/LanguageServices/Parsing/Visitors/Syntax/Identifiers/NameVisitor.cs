@@ -21,7 +21,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Syntax
         internal NameVisitor(TokenStream tokenStream)
             : base(tokenStream)
         {
-
         }
 
         /// <summary>
@@ -133,7 +132,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Syntax
 
             return qualifiedName;
         }
-
 
         /// <summary>
         /// Consumes comma-separated names from the tokenstream.
@@ -257,7 +255,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Syntax
                         base.TokenStream.SkipWhiteSpaceAndCommentTokens();
                     }
                 }
-
 
                 throw new ParsingException("Incomplete generic name.",
                     new List<TokenType>

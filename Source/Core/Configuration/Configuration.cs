@@ -19,8 +19,6 @@ namespace Microsoft.PSharp
     [Serializable]
     public class Configuration
     {
-        #region core options
-
         /// <summary>
         /// The path to the solution file.
         /// </summary>
@@ -44,10 +42,6 @@ namespace Microsoft.PSharp
         /// </summary>
         [DataMember]
         public int Timeout;
-
-        #endregion
-
-        #region language service options
 
         /// <summary>
         /// Requested compilation target.
@@ -99,19 +93,11 @@ namespace Microsoft.PSharp
         /// </summary>
         public Version RewriteCSharpVersion;
 
-        #endregion
-
-        #region runtime options
-
         /// <summary>
         /// The current runtime generation.
         /// </summary>
         [DataMember]
         public ulong RuntimeGeneration;
-
-        #endregion
-
-        #region bug finding options
 
         /// <summary>
         /// The assembly to be analyzed for bugs.
@@ -312,10 +298,6 @@ namespace Microsoft.PSharp
         [DataMember]
         public bool AttachDebugger;
 
-        #endregion
-
-        #region trace replay options
-
         /// <summary>
         /// The schedule file to be replayed.
         /// </summary>
@@ -325,10 +307,6 @@ namespace Microsoft.PSharp
         /// The schedule trace to be replayed.
         /// </summary>
         internal string ScheduleTrace;
-
-        #endregion
-
-        #region data race detection options
 
         /// <summary>
         /// Enables data-race detection during testing.
@@ -351,10 +329,6 @@ namespace Microsoft.PSharp
         /// Enables race detector logging.
         /// </summary>
         public bool EnableRaceDetectorLogging = false;
-
-        #endregion
-
-        #region coverage options
 
         /// <summary>
         /// Enables code coverage reporting of a P# program.
@@ -380,10 +354,6 @@ namespace Microsoft.PSharp
         /// </summary>
         public Dictionary<string, bool> AdditionalCodeCoverageAssemblies = new Dictionary<string, bool>();
 
-        #endregion
-
-        #region remote manager options
-
         /// <summary>
         /// The unique container id.
         /// </summary>
@@ -401,10 +371,6 @@ namespace Microsoft.PSharp
         /// </summary>
         [DataMember]
         public string RemoteApplicationFilePath;
-
-        #endregion
-
-        #region diagnostics options
 
         /// <summary>
         /// Verbosity level.
@@ -436,10 +402,6 @@ namespace Microsoft.PSharp
         [DataMember]
         public bool KeepTemporaryFiles;
 
-        #endregion
-
-        #region tool options
-
         /// <summary>
         /// Enables colored console output.
         /// </summary>
@@ -454,8 +416,6 @@ namespace Microsoft.PSharp
         /// If true, then environment exit will be disabled.
         /// </summary>
         internal bool DisableEnvironmentExit;
-
-        #endregion
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Configuration"/> class.

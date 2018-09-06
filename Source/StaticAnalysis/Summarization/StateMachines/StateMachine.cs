@@ -21,8 +21,6 @@ namespace Microsoft.PSharp.StaticAnalysis
     /// </summary>
     internal sealed class StateMachine
     {
-        #region fields
-
         /// <summary>
         /// The analysis context.
         /// </summary>
@@ -58,10 +56,6 @@ namespace Microsoft.PSharp.StaticAnalysis
         /// </summary>
         internal bool IsAbstract;
 
-        #endregion
-
-        #region constructors
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -84,10 +78,6 @@ namespace Microsoft.PSharp.StaticAnalysis
             this.FindAllStates();
             this.AnalyzeAllStates();
         }
-
-        #endregion
-
-        #region internal methods
 
         /// <summary>
         /// Summarizes the state-machine.
@@ -160,10 +150,6 @@ namespace Microsoft.PSharp.StaticAnalysis
             return summaries;
         }
 
-        #endregion
-
-        #region private methods
-
         /// <summary>
         /// Finds all states in the machine.
         /// </summary>
@@ -220,7 +206,5 @@ namespace Microsoft.PSharp.StaticAnalysis
 
             return methods;
         }
-
-        #endregion
     }
 }

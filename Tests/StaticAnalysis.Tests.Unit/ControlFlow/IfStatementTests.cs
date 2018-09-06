@@ -8,8 +8,6 @@ namespace Microsoft.PSharp.StaticAnalysis.Tests.Unit
 {
     public class IfStatementTests : BaseTest
     {
-        #region correct tests
-
         [Fact]
         public void TestIfStatement1()
         {
@@ -157,10 +155,6 @@ class M : Machine
 }";
             base.AssertSucceeded(test, isPSharpProgram: false);
         }
-
-        #endregion
-
-        #region failure tests
 
         [Fact]
         public void TestIfStatement1Fail()
@@ -745,7 +739,5 @@ class M : Machine
 }";
             base.AssertFailed(test, 2, isPSharpProgram: false);
         }
-
-        #endregion
     }
 }

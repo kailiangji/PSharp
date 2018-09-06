@@ -16,8 +16,6 @@ namespace Microsoft.PSharp.StaticAnalysis
     /// </summary>
     internal class TraceInfo
     {
-        #region fields
-
         /// <summary>
         /// Error trace.
         /// </summary>
@@ -47,10 +45,6 @@ namespace Microsoft.PSharp.StaticAnalysis
         /// The corresponding payload of the trace.
         /// </summary>
         internal string Payload;
-
-        #endregion
-
-        #region methods
 
         /// <summary>
         /// Constructor.
@@ -168,7 +162,5 @@ namespace Microsoft.PSharp.StaticAnalysis
             this.State = traceInfo.State;
             this.Payload = traceInfo.Payload;
         }
-
-        #endregion
     }
 }

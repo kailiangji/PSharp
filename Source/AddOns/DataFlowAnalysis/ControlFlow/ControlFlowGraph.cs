@@ -13,8 +13,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
     /// </summary>
     internal class ControlFlowGraph : Graph<IControlFlowNode>
     {
-        #region constructors
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -25,10 +23,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
             base.EntryNode = ControlFlowNode.Create(this, summary);
             base.MergeEmptyNodes();
         }
-
-        #endregion
-
-        #region printing methods
 
         /// <summary>
         /// Pretty prints the graph.
@@ -82,7 +76,5 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
                 this.PrettyPrint(node, visited);
             }
         }
-
-        #endregion
     }
 }

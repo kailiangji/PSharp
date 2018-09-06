@@ -69,7 +69,6 @@ namespace Microsoft.PSharp.TestingServices.SchedulingStrategies.DPOR
                 NondetChoices = new List<NonDetChoice>();
             }
 
-
             if (NextNondetChoiceIndex < NondetChoices.Count)
             {
                 // Replay:

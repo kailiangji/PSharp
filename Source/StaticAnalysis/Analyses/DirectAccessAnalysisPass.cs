@@ -21,8 +21,6 @@ namespace Microsoft.PSharp.StaticAnalysis
     /// </summary>
     internal sealed class DirectAccessAnalysisPass : StateMachineAnalysisPass
     {
-        #region internal API
-
         /// <summary>
         /// Creates a new direct access analysis pass.
         /// </summary>
@@ -47,10 +45,6 @@ namespace Microsoft.PSharp.StaticAnalysis
             this.CheckMethods(machines);
         }
 
-        #endregion
-
-        #region private methods
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -62,7 +56,6 @@ namespace Microsoft.PSharp.StaticAnalysis
             ILogger logger, ErrorReporter errorReporter)
             : base(context, configuration, logger, errorReporter)
         {
-
         }
 
         /// <summary>
@@ -124,10 +117,6 @@ namespace Microsoft.PSharp.StaticAnalysis
             }
         }
 
-        #endregion
-
-        #region profiling methods
-
         /// <summary>
         /// Prints profiling results.
         /// </summary>
@@ -136,7 +125,5 @@ namespace Microsoft.PSharp.StaticAnalysis
             base.Logger.WriteLine("... Direct access analysis runtime: '" +
                 base.Profiler.Results() + "' seconds.");
         }
-
-        #endregion
     }
 }

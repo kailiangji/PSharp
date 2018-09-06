@@ -17,8 +17,6 @@ namespace Microsoft.PSharp.TestingServices.Scheduling
     /// </summary>
     internal sealed class InteractiveStrategy : ISchedulingStrategy
     {
-        #region fields
-
         /// <summary>
         /// The configuration.
         /// </summary>
@@ -38,10 +36,6 @@ namespace Microsoft.PSharp.TestingServices.Scheduling
         /// The number of explored steps.
         /// </summary>
         private int ExploredSteps;
-
-        #endregion
-
-        #region public API
 
         /// <summary>
         /// Constructor.
@@ -330,7 +324,6 @@ namespace Microsoft.PSharp.TestingServices.Scheduling
         /// <returns>Boolean</returns>
         public void ForceNext(ISchedulable next, List<ISchedulable> choices, ISchedulable current)
         {
-
         }
 
         /// <summary>
@@ -341,7 +334,6 @@ namespace Microsoft.PSharp.TestingServices.Scheduling
         /// <returns>Boolean</returns>
         public void ForceNextBooleanChoice(int maxValue, bool next)
         {
-
         }
 
         /// <summary>
@@ -352,7 +344,6 @@ namespace Microsoft.PSharp.TestingServices.Scheduling
         /// <returns>Boolean</returns>
         public void ForceNextIntegerChoice(int maxValue, int next)
         {
-
         }
 
         /// <summary>
@@ -421,10 +412,6 @@ namespace Microsoft.PSharp.TestingServices.Scheduling
         {
             return string.Empty;
         }
-
-        #endregion
-
-        #region private methods
 
         /// <summary>
         /// Replays an earlier point of the execution.
@@ -514,7 +501,5 @@ namespace Microsoft.PSharp.TestingServices.Scheduling
                 this.InputCache.Clear();
             }
         }
-
-        #endregion
     }
 }

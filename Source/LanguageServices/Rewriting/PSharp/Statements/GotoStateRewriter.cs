@@ -18,8 +18,6 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.PSharp
     /// </summary>
     internal sealed class GotoStateRewriter : PSharpRewriter
     {
-        #region public API
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -27,7 +25,6 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.PSharp
         internal GotoStateRewriter(IPSharpProgram program)
             : base(program)
         {
-
         }
 
         /// <summary>
@@ -54,10 +51,6 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.PSharp
             base.UpdateSyntaxTree(root.ToString());
         }
 
-        #endregion
-
-        #region private methods
-
         /// <summary>
         /// Rewrites the jump(StateType) statement with a goto&lt;StateType&gt;() statement.
         /// </summary>
@@ -73,7 +66,5 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.PSharp
             var rewritten = SyntaxFactory.ParseStatement(text).WithTriviaFrom(node);
             return rewritten;
         }
-
-#endregion
     }
 }

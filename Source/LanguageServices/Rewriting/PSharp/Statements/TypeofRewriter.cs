@@ -20,13 +20,7 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.PSharp
     /// </summary>
     internal sealed class TypeofRewriter : PSharpRewriter
     {
-        #region fields
-
         private TypeNameQualifier typeNameQualifier = new TypeNameQualifier();
-
-        #endregion
-
-        #region public API
 
         /// <summary>
         /// Constructor.
@@ -55,10 +49,6 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.PSharp
             }
         }
 
-        #endregion
-
-        #region private methods
-
         /// <summary>
         /// Rewrites the type inside typeof.
         /// </summary>
@@ -74,7 +64,5 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.PSharp
                 : node;
             return rewritten;
         }
-
-        #endregion
     }
 }

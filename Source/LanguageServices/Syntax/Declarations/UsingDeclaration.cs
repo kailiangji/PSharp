@@ -16,8 +16,6 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
     /// </summary>
     internal sealed class UsingDeclaration : PSharpSyntaxNode
     {
-        #region fields
-
         /// <summary>
         /// The using keyword.
         /// </summary>
@@ -32,10 +30,6 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
         /// The semicolon token.
         /// </summary>
         internal Token SemicolonToken;
-
-        #endregion
-
-        #region internal API
 
         /// <summary>
         /// Constructor.
@@ -57,10 +51,6 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
             base.TextUnit = new TextUnit(text, this.UsingKeyword.TextUnit.Line);
         }
 
-        #endregion
-
-        #region private methods
-
         /// <summary>
         /// Returns the rewritten using declaration.
         /// </summary>
@@ -79,7 +69,5 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
 
             return text;
         }
-
-        #endregion
     }
 }

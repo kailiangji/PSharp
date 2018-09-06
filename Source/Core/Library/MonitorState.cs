@@ -14,8 +14,6 @@ namespace Microsoft.PSharp
     /// </summary>
     public abstract class MonitorState
     {
-        #region fields
-
         /// <summary>
         /// The entry action of the state.
         /// </summary>
@@ -55,10 +53,6 @@ namespace Microsoft.PSharp
         /// Returns true if this is a cold state.
         /// </summary>
         internal bool IsCold { get; private set; }
-
-        #endregion
-
-        #region P# internal methods
 
         /// <summary>
         /// Constructor.
@@ -136,7 +130,5 @@ namespace Microsoft.PSharp
                 this.IsCold = true;
             }
         }
-
-        #endregion
     }
 }

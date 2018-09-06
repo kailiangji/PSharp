@@ -15,16 +15,10 @@ namespace Microsoft.PSharp.Timers
 	/// </summary>
 	public abstract class TimedMachine : Machine
 	{
-		#region private fields
-
-		/// <summary>
-		/// Set of currently active timers.
-		/// </summary>
-		HashSet<TimerId> timers = new HashSet<TimerId>();
-
-        #endregion
-
-        #region Timer API
+        /// <summary>
+        /// Set of currently active timers.
+        /// </summary>
+        HashSet<TimerId> timers = new HashSet<TimerId>();
 
         /// <summary>
         /// Start a timer.
@@ -77,6 +71,5 @@ namespace Microsoft.PSharp.Timers
                 }
             }
 		}
-		#endregion
-	}
+    }
 }

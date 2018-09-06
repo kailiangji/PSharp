@@ -16,8 +16,6 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
     /// </summary>
     internal sealed class StateGroupDeclaration : PSharpSyntaxNode
     {
-        #region fields
-
         /// <summary>
         /// The machine parent node.
         /// </summary>
@@ -62,10 +60,6 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
         /// The right curly bracket token.
         /// </summary>
         internal Token RightCurlyBracketToken;
-
-        #endregion
-
-        #region internal API
 
         /// <summary>
         /// Constructor.
@@ -174,10 +168,6 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
             this.StateGroupDeclarations.ForEach(g => g.CheckDeclaration());
         }
 
-        #endregion
-
-        #region private methods
-
         /// <summary>
         /// Returns the rewritten state group declaration.
         /// </summary>
@@ -223,7 +213,5 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
 
             return text;
         }
-
-        #endregion
     }
 }

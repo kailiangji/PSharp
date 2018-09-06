@@ -14,8 +14,6 @@ namespace Microsoft.PSharp.TestingServices
     /// </summary>
     internal sealed class TestHarnessMachine : AbstractMachine
     {
-        #region fields
-
         /// <summary>
         /// The test method.
         /// </summary>
@@ -25,10 +23,6 @@ namespace Microsoft.PSharp.TestingServices
         /// The test action.
         /// </summary>
         private Action<PSharpRuntime> TestAction;
-
-        #endregion
-
-        #region constructors
 
         /// <summary>
         /// Constructor.
@@ -40,10 +34,6 @@ namespace Microsoft.PSharp.TestingServices
             this.TestMethod = testMethod;
             this.TestAction = testAction;
         }
-
-        #endregion
-
-        #region test harness logic
 
         /// <summary>
         /// Runs the test harness.
@@ -71,10 +61,6 @@ namespace Microsoft.PSharp.TestingServices
             }
         }
 
-        #endregion
-
-        #region error checking
-
         /// <summary>
         /// Wraps the unhandled exception inside an <see cref="AssertionFailureException"/>
         /// exception, and throws it to the user.
@@ -99,7 +85,5 @@ namespace Microsoft.PSharp.TestingServices
                     $"The stack trace is:\n{ex.StackTrace}");
             }
         }
-
-        #endregion
     }
 }

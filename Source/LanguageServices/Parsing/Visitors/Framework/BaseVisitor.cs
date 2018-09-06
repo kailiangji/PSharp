@@ -15,8 +15,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Framework
     /// </summary>
     internal abstract class BaseVisitor
     {
-        #region fields
-
         /// <summary>
         /// The P# project.
         /// </summary>
@@ -32,10 +30,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Framework
         /// </summary>
         protected List<Tuple<SyntaxToken, string>> WarningLog;
 
-        #endregion
-
-        #region protected API
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -49,7 +43,5 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Framework
             this.ErrorLog = errorLog;
             this.WarningLog = warningLog;
         }
-
-        #endregion
     }
 }

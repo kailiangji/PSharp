@@ -25,7 +25,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Syntax
         internal BlockSyntaxVisitor(TokenStream tokenStream)
             : base(tokenStream)
         {
-
         }
 
         /// <summary>

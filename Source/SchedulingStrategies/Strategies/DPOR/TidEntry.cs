@@ -84,8 +84,6 @@ namespace Microsoft.PSharp.TestingServices.SchedulingStrategies.DPOR
         /// </summary>
         public class Comparer : IEqualityComparer<TidEntry>
         {
-            #region Implementation of IEqualityComparer<in Comparer>
-
             /// <summary>Determines whether the specified objects are equal.</summary>
             /// <returns>true if the specified objects are equal; otherwise, false.</returns>
             /// <param name="x">The first object to compare.</param>
@@ -117,8 +115,6 @@ namespace Microsoft.PSharp.TestingServices.SchedulingStrategies.DPOR
                     return hash;
                 }
             }
-
-            #endregion
         }
 
     }

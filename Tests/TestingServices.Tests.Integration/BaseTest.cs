@@ -16,8 +16,6 @@ namespace Microsoft.PSharp.TestingServices.Tests.Integration
 {
     public abstract class BaseTest
     {
-        #region successful tests
-
         protected void AssertSucceeded(Action<PSharpRuntime> test)
         {
             var configuration = GetConfiguration();
@@ -49,10 +47,6 @@ namespace Microsoft.PSharp.TestingServices.Tests.Integration
 
             return engine;
         }
-
-        #endregion
-
-        #region failed tests
 
         protected void AssertFailed(Action<PSharpRuntime> test, int numExpectedErrors)
         {
@@ -135,10 +129,6 @@ namespace Microsoft.PSharp.TestingServices.Tests.Integration
             }
         }
 
-        #endregion
-
-        #region utilities
-
         protected Configuration GetConfiguration()
         {
             return Configuration.Create();
@@ -177,7 +167,5 @@ namespace Microsoft.PSharp.TestingServices.Tests.Integration
                 return GetEnumerator();
             }
         }
-
-        #endregion
     }
 }

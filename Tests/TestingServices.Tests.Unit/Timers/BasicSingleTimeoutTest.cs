@@ -16,28 +16,18 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
 {
 	public class BasicSingleTimeoutTest : BaseTest
     {
-
-		#region check basic StartTimer/StopTimer
-		private class T1 : TimedMachine
+        private class T1 : TimedMachine
 		{
-			#region fields
-
-			TimerId tid;
+            TimerId tid;
 			object payload = new object();
 			int count;
 
-			#endregion
-
-			#region states
-			[Start]
+            [Start]
 			[OnEntry(nameof(InitOnEntry))]
 			[OnEventDoAction(typeof(TimerElapsedEvent), nameof(HandleTimeout))]
 			class Init : MachineState { }
 
-			#endregion
-
-			#region handlers
-			void InitOnEntry()
+            void InitOnEntry()
 			{
 				count = 0;
 
@@ -51,12 +41,9 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
 				count++;
 				this.Assert(count == 1);
 			}
-			#endregion
-		}
-		#endregion
+        }
 
-		#region test
-		[Fact]
+        [Fact]
 		public void SingleTimeoutTest()
 		{
 			var config = Configuration.Create().WithNumberOfIterations(1000);
@@ -67,6 +54,5 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
 			});
 			base.AssertSucceeded(test);
 		}
-		#endregion
-	}
+    }
 }

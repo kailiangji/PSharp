@@ -13,8 +13,6 @@ namespace Microsoft.PSharp.StaticAnalysis
     /// </summary>
     internal abstract class MachineAction
     {
-        #region fields
-
         /// <summary>
         /// The analysis context.
         /// </summary>
@@ -35,10 +33,6 @@ namespace Microsoft.PSharp.StaticAnalysis
         /// </summary>
         internal MethodDeclarationSyntax MethodDeclaration;
 
-        #endregion
-
-        #region constructors
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -53,7 +47,5 @@ namespace Microsoft.PSharp.StaticAnalysis
             this.Name = this.AnalysisContext.GetFullMethodName(methodDecl);
             this.MethodDeclaration = methodDecl;
         }
-
-        #endregion
     }
 }

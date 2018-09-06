@@ -13,9 +13,7 @@ using Microsoft.PSharp;
 
 namespace Microsoft.PSharp.Core.Tests.Unit
 {
-	#region internal events and classes
-
-	internal class NonMachineSubClass { }
+    internal class NonMachineSubClass { }
 
 	internal class Configure : Event
 	{
@@ -55,22 +53,15 @@ namespace Microsoft.PSharp.Core.Tests.Unit
 		}
 	}
 
-	#endregion
-
-	#region timer machines
-
-	#region check basic StartTimer/StopTimer
-	class T1 : TimedMachine
+    class T1 : TimedMachine
 	{
-		#region fields
-		TimerId tid;
+        TimerId tid;
 		object payload = new object();
 		TaskCompletionSource<bool> tcs;
 		int count;
 		bool periodic;
 
-		#endregion
-		[Start]
+        [Start]
 		[OnEntry(nameof(InitOnEntry))]
 		[OnEventDoAction(typeof(TimerElapsedEvent), nameof(HandleTimeout))]
 		class Init : MachineState { }
@@ -128,16 +119,13 @@ namespace Microsoft.PSharp.Core.Tests.Unit
 			}
 		}
 	}
-	#endregion
 
-	#region check flushing
-	class FlushingClient : TimedMachine
+    class FlushingClient : TimedMachine
 	{
-		#region fields
-		/// <summary>
-		/// A dummy payload object received with timeout events.
-		/// </summary>
-		object payload = new object();
+        /// <summary>
+        /// A dummy payload object received with timeout events.
+        /// </summary>
+        object payload = new object();
 
 		/// <summary>
 		/// Timer used in the Ping State.
@@ -151,15 +139,11 @@ namespace Microsoft.PSharp.Core.Tests.Unit
 
 		TaskCompletionSource<bool> tcs;
 
-		#endregion
-
-		#region states
-
-		/// <summary>
-		/// Start the pingTimer and start handling the timeout events from it.
-		/// After handling 10 events, stop pingTimer and move to the Pong state.
-		/// </summary>
-		[Start]
+        /// <summary>
+        /// Start the pingTimer and start handling the timeout events from it.
+        /// After handling 10 events, stop pingTimer and move to the Pong state.
+        /// </summary>
+        [Start]
 		[OnEntry(nameof(DoPing))]
 		[IgnoreEvents(typeof(TimerElapsedEvent))]
 		class Ping : MachineState { }
@@ -171,11 +155,8 @@ namespace Microsoft.PSharp.Core.Tests.Unit
 		[OnEntry(nameof(DoPong))]
 		[OnEventDoAction(typeof(TimerElapsedEvent), nameof(HandleTimeoutForPong))]
 		class Pong : MachineState { }
-		#endregion
 
-		#region event handlers
-
-		private async Task DoPing()
+        private async Task DoPing()
 		{
 			tcs = (this.ReceivedEvent as Configure).TCS;
 
@@ -213,57 +194,36 @@ namespace Microsoft.PSharp.Core.Tests.Unit
 			}
 
 		}
-		#endregion
-	}
-	#endregion
+    }
 
-	#region check illegal timer stoppage
-
-	class T2 : TimedMachine
+    class T2 : TimedMachine
 	{
-		#region fields
-
-		TimerId tid;
+        TimerId tid;
 		TaskCompletionSource<bool> tcs;
 		object payload = new object();
 		MachineId m;
 
-		#endregion
-		[Start]
+        [Start]
 		[OnEntry(nameof(Initialize))]
 		[IgnoreEvents(typeof(TimerElapsedEvent))]
 		class Init : MachineState { }
-		#region states
 
-		#endregion
-
-		#region handlers
-		void Initialize()
+        void Initialize()
 		{
 			tcs = (this.ReceivedEvent as Configure).TCS;
 			tid = this.StartTimer(this.payload, 100, true);
 			m = CreateMachine(typeof(T3), new TransferTimerAndTCS(tid, tcs));
 			this.Raise(new Halt());
 		}
+    }
 
-		#endregion
-
-
-	}
-
-	class T3 : TimedMachine
+    class T3 : TimedMachine
 	{
-		#region states
-
-		[Start]
+        [Start]
 		[OnEntry(nameof(Initialize))]
 		class Init : MachineState { }
 
-		#endregion
-
-		#region handlers
-
-		async Task Initialize()
+        async Task Initialize()
 		{
 			TimerId tid = (this.ReceivedEvent as TransferTimerAndTCS).tid;
 			TaskCompletionSource<bool> tcs = (this.ReceivedEvent as TransferTimerAndTCS).TCS;
@@ -280,28 +240,17 @@ namespace Microsoft.PSharp.Core.Tests.Unit
 				this.Raise(new Halt());
 			}
 		}
+    }
 
-		#endregion
-	}
-	#endregion
-
-	#region check illegal period specification
-	class T4 : TimedMachine
+    class T4 : TimedMachine
 	{
-		#region fields
+        object payload = new object();
 
-		object payload = new object();
-
-		#endregion
-
-		#region states
-		[Start]
+        [Start]
 		[OnEntry(nameof(Initialize))]
 		class Init : MachineState { }
-		#endregion
 
-		#region handlers
-		void Initialize()
+        void Initialize()
 		{
 			var tcs = (this.ReceivedEvent as ConfigureWithPeriod).TCS;
 			var period = (this.ReceivedEvent as ConfigureWithPeriod).period;
@@ -316,10 +265,5 @@ namespace Microsoft.PSharp.Core.Tests.Unit
 				this.Raise(new Halt());
 			}
 		}
-		#endregion
-	}
-	#endregion
-
-
-	#endregion
+    }
 }

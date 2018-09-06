@@ -16,8 +16,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Framework
     /// </summary>
     internal sealed class MonitorDeclarationParser : BaseMachineVisitor
     {
-        #region public API
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -28,12 +26,7 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Framework
             List<Tuple<SyntaxToken, string>> warningLog)
             : base(project, errorLog, warningLog)
         {
-
         }
-
-        #endregion
-
-        #region protected API
 
         /// <summary>
         /// Returns true if the given class declaration is a machine.
@@ -76,7 +69,5 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Framework
         {
             return "Monitor";
         }
-
-        #endregion
     }
 }

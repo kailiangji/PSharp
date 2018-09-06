@@ -12,8 +12,6 @@ namespace Microsoft.PSharp.IO
     /// </summary>
     public static class Error
     {
-        #region public methods
-
         /// <summary>
         /// Reports a generic error to the user.
         /// </summary>
@@ -53,10 +51,6 @@ namespace Microsoft.PSharp.IO
             Environment.Exit(1);
         }
 
-        #endregion
-
-        #region private methods
-
         /// <summary>
         ///  Writes the specified string value to the output stream.
         /// </summary>
@@ -69,7 +63,5 @@ namespace Microsoft.PSharp.IO
             Console.Error.Write(value);
             Console.ForegroundColor = previousForegroundColor;
         }
-
-        #endregion
     }
 }

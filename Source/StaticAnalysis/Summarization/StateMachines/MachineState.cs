@@ -19,8 +19,6 @@ namespace Microsoft.PSharp.StaticAnalysis
     /// </summary>
     internal sealed class MachineState
     {
-        #region fields
-
         /// <summary>
         /// The analysis context.
         /// </summary>
@@ -56,10 +54,6 @@ namespace Microsoft.PSharp.StaticAnalysis
         /// </summary>
         internal bool IsStart;
 
-        #endregion
-
-        #region constructors
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -77,10 +71,6 @@ namespace Microsoft.PSharp.StaticAnalysis
             this.MachineActions = new List<MachineAction>();
             this.IsStart = this.IsStartState();
         }
-
-        #endregion
-
-        #region internal methods
 
         /// <summary>
         /// Analyzes the state.
@@ -116,10 +106,6 @@ namespace Microsoft.PSharp.StaticAnalysis
 
             return successors;
         }
-
-        #endregion
-
-        #region private methods
 
         /// <summary>
         /// Checks if this is the start state.
@@ -335,7 +321,5 @@ namespace Microsoft.PSharp.StaticAnalysis
 
             return state;
         }
-
-        #endregion
     }
 }

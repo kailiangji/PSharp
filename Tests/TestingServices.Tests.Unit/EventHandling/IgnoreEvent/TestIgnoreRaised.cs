@@ -23,7 +23,6 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
         }
         class Unit : Event { }
 
-
         class A : Machine
         {
             [Start]
@@ -43,7 +42,6 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
                 this.Send(e.mid, new E2(this.Id));
             }
         }
-
 
         class Harness : Machine
         {

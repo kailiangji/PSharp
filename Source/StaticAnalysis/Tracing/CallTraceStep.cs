@@ -12,8 +12,6 @@ namespace Microsoft.PSharp.StaticAnalysis
     /// </summary>
     internal class CallTraceStep
     {
-        #region fields
-
         /// <summary>
         /// The method declaration.
         /// </summary>
@@ -23,10 +21,6 @@ namespace Microsoft.PSharp.StaticAnalysis
         /// The invocation expression.
         /// </summary>
         internal readonly ExpressionSyntax Invocation;
-
-        #endregion
-
-        #region methods
 
         /// <summary>
         /// Constructor.
@@ -38,7 +32,5 @@ namespace Microsoft.PSharp.StaticAnalysis
             this.Method = method;
             this.Invocation = invocation;
         }
-
-        #endregion
     }
 }

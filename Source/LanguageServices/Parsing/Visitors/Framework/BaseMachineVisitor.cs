@@ -18,8 +18,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Framework
     /// </summary>
     internal abstract class BaseMachineVisitor : BaseVisitor
     {
-        #region fields
-
         /// <summary>
         /// Map from machines to a list of actions.
         /// </summary>
@@ -34,10 +32,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Framework
         /// Map from machines to actions that contain a pop statement.
         /// </summary>
         protected Dictionary<ClassDeclarationSyntax, List<MethodDeclarationSyntax>> ActionsThaPop;
-
-        #endregion
-
-        #region public API
 
         /// <summary>
         /// Constructor.
@@ -97,10 +91,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Framework
             }
         }
 
-        #endregion
-
-        #region protected API
-
         /// <summary>
         /// Returns true if the given class declaration is a machine.
         /// </summary>
@@ -133,10 +123,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Framework
         /// </summary>
         /// <returns>Text</returns>
         protected abstract string GetTypeOfMachine();
-
-        #endregion
-
-        #region private methods
 
         /// <summary>
         /// Discovers the available actions of the given machine.
@@ -637,7 +623,5 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Framework
                 }
             }
         }
-
-        #endregion
     }
 }

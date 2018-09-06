@@ -16,29 +16,19 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
 {
 	public class TimerLivenessTest : BaseTest
 	{
-		#region events
-		class TimeoutReceivedEvent : Event { }
-		#endregion
+        class TimeoutReceivedEvent : Event { }
 
-		#region machines/monitors
-
-		class Client : TimedMachine
+        class Client : TimedMachine
 		{
-			#region fields
-			TimerId tid;
+            TimerId tid;
 			object payload = new object();
-			#endregion
 
-			#region states
-			[Start]
+            [Start]
 			[OnEntry(nameof(Initialize))]
 			[OnEventDoAction(typeof(TimerElapsedEvent), nameof(HandleTimeout))]
 			private class Init : MachineState { }
 
-			#endregion
-
-			#region handlers
-			private void Initialize()
+            private void Initialize()
 			{
 				tid = StartTimer(payload, 10, false);
 			}
@@ -47,10 +37,9 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
 			{
 				this.Monitor<LivenessMonitor>(new TimeoutReceivedEvent());
 			}
-			#endregion
-		}
+        }
 
-		class LivenessMonitor : Monitor
+        class LivenessMonitor : Monitor
 		{
 			[Start]
 			[Hot]
@@ -61,11 +50,7 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
 			class TimeoutReceived : MonitorState { }
 		}
 
-		#endregion
-
-		#region test
-
-		[Fact]
+        [Fact]
 		public void PeriodicLivenessTest()
 		{
 			var config = base.GetConfiguration();
@@ -80,7 +65,5 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
 
 			base.AssertSucceeded(config, test);
 		}
-
-		#endregion
-	}
+    }
 }

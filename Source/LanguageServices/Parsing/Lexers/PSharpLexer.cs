@@ -12,8 +12,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
     /// </summary>
     public sealed class PSharpLexer : BaseLexer
     {
-        #region protected API
-
         /// <summary>
         /// Tokenizes the next text unit.
         /// </summary>
@@ -530,7 +528,5 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
                 @"|\s+)";
             return pattern;
         }
-
-        #endregion
     }
 }

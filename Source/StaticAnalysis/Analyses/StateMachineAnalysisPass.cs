@@ -17,8 +17,6 @@ namespace Microsoft.PSharp.StaticAnalysis
     /// </summary>
     internal abstract class StateMachineAnalysisPass
     {
-        #region fields
-
         /// <summary>
         /// The analysis context.
         /// </summary>
@@ -44,19 +42,11 @@ namespace Microsoft.PSharp.StaticAnalysis
         /// </summary>
         protected Profiler Profiler;
 
-        #endregion
-
-        #region internal methods
-
         /// <summary>
         /// Runs the analysis on the specified machines.
         /// </summary>
         /// <param name="machines">StateMachines</param>
         internal abstract void Run(ISet<StateMachine> machines);
-
-        #endregion
-
-        #region protected methods
 
         /// <summary>
         /// Constructor.
@@ -75,15 +65,9 @@ namespace Microsoft.PSharp.StaticAnalysis
             this.ErrorReporter = errorReporter;
         }
 
-        #endregion
-
-        #region profiling
-
         /// <summary>
         /// Prints profiling results.
         /// </summary>
         protected abstract void PrintProfilingResults();
-
-        #endregion
     }
 }

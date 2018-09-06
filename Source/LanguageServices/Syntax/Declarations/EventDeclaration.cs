@@ -18,8 +18,6 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
     /// </summary>
     internal sealed class EventDeclaration : PSharpSyntaxNode
     {
-        #region fields
-
         /// <summary>
         /// The machine parent node.
         /// </summary>
@@ -100,10 +98,6 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
         /// </summary>
         internal bool IsExtern;
 
-        #endregion
-
-        #region internal API
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -143,10 +137,6 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
 
             base.TextUnit = new TextUnit(text, this.EventKeyword.TextUnit.Line);
         }
-
-        #endregion
-
-        #region private methods
 
         /// <summary>
         /// Returns the rewritten event declaration.
@@ -294,7 +284,5 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
 
             return text;
         }
-
-        #endregion
     }
 }

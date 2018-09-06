@@ -12,8 +12,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
     /// </summary>
     public interface ITraversable<T> where T : INode
     {
-        #region properties
-
         /// <summary>
         /// Set of the immediate successors.
         /// </summary>
@@ -23,10 +21,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
         /// Set of the immediate predecessors.
         /// </summary>
         ISet<T> IPredecessors { get; }
-
-        #endregion
-
-        #region methods
 
         /// <summary>
         /// Returns true if the node is a successor
@@ -43,7 +37,5 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
         /// <param name="node">INode</param>
         /// <returns>Boolean</returns>
         bool IsPredecessorOf(T node);
-
-        #endregion
     }
 }

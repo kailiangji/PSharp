@@ -19,8 +19,6 @@ namespace Microsoft.PSharp.LanguageServices
     /// </summary>
     public sealed class PSharpProject
     {
-        #region fields
-
         /// <summary>
         /// The compilation context.
         /// </summary>
@@ -45,10 +43,6 @@ namespace Microsoft.PSharp.LanguageServices
         /// Map from P# programs to syntax trees.
         /// </summary>
         internal Dictionary<IPSharpProgram, SyntaxTree> ProgramMap;
-
-        #endregion
-
-        #region API
 
         /// <summary>
         /// Constructor.
@@ -148,10 +142,6 @@ namespace Microsoft.PSharp.LanguageServices
             return result;
         }
 
-        #endregion
-
-        #region private methods
-
         /// <summary>
         /// Parses a P# syntax tree to C#.
         /// th
@@ -194,7 +184,5 @@ namespace Microsoft.PSharp.LanguageServices
         {
             program.Rewrite();
         }
-
-        #endregion
     }
 }

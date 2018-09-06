@@ -14,16 +14,10 @@ namespace Microsoft.PSharp
     /// </summary>
     internal sealed class ParsingProcess
     {
-        #region fields
-
         /// <summary>
         /// The compilation context.
         /// </summary>
         private CompilationContext CompilationContext;
-
-        #endregion
-
-        #region API
 
         /// <summary>
         /// Creates a P# parsing process.
@@ -50,10 +44,6 @@ namespace Microsoft.PSharp
             ParsingEngine.Create(this.CompilationContext, options).Run();
         }
 
-        #endregion
-
-        #region private methods
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -62,7 +52,5 @@ namespace Microsoft.PSharp
         {
             this.CompilationContext = context;
         }
-
-        #endregion
     }
 }

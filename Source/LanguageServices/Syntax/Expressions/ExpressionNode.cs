@@ -16,8 +16,6 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
     /// </summary>
     internal class ExpressionNode : PSharpSyntaxNode
     {
-        #region fields
-
         /// <summary>
         /// The block node.
         /// </summary>
@@ -37,10 +35,6 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
         /// The current index.
         /// </summary>
         private int Index;
-
-        #endregion
-
-        #region internal API
 
         /// <summary>
         /// Constructor.
@@ -81,10 +75,6 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
             base.TextUnit = new TextUnit(text, this.StmtTokens.First().TextUnit.Line);
         }
 
-        #endregion
-
-        #region protected API
-
         /// <summary>
         /// Rewrites the machine type.
         /// </summary>
@@ -103,10 +93,6 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
             var text = "this.Random()";
             this.RewrittenStmtTokens[this.Index] = new Token(new TextUnit(text, line));
         }
-
-        #endregion
-
-        #region private methods
 
         /// <summary>
         /// Rewrites the next token.
@@ -222,7 +208,5 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
 
             return;
         }
-
-        #endregion
     }
 }

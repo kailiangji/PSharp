@@ -11,8 +11,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
     /// </summary>
     public class GivenUpOwnershipSymbol
     {
-        #region fields
-
         /// <summary>
         /// Containing symbol.
         /// </summary>
@@ -22,10 +20,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
         /// Statement where the ownership is given up.
         /// </summary>
         public Statement Statement { get; }
-
-        #endregion
-
-        #region constructors
 
         /// <summary>
         /// Constructor.
@@ -38,7 +32,5 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
             this.ContainingSymbol = symbol;
             this.Statement = statement;
         }
-
-        #endregion
     }
 }

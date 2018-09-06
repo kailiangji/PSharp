@@ -12,8 +12,6 @@ namespace Microsoft.PSharp.LanguageServices.Tests.Unit
 {
     public class MachineTests
     {
-        #region correct tests
-
         [Fact]
         public void TestMachineDeclaration()
         {
@@ -138,10 +136,6 @@ namespace Foo
 }";
             LanguageTestUtilities.AssertRewritten(expected, test);
         }
-
-        #endregion
-
-        #region failure tests
 
         [Fact]
         public void TestMachineDeclarationWithoutState()
@@ -272,7 +266,5 @@ protected machine M { }
             Assert.Equal("A machine cannot be declared as protected.",
                 parser.GetParsingErrorLog());
         }
-
-        #endregion
     }
 }

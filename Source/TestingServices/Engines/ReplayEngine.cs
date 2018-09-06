@@ -109,7 +109,6 @@ namespace Microsoft.PSharp.TestingServices
         private ReplayEngine(Configuration configuration)
             : base(configuration)
         {
-
         }
 
         /// <summary>
@@ -120,7 +119,6 @@ namespace Microsoft.PSharp.TestingServices
         private ReplayEngine(Configuration configuration, Assembly assembly)
             : base(configuration, assembly)
         {
-
         }
 
         /// <summary>
@@ -131,7 +129,6 @@ namespace Microsoft.PSharp.TestingServices
         private ReplayEngine(Configuration configuration, Action<PSharpRuntime> action)
             : base(configuration, action)
         {
-
         }
 
         /// <summary>
@@ -171,7 +168,6 @@ namespace Microsoft.PSharp.TestingServices
                     {
                         runtime = new BugFindingRuntime(base.Configuration, base.Strategy, base.Reporter);
                     }
-
 
                     // If verbosity is turned off, then intercept the program log, and also redirect
                     // the standard output and error streams into the runtime logger.

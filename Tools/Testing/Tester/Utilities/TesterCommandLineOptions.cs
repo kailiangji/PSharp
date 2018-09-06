@@ -18,7 +18,6 @@ namespace Microsoft.PSharp.Utilities
         public TesterCommandLineOptions(string[] args)
             : base (args)
         {
-
         }
 
         /// <summary>

@@ -14,25 +14,15 @@ namespace Microsoft.PSharp.Utilities
     /// </summary>
     public sealed class ErrorReporter
     {
-        #region fields
-
         /// <summary>
         /// Configuration.
         /// </summary>
         private Configuration Configuration;
 
-        #endregion
-
-        #region properties
-
         /// <summary>
         /// The installed logger.
         /// </summary>
         internal ILogger Logger { get; set; }
-
-        #endregion
-
-        #region constructors
 
         /// <summary>
         /// Constructor.
@@ -44,10 +34,6 @@ namespace Microsoft.PSharp.Utilities
             this.Configuration = configuration;
             this.Logger = logger ?? new ConsoleLogger();
         }
-
-        #endregion
-
-        #region public methods
 
         /// <summary>
         /// Reports an error, followed by the current line terminator.
@@ -74,10 +60,6 @@ namespace Microsoft.PSharp.Utilities
             }
         }
 
-        #endregion
-
-        #region private methods
-
         /// <summary>
         /// Writes the specified string value.
         /// </summary>
@@ -99,7 +81,5 @@ namespace Microsoft.PSharp.Utilities
                 Console.ForegroundColor = previousForegroundColor;
             }
         }
-
-        #endregion
     }
 }

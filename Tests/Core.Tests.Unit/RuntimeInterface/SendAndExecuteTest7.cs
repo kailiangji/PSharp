@@ -26,8 +26,6 @@ namespace Microsoft.PSharp.Core.Tests.Unit
             }
         }
 
-
-
         class Harness : Machine
         {
             [Start]
@@ -47,7 +45,6 @@ namespace Microsoft.PSharp.Core.Tests.Unit
 
         class M : Machine
         {
-
             [Start]
             class Init : MachineState { }
         }

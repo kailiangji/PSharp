@@ -10,6 +10,5 @@ namespace Microsoft.PSharp
     /// </summary>
     internal abstract class EventActionHandler
     {
-
     }
 }

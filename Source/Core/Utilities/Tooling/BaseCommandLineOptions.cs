@@ -13,8 +13,6 @@ namespace Microsoft.PSharp.Utilities
     /// </summary>
     public abstract class BaseCommandLineOptions
     {
-        #region fields
-
         /// <summary>
         /// Configuration.
         /// </summary>
@@ -24,10 +22,6 @@ namespace Microsoft.PSharp.Utilities
         /// Command line options.
         /// </summary>
         protected string[] Options;
-
-        #endregion
-
-        #region public API
 
         /// <summary>
         /// Constructor.
@@ -54,10 +48,6 @@ namespace Microsoft.PSharp.Utilities
             this.UpdateConfiguration();
             return Configuration;
         }
-
-        #endregion
-
-        #region protected methods
 
         /// <summary>
         /// Parses the given option.
@@ -135,7 +125,5 @@ namespace Microsoft.PSharp.Utilities
         /// Shows help.
         /// </summary>
         protected abstract void ShowHelp();
-
-        #endregion
     }
 }

@@ -36,7 +36,6 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
 
         class N : M<int>
         {
-
         }
 
         [Fact]

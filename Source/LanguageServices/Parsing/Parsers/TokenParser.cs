@@ -17,8 +17,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
     /// </summary>
     public abstract class TokenParser : BaseParser, IParser
     {
-        #region fields
-
         /// <summary>
         /// List of original tokens.
         /// </summary>
@@ -38,10 +36,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
         /// The error log.
         /// </summary>
         protected StringBuilder ErrorLog;
-
-        #endregion
-
-        #region public API
 
         /// <summary>
         /// Constructor.
@@ -115,10 +109,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
             return this.ErrorLog.ToString();
         }
 
-        #endregion
-
-        #region protected API
-
         /// <summary>
         /// Parses the tokens.
         /// </summary>
@@ -187,7 +177,5 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
                 Error.ReportAndExit(this.ErrorLog.ToString());
             }
         }
-
-        #endregion
     }
 }

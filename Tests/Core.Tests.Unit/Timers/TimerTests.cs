@@ -3,7 +3,6 @@
 // Licensed under the MIT license. See LICENSE.txt in the repo root for full license information.
 // ------------------------------------------------------------------------------------------------
 
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,10 +16,8 @@ namespace Microsoft.PSharp.Core.Tests.Unit
 {
     public class TimerTests
     {
-		#region tests
-
-		// Test to check assertion failure when attempting to create a timer whose type does not extend Machine
-		[Fact]
+        // Test to check assertion failure when attempting to create a timer whose type does not extend Machine
+        [Fact]
 		public void ExceptionOnInvalidTimerTypeTest()
 		{
 			PSharpRuntime runtime = PSharpRuntime.Create();
@@ -79,7 +76,5 @@ namespace Microsoft.PSharp.Core.Tests.Unit
 			var result = await tcs.Task;
 			Assert.True(result);
 		}
-		#endregion
-
-	}
+    }
 }

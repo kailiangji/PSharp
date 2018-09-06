@@ -21,8 +21,6 @@ namespace Microsoft.PSharp
     /// </summary>
     public abstract class Machine : AbstractMachine
     {
-        #region static fields
-
         /// <summary>
         /// Is the machine state cached yet?
         /// </summary>
@@ -45,10 +43,6 @@ namespace Microsoft.PSharp
         /// available actions.
         /// </summary>
         private static ConcurrentDictionary<Type, Dictionary<string, MethodInfo>> MachineActionMap;
-
-        #endregion
-
-        #region fields
 
         /// <summary>
         /// A stack of machine states. The state on the top of
@@ -120,10 +114,6 @@ namespace Microsoft.PSharp
         /// (suppressing the exception)
         /// </summary>
         private bool OnExceptionRequestedGracefulHalt;
-
-        #endregion
-
-        #region properties
 
         /// <summary>
         /// The logger installed to the P# runtime.
@@ -203,10 +193,6 @@ namespace Microsoft.PSharp
             }
         }
 
-        #endregion
-
-        #region constructors
-
         /// <summary>
         /// Static constructor.
         /// </summary>
@@ -233,10 +219,6 @@ namespace Microsoft.PSharp
             this.IsPopInvoked = false;
             this.OnExceptionRequestedGracefulHalt = false;
         }
-
-        #endregion
-
-        #region P# user API
 
         /// <summary>
         /// Creates a new machine of the specified type and with the specified
@@ -585,10 +567,6 @@ namespace Microsoft.PSharp
             base.Runtime.Assert(predicate, s, args);
         }
 
-        #endregion
-
-        #region inbox accessing
-
         /// <summary>
         /// Enqueues the specified <see cref="EventInfo"/>.
         /// </summary>
@@ -749,10 +727,6 @@ namespace Microsoft.PSharp
             return new EventInfo(new Default(), new EventOriginInfo(
                 base.Id, this.GetType().Name, StateGroup.GetQualifiedStateName(this.CurrentState)));
         }
-
-        #endregion
-
-        #region event handling
 
         /// <summary>
         /// Runs the event handler. The handler terminates if there
@@ -1378,10 +1352,6 @@ namespace Microsoft.PSharp
                 this.PushTransitions.ContainsKey(typeof(Default));
         }
 
-        #endregion
-
-        #region state caching
-
         /// <summary>
         /// Returns the cached state of this machine.
         /// </summary>
@@ -1423,10 +1393,6 @@ namespace Microsoft.PSharp
                 return hash;
             }
         }
-
-        #endregion
-
-        #region initialization
 
         /// <summary>
         /// Transitions to the start state, and executes the
@@ -1589,10 +1555,6 @@ namespace Microsoft.PSharp
             this.AssertStateValidity();
         }
 
-        #endregion
-
-        #region utilities
-
         /// <summary>
         /// Returns the names of the events that the machine
         /// is waiting to receive. This is not thread safe.
@@ -1692,10 +1654,6 @@ namespace Microsoft.PSharp
             return method;
         }
 
-        #endregion
-
-        #region code coverage methods
-
         /// <summary>
         /// Returns the set of all states in the machine
         /// (for code coverage).
@@ -1746,10 +1704,6 @@ namespace Microsoft.PSharp
 
             return pairs;
         }
-
-        #endregion
-
-        #region error checking
 
         /// <summary>
         /// Check machine for state related errors.
@@ -1853,10 +1807,6 @@ namespace Microsoft.PSharp
             return OnExceptionOutcome.ThrowException;
         }
 
-        #endregion
-
-        #region cleanup methods
-
         /// <summary>
         /// Resets the static caches.
         /// </summary>
@@ -1897,7 +1847,5 @@ namespace Microsoft.PSharp
         /// User callback when a machine halts.
         /// </summary>
         protected virtual void OnHalt() { }
-
-        #endregion
     }
 }

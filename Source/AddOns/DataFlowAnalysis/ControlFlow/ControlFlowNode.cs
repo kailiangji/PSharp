@@ -16,8 +16,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
     /// </summary>
     internal class ControlFlowNode : IControlFlowNode
     {
-        #region fields
-
         /// <summary>
         /// The unique id of the node.
         /// </summary>
@@ -47,10 +45,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
         /// Set of the immediate predecessors.
         /// </summary>
         public ISet<IControlFlowNode> IPredecessors { get; private set; }
-
-        #endregion
-
-        #region constructors
 
         /// <summary>
         /// Constructor.
@@ -83,10 +77,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
             entryNode.Construct(entryNode.GetStatements(summary.Method.Body), null, null);
             return entryNode;
         }
-
-        #endregion
-
-        #region public methods
 
         /// <summary>
         /// Checks the node is a successor of the specified node.
@@ -130,10 +120,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
 
             return false;
         }
-
-        #endregion
-
-        #region private methods
 
         /// <summary>
         /// Constructs the control-flow graph of the node.
@@ -495,10 +481,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
             blockNode.IPredecessors.Add(this);
         }
 
-        #endregion
-
-        #region helper methods
-
         /// <summary>
         /// Returns a list containing all statements in the specified block.
         /// </summary>
@@ -514,15 +496,9 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
             return new List<StatementSyntax> { statement };
         }
 
-        #endregion
-
-        #region printing methods
-
         public override string ToString()
         {
             return $"{this.Id}";
         }
-
-        #endregion
     }
 }

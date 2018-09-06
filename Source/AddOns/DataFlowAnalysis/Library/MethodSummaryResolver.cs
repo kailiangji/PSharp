@@ -17,8 +17,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
     /// </summary>
     internal static class MethodSummaryResolver
     {
-        #region internal methods
-
         /// <summary>
         /// Returns all cached method summaries for the specified invocation.
         /// </summary>
@@ -42,10 +40,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
         {
             return MethodSummaryResolver.ResolveMethodSummaries(objCreation as ExpressionSyntax, node);
         }
-
-        #endregion
-
-        #region private methods
 
         /// <summary>
         /// Returns all cached method summaries for the specified call.
@@ -320,7 +314,5 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
 
             return candidateTypes;
         }
-
-        #endregion
     }
 }

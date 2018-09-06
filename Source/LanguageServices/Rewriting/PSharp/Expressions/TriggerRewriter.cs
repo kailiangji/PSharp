@@ -18,8 +18,6 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.PSharp
     /// </summary>
     internal sealed class TriggerRewriter : PSharpRewriter
     {
-        #region public API
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -27,7 +25,6 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.PSharp
         internal TriggerRewriter(IPSharpProgram program)
             : base(program)
         {
-
         }
 
         /// <summary>
@@ -51,10 +48,6 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.PSharp
             base.UpdateSyntaxTree(root.ToString());
         }
 
-        #endregion
-
-        #region private methods
-
         /// <summary>
         /// Rewrites the expression with a trigger expression.
         /// </summary>
@@ -68,7 +61,5 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.PSharp
 
             return rewritten;
         }
-
-        #endregion
     }
 }

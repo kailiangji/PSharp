@@ -9,8 +9,6 @@ namespace Microsoft.PSharp.StaticAnalysis.Tests.Unit
 {
     public class FieldGivenUpOwnershipTests : BaseTest
     {
-        #region failure tests
-
         [Fact]
         public void TestFieldGivenUpOwnership1Fail()
         {
@@ -240,7 +238,5 @@ class M : Machine
             configuration.DoStateTransitionAnalysis = false;
             base.AssertFailed(configuration, test, 3, isPSharpProgram: false);
         }
-
-        #endregion
     }
 }

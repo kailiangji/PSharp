@@ -10,14 +10,9 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
     /// </summary>
     public interface IAnalysisPass
     {
-        #region methods
-
         /// <summary>
         /// Runs the analysis.
         /// </summary>
         void Run();
-
-        #endregion
-
     }
 }

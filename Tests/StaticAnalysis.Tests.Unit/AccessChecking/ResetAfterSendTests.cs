@@ -9,8 +9,6 @@ namespace Microsoft.PSharp.StaticAnalysis.Tests.Unit
 {
     public class ResetAfterSendTests : BaseTest
     {
-        #region correct tests
-
         [Fact]
         public void TestResetGivenUpReferenceAfterSend1()
         {
@@ -369,7 +367,5 @@ class M : Machine
 }";
             base.AssertSucceeded(test, isPSharpProgram: false);
         }
-
-        #endregion
     }
 }

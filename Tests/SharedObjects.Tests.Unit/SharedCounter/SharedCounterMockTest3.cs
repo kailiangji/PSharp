@@ -41,7 +41,6 @@ namespace Microsoft.PSharp.SharedObjects.Tests.Unit
                 this.Send(n, new Done());
             }
 
-
         }
 
         class N : Machine

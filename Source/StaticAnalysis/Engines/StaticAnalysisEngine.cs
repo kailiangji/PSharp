@@ -20,8 +20,6 @@ namespace Microsoft.PSharp.StaticAnalysis
     /// </summary>
     public sealed class StaticAnalysisEngine
     {
-        #region fields
-
         /// <summary>
         /// The compilation context.
         /// </summary>
@@ -37,18 +35,10 @@ namespace Microsoft.PSharp.StaticAnalysis
         /// </summary>
         private Profiler Profiler;
 
-        #endregion
-
-        #region properties
-
         /// <summary>
         /// The error reporter.
         /// </summary>
         internal ErrorReporter ErrorReporter { get; private set; }
-
-        #endregion
-
-        #region public API
 
         /// <summary>
         /// Creates a P# static analysis engine.
@@ -108,10 +98,6 @@ namespace Microsoft.PSharp.StaticAnalysis
             return this;
         }
 
-        #endregion
-
-        #region constructors
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -124,10 +110,6 @@ namespace Microsoft.PSharp.StaticAnalysis
             this.Profiler = new Profiler();
             this.CompilationContext = context;
         }
-
-        #endregion
-
-        #region private methods
 
         /// <summary>
         /// Analyzes the given P# project.
@@ -254,7 +236,5 @@ namespace Microsoft.PSharp.StaticAnalysis
             context.RegisterGivesUpOwnershipMethod("Microsoft.PSharp.CreateMachine",
                 new HashSet<int> { 1 });
         }
-
-        #endregion
     }
 }

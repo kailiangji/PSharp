@@ -22,7 +22,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Syntax
         internal ArgumentsListVisitor(TokenStream tokenStream)
             : base(tokenStream)
         {
-
         }
 
         /// <summary>

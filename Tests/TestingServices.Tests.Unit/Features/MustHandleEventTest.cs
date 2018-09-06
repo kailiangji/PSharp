@@ -61,7 +61,6 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
 
             void InitOnEntry()
             {
-
             }
         }
 
@@ -74,7 +73,6 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
 
             void InitOnEntry()
             {
-
             }
         }
 
@@ -90,7 +88,6 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
 
             void InitOnEntry()
             {
-
             }
         }
 

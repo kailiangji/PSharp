@@ -20,13 +20,7 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.PSharp
     /// </summary>
     internal sealed class GenericTypeRewriter : PSharpRewriter
     {
-        #region fields
-
         private TypeNameQualifier typeNameQualifier = new TypeNameQualifier();
-
-        #endregion
-
-        #region public API
 
         /// <summary>
         /// Constructor.
@@ -55,10 +49,6 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.PSharp
             }
         }
 
-        #endregion
-
-        #region private methods
-
         /// <summary>
         /// Rewrites the type(s) to qualified names inside a list of generic type arguments.
         /// Primarily intended for the generic method Goto&lt;StateType&gt;().
@@ -76,7 +66,5 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.PSharp
             var rewritten = node.WithArguments(fakeGenericExpression.TypeArgumentList.Arguments);
             return rewritten;
         }
-
-        #endregion
     }
 }

@@ -12,8 +12,6 @@ namespace Microsoft.PSharp.Net
     /// </summary>
     internal class LocalNetworkProvider : INetworkProvider
     {
-        #region fields
-
         /// <summary>
         /// Instance of the P# runtime.
         /// </summary>
@@ -24,10 +22,6 @@ namespace Microsoft.PSharp.Net
         /// </summary>
         private string LocalEndpoint;
 
-        #endregion
-
-        #region constructors
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -37,10 +31,6 @@ namespace Microsoft.PSharp.Net
             this.Runtime = runtime;
             this.LocalEndpoint = string.Empty;
         }
-
-        #endregion
-
-        #region methods
 
         /// <summary>
         /// Creates a new remote machine of the specified type
@@ -82,7 +72,5 @@ namespace Microsoft.PSharp.Net
         /// Disposes the network provider.
         /// </summary>
         public void Dispose() { }
-
-        #endregion
     }
 }

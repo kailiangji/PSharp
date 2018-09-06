@@ -21,8 +21,6 @@ namespace Microsoft.PSharp.LanguageServices.Compilation
     /// </summary>
     public sealed class CompilationEngine
     {
-        #region fields
-
         /// <summary>
         /// The compilation context.
         /// </summary>
@@ -42,10 +40,6 @@ namespace Microsoft.PSharp.LanguageServices.Compilation
         /// Map from project names to output directories.
         /// </summary>
         private Dictionary<string, string> OutputDirectoryMap;
-
-        #endregion
-
-        #region public API
 
         /// <summary>
         /// Creates a P# compilation engine.
@@ -113,10 +107,6 @@ namespace Microsoft.PSharp.LanguageServices.Compilation
             this.LinkAssemblyToAllProjects(typeof(Machine).Assembly, "Microsoft.PSharp.dll");
         }
 
-        #endregion
-
-        #region constructor methods
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -127,10 +117,6 @@ namespace Microsoft.PSharp.LanguageServices.Compilation
             this.CompilationContext = context;
             this.Logger = logger;
         }
-
-        #endregion
-
-        #region compilation methods
 
         /// <summary>
         /// Compiles the given compilation to a file.
@@ -284,10 +270,6 @@ namespace Microsoft.PSharp.LanguageServices.Compilation
             }
         }
 
-        #endregion
-
-        #region linking methods
-
         /// <summary>
         /// Links the solution project assemblies to the given P# project.
         /// </summary>
@@ -387,7 +369,5 @@ namespace Microsoft.PSharp.LanguageServices.Compilation
                 Debug.WriteLine("... Unable to copy {0}", src);
             }
         }
-
-        #endregion
     }
 }

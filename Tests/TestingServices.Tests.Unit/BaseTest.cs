@@ -16,8 +16,6 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
 {
     public abstract class BaseTest
     {
-        #region successful tests
-
         protected void AssertSucceeded(Action<PSharpRuntime> test)
         {
             var configuration = GetConfiguration();
@@ -46,10 +44,6 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
                 logger.Dispose();
             }
         }
-
-        #endregion
-
-        #region tests that fail an assertion
 
         protected void AssertFailed(Action<PSharpRuntime> test, int numExpectedErrors, bool replay)
         {
@@ -141,10 +135,6 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
             Assert.True(expectedOutputFunc(bugReports));
         }
 
-        #endregion
-
-        #region tests that throw an exception
-
         protected void AssertFailedWithException(Action<PSharpRuntime> test, Type exceptionType, bool replay)
         {
             var configuration = GetConfiguration();
@@ -196,10 +186,6 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
             Assert.Contains("'" + exceptionType.ToString() + "'", exception);
         }
 
-        #endregion
-
-        #region utilities
-
         protected Configuration GetConfiguration()
         {
             return Configuration.Create();
@@ -222,7 +208,5 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
             result = Regex.Replace(result, @"\([0-9]+\)", "()");
             return result;
         }
-
-        #endregion
     }
 }

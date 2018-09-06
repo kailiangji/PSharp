@@ -16,7 +16,6 @@ namespace Microsoft.PSharp.Utilities
         public ReplayerCommandLineOptions(string[] args)
             : base (args)
         {
-
         }
 
         /// <summary>

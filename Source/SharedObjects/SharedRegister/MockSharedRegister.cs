@@ -36,7 +36,6 @@ namespace Microsoft.PSharp.SharedObjects
             Runtime.SendEvent(registerMachine, SharedRegisterEvent.SetEvent(value));
         }
 
-
         /// <summary>
         /// Reads and updates the register.
         /// </summary>

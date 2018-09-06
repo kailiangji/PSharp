@@ -22,7 +22,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Syntax
         public AttributeListVisitor(TokenStream tokenStream)
             : base(tokenStream)
         {
-
         }
 
         /// <summary>

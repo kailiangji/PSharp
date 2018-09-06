@@ -14,16 +14,10 @@ namespace Microsoft.PSharp
     /// </summary>
     internal static class MachineFactory
     {
-        #region static fields
-
         /// <summary>
         /// Cache storing machine constructors.
         /// </summary>
         private static Dictionary<Type, Func<Machine>> MachineConstructorCache;
-
-        #endregion
-
-        #region constructors
 
         /// <summary>
         /// Static constructor.
@@ -32,10 +26,6 @@ namespace Microsoft.PSharp
         {
             MachineConstructorCache = new Dictionary<Type, Func<Machine>>();
         }
-
-        #endregion
-
-        #region methods
 
         /// <summary>
         /// Creates a new P# machine of the specified type.
@@ -70,7 +60,5 @@ namespace Microsoft.PSharp
                 return MachineConstructorCache.ContainsKey(type);
             }
         }
-
-        #endregion
     }
 }

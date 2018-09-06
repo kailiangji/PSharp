@@ -12,8 +12,6 @@ namespace Microsoft.PSharp.TestingServices
     /// </summary>
     internal static class TestingPortfolio
     {
-        #region internal methods
-
         /// <summary>
         /// Configures the testing strategy for the current
         /// testing process.
@@ -42,7 +40,5 @@ namespace Microsoft.PSharp.TestingServices
                 configuration.PrioritySwitchBound = 5 * (int)((configuration.TestingProcessId + 1)/ 2);
             }
         }
-
-        #endregion
     }
 }

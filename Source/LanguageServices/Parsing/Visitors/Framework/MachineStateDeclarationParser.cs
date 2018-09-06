@@ -18,8 +18,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Framework
     /// </summary>
     internal sealed class MachineStateDeclarationParser : BaseStateVisitor
     {
-        #region public API
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -30,12 +28,7 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Framework
             List<Tuple<SyntaxToken, string>> warningLog)
             : base(project, errorLog, warningLog)
         {
-
         }
-
-        #endregion
-
-        #region protected API
 
         /// <summary>
         /// Returns true if the given class declaration is a state.
@@ -68,10 +61,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Framework
             this.CheckForLivenessAttribute(state, compilation);
         }
 
-        #endregion
-
-        #region private methods
-
         /// <summary>
         /// Checks that a state does not have a liveness attribute.
         /// </summary>
@@ -97,7 +86,5 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Framework
                     "a liveness attribute."));
             }
         }
-
-        #endregion
     }
 }

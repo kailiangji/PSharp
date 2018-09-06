@@ -9,8 +9,6 @@ namespace Microsoft.PSharp.LanguageServices.Tests.Unit
 {
     public class MachineStateInheritanceTests
     {
-        #region correct tests
-
         [Fact]
         public void TestAbstractBaseStateWithOnEventDeclaration()
         {
@@ -559,11 +557,6 @@ namespace Foo
             LanguageTestUtilities.AssertRewritten(expected, test);
         }
 
-
-        #endregion
-
-        #region failure tests
-
         [Fact]
         public void TestOnlyOneStartState()
         {
@@ -580,9 +573,6 @@ namespace Foo {
             LanguageTestUtilities.AssertFailedTestLog("A machine can declare only a single start state.", test);
         }
 
-        #endregion
-
-        #region utility methods
         private string ReplaceEntryWithExitInTest(string test)
         {
             return test.Replace("entry {", "exit {").Replace("entry{", "exit{");
@@ -599,6 +589,5 @@ namespace Foo {
             LanguageTestUtilities.AssertRewritten(expected, test);
             LanguageTestUtilities.AssertRewritten(ReplaceEntryWithExitInExpected(expected), ReplaceEntryWithExitInTest(test));
         }
-        #endregion
     }
 }

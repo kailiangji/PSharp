@@ -13,8 +13,6 @@ namespace Microsoft.PSharp.LanguageServices.Tests.Unit
 {
     public class RewritingTests
     {
-        #region failure tests
-
         [Fact]
         public void TestDuplicateStatesAndJump()
         {
@@ -48,7 +46,5 @@ state S2 {
 
             Assert.True(exception_hit, "expected exception was not hit");
         }
-
-        #endregion
     }
 }

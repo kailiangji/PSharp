@@ -18,8 +18,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Framework
     /// </summary>
     internal abstract class BaseStateVisitor : BaseVisitor
     {
-        #region public API
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -30,7 +28,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Framework
             List<Tuple<SyntaxToken, string>> warningLog)
             : base(project, errorLog, warningLog)
         {
-
         }
 
         /// <summary>
@@ -62,10 +59,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Framework
             }
         }
 
-        #endregion
-
-        #region protected API
-
         /// <summary>
         /// Returns true if the given class declaration is a state.
         /// </summary>
@@ -88,10 +81,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Framework
         /// <param name="compilation">Compilation</param>
         protected abstract void CheckForSpecialProperties(ClassDeclarationSyntax state,
             CodeAnalysis.Compilation compilation);
-
-        #endregion
-
-        #region private methods
 
         /// <summary>
         /// Checks that no fields are declared inside the state.
@@ -398,7 +387,5 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Framework
 
             }
         }
-
-        #endregion
     }
 }

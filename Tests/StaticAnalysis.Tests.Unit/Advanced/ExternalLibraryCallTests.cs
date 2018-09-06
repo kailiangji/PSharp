@@ -9,8 +9,6 @@ namespace Microsoft.PSharp.StaticAnalysis.Tests.Unit
 {
     public class ExternalLibraryCallTests : BaseTest
     {
-        #region failure tests
-
         [Fact]
         public void TestExternalLibraryCallFail()
         {
@@ -64,7 +62,5 @@ class M : Machine
                 "   at 'this.Send(this.Target, new eUnit(letter));' in Program.cs:line 38";
             base.AssertWarning(test, 1, warning, isPSharpProgram: false);
         }
-
-        #endregion
     }
 }

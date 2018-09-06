@@ -12,16 +12,10 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
     /// </summary>
     public sealed class RewritingEngine
     {
-        #region fields
-
         /// <summary>
         /// The compilation context.
         /// </summary>
         private CompilationContext CompilationContext;
-
-        #endregion
-
-        #region public API
 
         /// <summary>
         /// Creates a P# rewriting engine.
@@ -48,10 +42,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
             return this;
         }
 
-        #endregion
-
-        #region private methods
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -60,7 +50,5 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
         {
             this.CompilationContext = context;
         }
-
-        #endregion
     }
 }

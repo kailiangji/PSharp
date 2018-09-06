@@ -108,7 +108,6 @@ namespace Microsoft.PSharp.SharedObjects
             }
         }
 
-
         /// <summary>
         /// Removes the specified key from the dictionary.
         /// </summary>

@@ -10,8 +10,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
     /// </summary>
     public sealed class ParsingOptions
     {
-        #region fields
-
         /// <summary>
         /// The parser should exit when it
         /// finds an error.
@@ -34,10 +32,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
         /// </summary>
         internal bool SkipErrorChecking;
 
-        #endregion
-
-        #region constructors
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -48,10 +42,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
             this.ThrowParsingException = true;
             this.SkipErrorChecking = false;
         }
-
-        #endregion
-
-        #region public methods
 
         /// <summary>
         /// Creates an instance of the default
@@ -142,7 +132,5 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
             this.SkipErrorChecking = false;
             return this;
         }
-
-        #endregion
     }
 }

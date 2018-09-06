@@ -19,7 +19,6 @@ namespace Microsoft.PSharp
         public Default()
             : base()
         {
-
         }
     }
 }

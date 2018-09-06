@@ -11,9 +11,7 @@ using System.Threading.Tasks;
 
 namespace Microsoft.PSharp.Timers
 {
-
-	#region internal events
-	class InitTimer : Event
+    class InitTimer : Event
 	{
 		/// <summary>
 		/// Id of the machine creating the timer.
@@ -81,9 +79,7 @@ namespace Microsoft.PSharp.Timers
             this.flush = flush;
         }
     }
-    #endregion
 
-    #region public events
     /// <summary>
     /// Timeout event sent by the timer.
     /// </summary>
@@ -103,6 +99,4 @@ namespace Microsoft.PSharp.Timers
             this.Tid = tid;
 		}
 	}
-
-	#endregion
 }

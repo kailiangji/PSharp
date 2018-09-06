@@ -19,8 +19,6 @@ namespace Microsoft.PSharp
     /// </summary>
     class Program
     {
-        #region fields
-
         /// <summary>
         /// Input coverage info.
         /// </summary>
@@ -30,8 +28,6 @@ namespace Microsoft.PSharp
         /// Output file prefix.
         /// </summary>
         static string OutputFilePrefix;
-
-        #endregion
 
         static void Main(string[] args)
         {
@@ -70,7 +66,6 @@ namespace Microsoft.PSharp
             Output.WriteLine($"... Writing {coverageFilePath}");
             activityCoverageReporter.EmitCoverageReport(coverageFilePath);
         }
-
 
         /// <summary>
         /// Parses the arguments.

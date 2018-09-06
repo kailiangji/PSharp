@@ -13,8 +13,6 @@ namespace Microsoft.PSharp
     /// </summary>
     internal class MachineInfo
     {
-        #region fields
-
         /// <summary>
         /// Unique id of the machine.
         /// </summary>
@@ -52,10 +50,6 @@ namespace Microsoft.PSharp
         /// </summary>
         internal int ProgramCounter;
 
-        #endregion
-
-        #region properties
-
         /// <summary>
         /// Unique id of the machine.
         /// </summary>
@@ -65,10 +59,6 @@ namespace Microsoft.PSharp
         /// Name of the machine.
         /// </summary>
         public string Name => MachineId.Name;
-
-        #endregion
-
-        #region constructors
 
         /// <summary>
         /// Constructor.
@@ -84,10 +74,6 @@ namespace Microsoft.PSharp
             OperationGroupId = Guid.Empty;
             ProgramCounter = 0;
         }
-
-        #endregion
-
-        #region generic public and override methods
 
         /// <summary>
         /// Determines whether the specified System.Object is equal
@@ -128,7 +114,5 @@ namespace Microsoft.PSharp
         {
             return MachineId.Name;
         }
-
-        #endregion
     }
 }

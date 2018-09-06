@@ -24,8 +24,6 @@ namespace Microsoft.PSharp.TestingServices
     /// </summary>
     internal sealed class BugFindingRuntime : PSharpRuntime
     {
-        #region fields
-
         /// <summary>
         /// The bug-finding scheduler.
         /// </summary>
@@ -87,10 +85,6 @@ namespace Microsoft.PSharp.TestingServices
         /// </summary>
         internal bool startEventHandlerCalled;
 
-        #endregion
-
-        #region initialization
-
         /// <summary>
         /// Constructor.
         /// <param name="configuration">Configuration</param>
@@ -151,10 +145,6 @@ namespace Microsoft.PSharp.TestingServices
             this.RootTaskId = Task.CurrentId;
             this.AllCreatedMachineIds = new HashSet<MachineId>();
         }
-
-        #endregion
-
-        #region runtime interface
 
         /// <summary>
         /// Creates a new machine of the specified type and with
@@ -443,10 +433,6 @@ namespace Microsoft.PSharp.TestingServices
         {
             base.IsRunning = false;
         }
-
-        #endregion
-
-        #region internal methods
 
         /// <summary>
         /// Runs the specified test method inside a test harness machine.
@@ -867,10 +853,6 @@ namespace Microsoft.PSharp.TestingServices
             base.IsRunning = false;
         }
 
-        #endregion
-
-        #region Timers
-
         /// <summary>
         /// Return the timer machine type
         /// </summary>
@@ -885,10 +867,6 @@ namespace Microsoft.PSharp.TestingServices
 
             return timerType;
         }
-
-        #endregion
-
-        #region specifications and error checking
 
         /// <summary>
         /// Tries to create a new monitor of the given type.
@@ -1057,10 +1035,6 @@ namespace Microsoft.PSharp.TestingServices
             }
         }
 
-        #endregion
-
-        #region nondeterministic choices
-
         /// <summary>
         /// Returns a nondeterministic boolean choice, that can be
         /// controlled during analysis or testing.
@@ -1134,10 +1108,6 @@ namespace Microsoft.PSharp.TestingServices
 
             return choice;
         }
-
-        #endregion
-
-        #region notifications
 
         /// <summary>
         /// Notifies that a machine entered a state.
@@ -1434,10 +1404,6 @@ namespace Microsoft.PSharp.TestingServices
             this.Scheduler.Schedule(OperationType.Receive, OperationTargetType.Inbox, machine.Info.Id);
         }
 
-        #endregion
-
-        #region code coverage
-
         /// <summary>
         /// Reports coverage for the specified received event.
         /// </summary>
@@ -1616,10 +1582,6 @@ namespace Microsoft.PSharp.TestingServices
             this.CoverageInfo.AddTransition(originMachine, originState, edgeLabel, destMachine, destState);
         }
 
-        #endregion
-
-        #region utilities
-
         /// <summary>
         /// Gets the currently executing <see cref="Machine"/>.
         /// </summary>
@@ -1679,10 +1641,6 @@ namespace Microsoft.PSharp.TestingServices
             return fingerprint;
         }
 
-        #endregion
-
-        #region logging
-
         /// <summary>
         /// Logs the specified text.
         /// </summary>
@@ -1692,10 +1650,6 @@ namespace Microsoft.PSharp.TestingServices
         {
             base.Logger.WriteLine(format, args);
         }
-
-        #endregion
-
-        #region exceptions
 
         /// <summary>
         /// Throws an <see cref="AssertionFailureException"/> exception
@@ -1710,10 +1664,6 @@ namespace Microsoft.PSharp.TestingServices
             this.Scheduler.NotifyAssertionFailure(message);
         }
 
-        #endregion
-
-        #region cleanup
-
         /// <summary>
         /// Disposes runtime resources.
         /// </summary>
@@ -1724,7 +1674,5 @@ namespace Microsoft.PSharp.TestingServices
             this.TaskMap.Clear();
             base.Dispose();
         }
-
-        #endregion
     }
 }

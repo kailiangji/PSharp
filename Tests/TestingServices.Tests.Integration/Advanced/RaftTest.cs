@@ -116,7 +116,6 @@ namespace Microsoft.PSharp.TestingServices.Tests.Integration
                 [DeferEvents(typeof(Client.Request))]
                 public class Unavailable : MachineState { }
 
-
                 [OnEventDoAction(typeof(Client.Request), nameof(SendClientRequestToLeader))]
                 [OnEventDoAction(typeof(RedirectRequest), nameof(RedirectClientRequest))]
                 [OnEventDoAction(typeof(NotifyLeaderUpdate), nameof(RefreshLeader))]
@@ -130,7 +129,6 @@ namespace Microsoft.PSharp.TestingServices.Tests.Integration
                 this.UpdateLeader(this.ReceivedEvent as NotifyLeaderUpdate);
                 this.Raise(new LocalEvent());
             }
-
 
             void SendClientRequestToLeader()
             {
@@ -149,7 +147,6 @@ namespace Microsoft.PSharp.TestingServices.Tests.Integration
 
             void BecomeUnavailable()
             {
-
             }
 
             void ShuttingDown()

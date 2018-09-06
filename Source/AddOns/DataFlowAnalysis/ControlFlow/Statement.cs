@@ -10,8 +10,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
     /// </summary>
     public class Statement
     {
-        #region fields
-
         /// <summary>
         /// The syntax node of the statement.
         /// </summary>
@@ -29,10 +27,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
         /// </summary>
         public MethodSummary Summary { get; }
 
-        #endregion
-
-        #region constructors
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -46,10 +40,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
             this.ControlFlowNode = node;
             this.Summary = summary;
         }
-
-        #endregion
-
-        #region public methods
 
         /// <summary>
         /// Creates a new statement.
@@ -139,7 +129,5 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
         {
             return "[" + this.SyntaxNode + "]::[cfg::" + this.ControlFlowNode + "]";
         }
-
-        #endregion
     }
 }

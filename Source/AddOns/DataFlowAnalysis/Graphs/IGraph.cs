@@ -14,8 +14,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
     /// </summary>
     public interface IGraph<T> where T : INode, ITraversable<T>
     {
-        #region properties
-
         /// <summary>
         /// The entry node of the graph.
         /// </summary>
@@ -25,10 +23,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
         /// Set of nodes in the graph.
         /// </summary>
         ISet<T> Nodes { get; }
-
-        #endregion
-
-        #region methods
 
         /// <summary>
         /// Checks if the node is a successor of the specified node.
@@ -58,7 +52,5 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
         /// Pretty prints the graph.
         /// </summary>
         void PrettyPrint();
-
-        #endregion
     }
 }

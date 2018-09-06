@@ -16,8 +16,6 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
     /// </summary>
     internal sealed class NamespaceDeclaration : PSharpSyntaxNode
     {
-        #region fields
-
         /// <summary>
         /// The namespace keyword.
         /// </summary>
@@ -59,10 +57,6 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
                     Aggregate(string.Empty, (acc, name) => acc + name);
             }
         }
-
-        #endregion
-
-        #region internal API
 
         /// <summary>
         /// Constructor.
@@ -116,10 +110,6 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
             base.TextUnit = new TextUnit(text, this.NamespaceKeyword.TextUnit.Line);
         }
 
-        #endregion
-
-        #region private methods
-
         /// <summary>
         /// Returns the rewritten namespace declaration.
         /// </summary>
@@ -144,7 +134,5 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
             }
             return text;
         }
-
-        #endregion
     }
 }

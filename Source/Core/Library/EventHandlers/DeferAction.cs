@@ -10,6 +10,5 @@ namespace Microsoft.PSharp
     /// </summary>
     internal sealed class DeferAction : EventActionHandler
     {
-
     }
 }

@@ -13,25 +13,15 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.CSharp
     /// </summary>
     public abstract class CSharpRewriter
     {
-        #region fields
-
         /// <summary>
         /// The P# program.
         /// </summary>
         protected IPSharpProgram Program;
 
-        #endregion
-
-        #region internal methods
-
         /// <summary>
         /// Rewrites the program.
         /// </summary>
         public abstract void Rewrite();
-
-        #endregion
-
-        #region protected methods
 
         /// <summary>
         /// Constructor.
@@ -79,10 +69,6 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.CSharp
             return false;
         }
 
-        #endregion
-
-        #region private methods
-
         /// <summary>
         /// Returns true if the given symbol is the expected one.
         /// </summary>
@@ -102,7 +88,5 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.CSharp
 
             return false;
         }
-
-        #endregion
     }
 }

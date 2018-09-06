@@ -22,7 +22,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Syntax
         internal MachineMethodDeclarationVisitor(TokenStream tokenStream)
             : base(tokenStream)
         {
-
         }
 
         /// <summary>

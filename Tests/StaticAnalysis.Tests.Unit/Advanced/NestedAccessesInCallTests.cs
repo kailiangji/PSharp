@@ -9,8 +9,6 @@ namespace Microsoft.PSharp.StaticAnalysis.Tests.Unit
 {
     public class NestedAccessesInCallTests : BaseTest
     {
-        #region failure tests
-
         [Fact]
         public void TestNestedAccessesInCall1Fail()
         {
@@ -214,7 +212,5 @@ class M : Machine
                 "accesses 'letter' after giving up its ownership.";
             base.AssertFailed(test, 1, error, isPSharpProgram: false);
         }
-
-        #endregion
     }
 }

@@ -69,7 +69,6 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
 
             void Handle()
             {
-
             }
         }
 

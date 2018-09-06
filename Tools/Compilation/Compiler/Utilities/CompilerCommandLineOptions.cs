@@ -9,8 +9,6 @@ namespace Microsoft.PSharp.Utilities
 {
     public sealed class CompilerCommandLineOptions : BaseCommandLineOptions
     {
-        #region public API
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -18,12 +16,7 @@ namespace Microsoft.PSharp.Utilities
         public CompilerCommandLineOptions(string[] args)
             : base (args)
         {
-
         }
-
-        #endregion
-
-        #region protected methods
 
         /// <summary>
         /// Parses the given option.
@@ -184,7 +177,5 @@ namespace Microsoft.PSharp.Utilities
 
             Output.WriteLine(help);
         }
-
-        #endregion
     }
 }

@@ -9,8 +9,6 @@ namespace Microsoft.PSharp.LanguageServices.Tests.Unit
 {
     public class EventInheritanceTests
     {
-        #region correct tests
-
         [Fact]
         public void NoPayloadOnEither()
         {
@@ -587,10 +585,6 @@ namespace Foo
             LanguageTestUtilities.AssertRewritten(expected, test);
         }
 
-        #endregion correct tests
-
-        #region failure tests
-
         [Fact]
         public void BaseEventClassNotDeclared()
         {
@@ -701,7 +695,5 @@ namespace Foo {
 }";
             LanguageTestUtilities.AssertFailedTestLog("Mismatch in number of generic type arguments for base event E1.", test);
         }
-
-        #endregion failure tests
     }
 }

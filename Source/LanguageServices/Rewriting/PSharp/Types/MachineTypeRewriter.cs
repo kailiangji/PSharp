@@ -18,8 +18,6 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.PSharp
     /// </summary>
     internal sealed class MachineTypeRewriter : PSharpRewriter
     {
-        #region public API
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -27,7 +25,6 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.PSharp
         internal MachineTypeRewriter(IPSharpProgram program)
             : base(program)
         {
-
         }
 
         /// <summary>
@@ -51,10 +48,6 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.PSharp
             base.UpdateSyntaxTree(root.ToString());
         }
 
-        #endregion
-
-        #region private methods
-
         /// <summary>
         /// Rewrites the type with a machine type.
         /// </summary>
@@ -69,7 +62,5 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.PSharp
 
             return rewritten;
         }
-
-        #endregion
     }
 }

@@ -16,16 +16,10 @@ namespace Microsoft.PSharp
     /// </summary>
     internal sealed class StateMachineRuntime : PSharpRuntime
     {
-        #region fields
-
         /// <summary>
         /// List of monitors in the program.
         /// </summary>
         private List<Monitor> Monitors;
-
-        #endregion
-
-        #region initialization
 
         /// <summary>
         /// Constructor.
@@ -53,10 +47,6 @@ namespace Microsoft.PSharp
         {
             this.Monitors = new List<Monitor>();
         }
-
-        #endregion
-
-        #region runtime interface
 
         /// <summary>
         /// Creates a new machine of the specified <see cref="Type"/> and with
@@ -286,10 +276,6 @@ namespace Microsoft.PSharp
         {
             base.IsRunning = false;
         }
-
-        #endregion
-
-        #region state-machine execution
 
         /// <summary>
         /// Creates a new <see cref="Machine"/> of the specified <see cref="Type"/>.
@@ -521,10 +507,6 @@ namespace Microsoft.PSharp
             }
         }
 
-        #endregion
-
-        #region Timers
-
         /// <summary>
         /// Return the timer machine type
         /// </summary>
@@ -539,10 +521,6 @@ namespace Microsoft.PSharp
 
             return timerType;
         }
-
-        #endregion
-
-        #region specifications and error checking
 
         /// <summary>
         /// Tries to create a new <see cref="PSharp.Monitor"/> of the specified <see cref="Type"/>.
@@ -612,10 +590,6 @@ namespace Microsoft.PSharp
             }
         }
 
-        #endregion
-
-        #region nondeterministic choices
-
         /// <summary>
         /// Returns a nondeterministic boolean choice, that can be
         /// controlled during analysis or testing.
@@ -666,10 +640,6 @@ namespace Microsoft.PSharp
 
             return result;
         }
-
-        #endregion
-
-        #region notifications
 
         /// <summary>
         /// Notifies that a machine entered a state.
@@ -848,10 +818,6 @@ namespace Microsoft.PSharp
             this.MachineMap.TryRemove(machine.Id, out machine);
         }
 
-        #endregion
-
-        #region cleanup
-
         /// <summary>
         /// Disposes runtime resources.
         /// </summary>
@@ -861,7 +827,5 @@ namespace Microsoft.PSharp
             this.MachineMap.Clear();
             base.Dispose();
         }
-
-        #endregion
     }
 }

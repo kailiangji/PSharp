@@ -15,34 +15,23 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
 {
     public class IllegalPeriodTest : BaseTest
     {
-		#region check illegal period specification
-		private class T4 : TimedMachine
+        private class T4 : TimedMachine
 		{
-			#region fields
+            object payload = new object();
 
-			object payload = new object();
-
-			#endregion
-
-			#region states
-			[Start]
+            [Start]
 			[OnEntry(nameof(Initialize))]
 			class Init : MachineState { }
-			#endregion
 
-			#region handlers
-			async Task Initialize()
+            async Task Initialize()
 			{
 				// Incorrect period, will throw assertion violation
 				TimerId tid = this.StartTimer(payload, -1, true);
 				await this.StopTimer(tid, flush: true);
 			}
-			#endregion
-		}
-		#endregion
+        }
 
-		#region test
-		[Fact]
+        [Fact]
 		public void IllegalTimerStopTest()
 		{
 			var config = Configuration.Create().WithNumberOfIterations(1000);
@@ -53,6 +42,5 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
 			});
 			base.AssertFailed(test, 1, true);
 		}
-		#endregion
-	}
+    }
 }

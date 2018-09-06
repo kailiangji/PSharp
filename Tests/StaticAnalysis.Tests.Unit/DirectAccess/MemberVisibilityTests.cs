@@ -9,8 +9,6 @@ namespace Microsoft.PSharp.StaticAnalysis.Tests.Unit
 {
     public class MemberVisibilityTests : BaseTest
     {
-        #region correct tests
-
         [Fact]
         public void TestMemberVisibility()
         {
@@ -32,10 +30,6 @@ class M : Machine
 }";
             base.AssertSucceeded(test, isPSharpProgram: false);
         }
-
-        #endregion
-
-        #region failure tests
 
         [Fact]
         public void TestPublicFieldVisibility()
@@ -88,7 +82,5 @@ class M : Machine
                 "declared as 'public'.   at 'FirstOnEntryAction' in Program.cs:line 13";
             base.AssertWarning(test, 1, error, isPSharpProgram: false);
         }
-
-        #endregion
     }
 }

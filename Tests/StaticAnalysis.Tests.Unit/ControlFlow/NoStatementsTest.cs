@@ -9,8 +9,6 @@ namespace Microsoft.PSharp.StaticAnalysis.Tests.Unit
 {
     public class NoStatementsTest : BaseTest
     {
-        #region correct tests
-
         [Fact]
         public void TestNoStatements()
         {
@@ -32,7 +30,5 @@ class M : Machine
 }";
             base.AssertSucceeded(test, isPSharpProgram: false);
         }
-
-        #endregion
     }
 }

@@ -18,8 +18,6 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.PSharp
     /// </summary>
     internal sealed class SendRewriter : PSharpRewriter
     {
-        #region public API
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -27,7 +25,6 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.PSharp
         internal SendRewriter(IPSharpProgram program)
             : base(program)
         {
-
         }
 
         /// <summary>
@@ -51,10 +48,6 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.PSharp
 
             base.UpdateSyntaxTree(root.ToString());
         }
-
-        #endregion
-
-        #region private methods
 
         /// <summary>
         /// Rewrites the statement with a send statement.
@@ -90,7 +83,5 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.PSharp
 
             return rewritten;
         }
-
-        #endregion
     }
 }

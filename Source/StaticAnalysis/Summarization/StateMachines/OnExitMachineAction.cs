@@ -13,8 +13,6 @@ namespace Microsoft.PSharp.StaticAnalysis
     /// </summary>
     internal sealed class OnExitMachineAction : MachineAction
     {
-        #region constructors
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -25,9 +23,6 @@ namespace Microsoft.PSharp.StaticAnalysis
             AnalysisContext context)
             : base(methodDecl, state, context)
         {
-
         }
-
-        #endregion
     }
 }

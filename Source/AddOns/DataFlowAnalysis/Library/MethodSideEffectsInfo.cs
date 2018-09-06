@@ -14,8 +14,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
     /// </summary>
     public sealed class MethodSideEffectsInfo
     {
-        #region fields
-
         /// <summary>
         /// Method summary that contains these side-effects.
         /// </summary>
@@ -61,10 +59,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
         /// </summary>
         public ISet<int> GivesUpOwnershipParamIndexes;
 
-        #endregion
-
-        #region constructors
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -80,10 +74,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
             this.ReturnTypes = new HashSet<ITypeSymbol>();
             this.GivesUpOwnershipParamIndexes = new HashSet<int>();
         }
-
-        #endregion
-
-        #region internal methods
 
         /// <summary>
         /// Resolves and returns all possible return symbols at
@@ -111,7 +101,5 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
 
             return returnSymbols;
         }
-
-        #endregion
     }
 }

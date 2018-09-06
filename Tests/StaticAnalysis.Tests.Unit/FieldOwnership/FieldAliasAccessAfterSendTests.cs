@@ -9,8 +9,6 @@ namespace Microsoft.PSharp.StaticAnalysis.Tests.Unit
 {
     public class FieldAliasAccessAfterSendTests : BaseTest
     {
-        #region failure tests
-
         [Fact]
         public void TestFieldAliasAccessAfterSend1Fail()
         {
@@ -128,7 +126,5 @@ class M : Machine
             configuration.DoStateTransitionAnalysis = false;
             base.AssertFailed(configuration, test, 2, isPSharpProgram: false);
         }
-
-        #endregion
     }
 }

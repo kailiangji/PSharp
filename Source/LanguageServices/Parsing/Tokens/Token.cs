@@ -10,8 +10,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
     /// </summary>
     public sealed class Token
     {
-        #region fields
-
         /// <summary>
         /// The text unit that this token represents.
         /// </summary>
@@ -26,10 +24,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
         /// The type of this token.
         /// </summary>
         public readonly TokenType Type;
-
-        #endregion
-
-        #region public API
 
         /// <summary>
         /// Constructor. By default the type of the token is None.
@@ -74,7 +68,5 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
             this.Text = unit.Text;
             this.Type = type;
         }
-
-        #endregion
     }
 }

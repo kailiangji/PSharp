@@ -20,8 +20,6 @@ namespace Microsoft.PSharp.StaticAnalysis
     /// </summary>
     internal sealed class RespectsOwnershipAnalysisPass : OwnershipAnalysisPass
     {
-        #region internal API
-
         /// <summary>
         /// Creates a new respects ownership analysis pass.
         /// </summary>
@@ -35,10 +33,6 @@ namespace Microsoft.PSharp.StaticAnalysis
         {
             return new RespectsOwnershipAnalysisPass(context, configuration, logger, errorReporter);
         }
-
-        #endregion
-
-        #region protected methods
 
         /// <summary>
         /// Analyzes the ownership of the given-up symbol
@@ -190,7 +184,6 @@ namespace Microsoft.PSharp.StaticAnalysis
                 base.AnalyzeOwnershipInCall(givenUpSymbol, assignment.Right, statement,
                     machine, model, trace);
             }
-
 
             if (assignment.Left is MemberAccessExpressionSyntax)
             {
@@ -387,10 +380,6 @@ namespace Microsoft.PSharp.StaticAnalysis
             }
         }
 
-        #endregion
-
-        #region private methods
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -402,7 +391,6 @@ namespace Microsoft.PSharp.StaticAnalysis
             ILogger logger, ErrorReporter errorReporter)
             : base(context, configuration, logger, errorReporter)
         {
-
         }
 
         /// <summary>
@@ -435,10 +423,6 @@ namespace Microsoft.PSharp.StaticAnalysis
             }
         }
 
-        #endregion
-
-        #region profiling methods
-
         /// <summary>
         /// Prints profiling results.
         /// </summary>
@@ -447,7 +431,5 @@ namespace Microsoft.PSharp.StaticAnalysis
             base.Logger.WriteLine("... Respects ownership analysis runtime: '" +
                 base.Profiler.Results() + "' seconds.");
         }
-
-        #endregion
     }
 }

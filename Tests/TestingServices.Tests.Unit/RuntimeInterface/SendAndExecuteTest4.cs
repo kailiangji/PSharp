@@ -55,7 +55,6 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
 
         }
 
-
         [Fact]
         public void TestSendCycleDoesNotDeadlock()
         {

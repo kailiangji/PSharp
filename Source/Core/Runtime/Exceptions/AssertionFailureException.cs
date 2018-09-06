@@ -19,7 +19,6 @@ namespace Microsoft.PSharp
         internal AssertionFailureException(string message)
             : base(message)
         {
-
         }
 
         /// <summary>
@@ -30,7 +29,6 @@ namespace Microsoft.PSharp
         internal AssertionFailureException(string message, Exception innerException)
             : base(message, innerException)
         {
-
         }
     }
 }

@@ -16,8 +16,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
     /// </summary>
     public class TextUnit
     {
-        #region fields
-
         /// <summary>
         /// The text of this text unit.
         /// </summary>
@@ -27,10 +25,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
         /// The source code line of this text unit.
         /// </summary>
         public readonly int Line;
-
-        #endregion
-
-        #region public API
 
         /// <summary>
         /// Constructor.
@@ -52,7 +46,5 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
         {
             return new TextUnit(textUnit.Text, textUnit.Line);
         }
-
-        #endregion
     }
 }

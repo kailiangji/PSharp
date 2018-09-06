@@ -41,12 +41,8 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
             return list.ToArray();
         }
 
-        #region IEnumerable<EventDeclaration>
-
         public IEnumerator<EventDeclaration> GetEnumerator() => this.declarations.Where(decl => !decl.IsExtern).GetEnumerator();
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
-
-        #endregion IEnumerable<EventDeclaration>
     }
 }

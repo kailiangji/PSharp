@@ -17,8 +17,6 @@ namespace Microsoft.PSharp.TestingServices
     [DataContract]
     public class TestReport
     {
-        #region properties
-
         /// <summary>
         /// Configuration of the program-under-test.
         /// </summary>
@@ -102,10 +100,6 @@ namespace Microsoft.PSharp.TestingServices
         /// </summary>
         private object Lock;
 
-        #endregion
-
-        #region constructors
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -130,10 +124,6 @@ namespace Microsoft.PSharp.TestingServices
 
             this.Lock = new object();
         }
-
-        #endregion
-
-        #region public methods
 
         /// <summary>
         /// Merges the information from the specified
@@ -294,7 +284,5 @@ namespace Microsoft.PSharp.TestingServices
                 }
             }
         }
-
-        #endregion
     }
 }

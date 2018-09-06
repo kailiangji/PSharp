@@ -18,8 +18,6 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
     /// </summary>
     internal sealed class BlockSyntax : PSharpSyntaxNode
     {
-        #region fields
-
         /// <summary>
         /// The machine parent node.
         /// </summary>
@@ -44,10 +42,6 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
         /// The close brace token.
         /// </summary>
         internal Token CloseBraceToken;
-
-        #endregion
-
-        #region internal API
 
         /// <summary>
         /// Constructor.
@@ -107,10 +101,6 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
             base.TextUnit = new TextUnit(sb.ToString(), this.OpenBraceToken.TextUnit.Line);
         }
 
-        #endregion
-
-        #region private methods
-
         private IEnumerable<Tuple<string, string>> SplitAndNormalizeLeadingWhitespace(IEnumerable<string> lines)
         {
             foreach (var line in lines)
@@ -143,7 +133,5 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
             }
             return splitLines.Select(line => line.Item2.Length == 0 ? string.Empty : adjustIndent(line.Item1) + line.Item2);
         }
-
-        #endregion
     }
 }

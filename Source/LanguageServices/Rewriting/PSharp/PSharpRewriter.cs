@@ -20,16 +20,10 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.PSharp
     /// </summary>
     internal abstract class PSharpRewriter
     {
-        #region fields
-
         /// <summary>
         /// The P# program.
         /// </summary>
         protected IPSharpProgram Program;
-
-        #endregion
-
-        #region protected API
 
         /// <summary>
         /// Constructor.
@@ -141,7 +135,5 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.PSharp
         {
             this.Program.UpdateSyntaxTree(text);
         }
-
-        #endregion
     }
 }

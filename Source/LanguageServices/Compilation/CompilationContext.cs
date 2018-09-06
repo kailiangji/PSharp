@@ -23,8 +23,6 @@ namespace Microsoft.PSharp.LanguageServices.Compilation
     /// </summary>
     public sealed class CompilationContext
     {
-        #region fields
-
         /// <summary>
         /// Configuration.
         /// </summary>
@@ -49,10 +47,6 @@ namespace Microsoft.PSharp.LanguageServices.Compilation
         /// True if program info has been initialized.
         /// </summary>
         private bool HasInitialized = false;
-
-        #endregion
-
-        #region public API
 
         /// <summary>
         /// Create a new P# compilation context using the default
@@ -297,10 +291,6 @@ namespace Microsoft.PSharp.LanguageServices.Compilation
             return ext.Equals(".cs") ? true : false;
         }
 
-        #endregion
-
-        #region private methods
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -360,7 +350,5 @@ namespace Microsoft.PSharp.LanguageServices.Compilation
                 }
             }
         }
-
-        #endregion
     }
 }

@@ -12,8 +12,6 @@ namespace Microsoft.PSharp.LanguageServices.Tests.Unit
 {
     public class MonitorTests
     {
-        #region failure tests
-
         [Fact]
         public void TestPrivateMonitorDeclaration()
         {
@@ -53,7 +51,5 @@ protected monitor M { }
             Assert.Equal("A monitor cannot be declared as protected.",
                 parser.GetParsingErrorLog());
         }
-
-        #endregion
     }
 }

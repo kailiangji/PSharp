@@ -16,8 +16,6 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
     /// </summary>
     internal sealed class MachineDeclaration : PSharpSyntaxNode
     {
-        #region fields
-
         /// <summary>
         /// The namespace parent node.
         /// </summary>
@@ -107,10 +105,6 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
         /// Set of all rewritten method.
         /// </summary>
         internal HashSet<QualifiedMethod> RewrittenMethods;
-
-        #endregion
-
-        #region internal API
 
         /// <summary>
         /// Constructor.
@@ -256,11 +250,6 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
 
             this.StateGroupDeclarations.ForEach(g => g.CheckDeclaration());
         }
-
-        #endregion
-
-        #region private methods
-
 
         /// <summary>
         /// Returns the rewritten machine declaration.
@@ -459,7 +448,5 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
                 }
             }
         }
-
-        #endregion
     }
 }

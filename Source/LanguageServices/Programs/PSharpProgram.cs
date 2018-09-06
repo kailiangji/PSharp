@@ -21,8 +21,6 @@ namespace Microsoft.PSharp.LanguageServices
     /// </summary>
     public sealed class PSharpProgram : AbstractPSharpProgram
     {
-        #region fields
-
         /// <summary>
         /// List of using declarations.
         /// </summary>
@@ -32,10 +30,6 @@ namespace Microsoft.PSharp.LanguageServices
         /// List of namespace declarations.
         /// </summary>
         internal List<NamespaceDeclaration> NamespaceDeclarations;
-
-        #endregion
-
-        #region public API
 
         /// <summary>
         /// Constructor.
@@ -88,10 +82,6 @@ namespace Microsoft.PSharp.LanguageServices
                 base.GetProject().CompilationContext.PrintSyntaxTree(base.GetSyntaxTree());
             }
         }
-
-        #endregion
-
-        #region private methods
 
         /// <summary>
         /// Rewrites the P# types to C#.
@@ -195,6 +185,5 @@ namespace Microsoft.PSharp.LanguageServices
                 }
             }
         }
-        #endregion
     }
 }

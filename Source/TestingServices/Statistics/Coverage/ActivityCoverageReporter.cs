@@ -16,17 +16,11 @@ namespace Microsoft.PSharp.TestingServices.Coverage
     /// </summary>
     public class ActivityCoverageReporter
     {
-        #region fields
-
         /// <summary>
         /// Data structure containing information
         /// regarding testing coverage.
         /// </summary>
         private readonly CoverageInfo CoverageInfo;
-
-        #endregion
-
-        #region constructors
 
         /// <summary>
         /// Constructor.
@@ -36,10 +30,6 @@ namespace Microsoft.PSharp.TestingServices.Coverage
         {
             this.CoverageInfo = coverageInfo;
         }
-
-        #endregion
-
-        #region public methods
 
         /// <summary>
         /// Emits the visualization graph.
@@ -64,10 +54,6 @@ namespace Microsoft.PSharp.TestingServices.Coverage
                 this.WriteCoverageFile(writer);
             }
         }
-
-        #endregion
-
-        #region private methods
 
         /// <summary>
         /// Writes the visualization graph.
@@ -409,7 +395,5 @@ namespace Microsoft.PSharp.TestingServices.Coverage
         {
             return string.Format("{0}::{1}", stateName, machineName);
         }
-
-        #endregion
     }
 }

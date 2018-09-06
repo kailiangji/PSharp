@@ -20,8 +20,6 @@ namespace Microsoft.PSharp.StaticAnalysis
     /// </summary>
     internal abstract class OwnershipAnalysisPass : StateMachineAnalysisPass
     {
-        #region internal API
-
         /// <summary>
         /// Runs the analysis on the specified machines.
         /// </summary>
@@ -47,10 +45,6 @@ namespace Microsoft.PSharp.StaticAnalysis
             }
         }
 
-        #endregion
-
-        #region protected methods
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -62,7 +56,6 @@ namespace Microsoft.PSharp.StaticAnalysis
             ILogger logger, ErrorReporter errorReporter)
             : base(context, configuration, logger, errorReporter)
         {
-
         }
 
         /// <summary>
@@ -243,10 +236,6 @@ namespace Microsoft.PSharp.StaticAnalysis
             InvocationExpressionSyntax call, Statement statement, StateMachine machine,
             SemanticModel model, TraceInfo trace);
 
-        #endregion
-
-        #region private methods
-
         /// <summary>
         /// Analyzes the method summaries of the machine to check if
         /// each summary respects given-up ownerships.
@@ -267,10 +256,6 @@ namespace Microsoft.PSharp.StaticAnalysis
                 }
             }
         }
-
-        #endregion
-
-        #region helper methods
 
         /// <summary>
         /// Returns true if the field symbol is being accessed
@@ -350,7 +335,5 @@ namespace Microsoft.PSharp.StaticAnalysis
 
             return args;
         }
-
-        #endregion
     }
 }

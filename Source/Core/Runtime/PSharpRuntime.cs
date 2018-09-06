@@ -19,8 +19,6 @@ namespace Microsoft.PSharp
     /// </summary>
     public abstract class PSharpRuntime : IDisposable
     {
-        #region fields
-
         /// <summary>
         /// The configuration used by the runtime.
         /// </summary>
@@ -46,10 +44,6 @@ namespace Microsoft.PSharp
         /// </summary>
         private Type TimerMachineType = null;
 
-        #endregion
-
-        #region properties
-
         /// <summary>
         /// Network provider used for remote communication.
         /// </summary>
@@ -60,10 +54,6 @@ namespace Microsoft.PSharp
         /// </summary>
         public ILogger Logger { get; private set; }
 
-        #endregion
-
-        #region events
-
         /// <summary>
         /// Event that is fired when the P# program throws an exception.
         /// </summary>
@@ -73,10 +63,6 @@ namespace Microsoft.PSharp
         /// Handles the <see cref="OnFailure"/> event.
         /// </summary>
         public delegate void OnFailureHandler(Exception ex);
-
-        #endregion
-
-        #region factory methods
 
         /// <summary>
         /// Creates a new state-machine runtime.
@@ -97,10 +83,6 @@ namespace Microsoft.PSharp
         {
             return new StateMachineRuntime(configuration);
         }
-
-        #endregion
-
-        #region initialization
 
         /// <summary>
         /// Constructor.
@@ -132,11 +114,6 @@ namespace Microsoft.PSharp
             this.SetLogger(new ConsoleLogger());
             this.IsRunning = true;
         }
-
-        #endregion
-
-        #region runtime interface
-
 
         /// <summary>
         /// Creates a fresh machine id that has not yet been bound to any machine.
@@ -341,10 +318,6 @@ namespace Microsoft.PSharp
         /// </summary>
         public abstract void Stop();
 
-        #endregion
-
-        #region protected methods
-
         /// <summary>
         /// Gets the target machine for an event; if not found, logs a halted-machine entry.
         /// </summary>
@@ -366,10 +339,6 @@ namespace Microsoft.PSharp
 
             return true;
         }
-
-        #endregion
-
-        #region state-machine execution
 
         /// <summary>
         /// Creates a new <see cref="Machine"/> of the specified <see cref="Type"/>.
@@ -452,10 +421,6 @@ namespace Microsoft.PSharp
             return true;
         }
 
-        #endregion
-
-        #region Timers
-
         /// <summary>
         /// Overrides the machine type for instantiating timers
         /// </summary>
@@ -474,10 +439,6 @@ namespace Microsoft.PSharp
         {
             return TimerMachineType;
         }
-
-        #endregion
-
-        #region specifications and error checking
 
         /// <summary>
         /// Tries to create a new <see cref="PSharp.Monitor"/> of the specified <see cref="Type"/>.
@@ -521,10 +482,6 @@ namespace Microsoft.PSharp
             }
         }
 
-        #endregion
-
-        #region nondeterministic choices
-
         /// <summary>
         /// Returns a nondeterministic boolean choice, that can be
         /// controlled during analysis or testing.
@@ -551,10 +508,6 @@ namespace Microsoft.PSharp
         /// <param name="maxValue">Max value</param>
         /// <returns>Integer</returns>
         internal abstract int GetNondeterministicIntegerChoice(AbstractMachine machine, int maxValue);
-
-        #endregion
-
-        #region notifications
 
         /// <summary>
         /// Notifies that a machine entered a state.
@@ -748,10 +701,6 @@ namespace Microsoft.PSharp
             // Override to implement the notification.
         }
 
-        #endregion
-
-        #region logging
-
         /// <summary>
         /// Logs the specified text.
         /// </summary>
@@ -783,10 +732,6 @@ namespace Microsoft.PSharp
         {
             this.Logger = new ConsoleLogger();
         }
-
-        #endregion
-
-        #region operation group id
 
         /// <summary>
         /// Gets the new operation group id to propagate.
@@ -832,10 +777,6 @@ namespace Microsoft.PSharp
             }
         }
 
-        #endregion
-
-        #region networking
-
         /// <summary>
         /// Installs the specified <see cref="INetworkProvider"/>.
         /// </summary>
@@ -860,10 +801,6 @@ namespace Microsoft.PSharp
             this.NetworkProvider.Dispose();
             this.NetworkProvider = new LocalNetworkProvider(this);
         }
-
-        #endregion
-
-        #region exceptions
 
         /// <summary>
         /// Raises the <see cref="OnFailure"/> event with the specified <see cref="Exception"/>.
@@ -895,10 +832,6 @@ namespace Microsoft.PSharp
                 : new AssertionFailureException(IO.Utilities.Format(s, args), exception);
         }
 
-        #endregion
-
-        #region cleanup
-
         /// <summary>
         /// Disposes runtime resources.
         /// </summary>
@@ -907,8 +840,5 @@ namespace Microsoft.PSharp
             this.MachineIdCounter = 0;
             this.NetworkProvider.Dispose();
         }
-
-        #endregion
-
     }
 }

@@ -3,7 +3,6 @@
 // Licensed under the MIT license. See LICENSE.txt in the repo root for full license information.
 // ------------------------------------------------------------------------------------------------
 
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,21 +16,15 @@ namespace Microsoft.PSharp.Timers
 	/// </summary>
     public class ModelTimerMachine : Machine
     {
-		#region static fields
+        /// <summary>
+        /// Adjust the probability of firing a timeout event.
+        /// </summary>
+        public static int NumStepsToSkip = 1;
 
-		/// <summary>
-		/// Adjust the probability of firing a timeout event.
-		/// </summary>
-		public static int NumStepsToSkip = 1;
-
-		#endregion
-
-		#region private fields
-
-		/// <summary>
-		/// Machine to which eTimeout events are dispatched.
-		/// </summary>
-		private MachineId client;
+        /// <summary>
+        /// Machine to which eTimeout events are dispatched.
+        /// </summary>
+        private MachineId client;
 
 		/// <summary>
 		/// True if periodic eTimeout events are desired.
@@ -43,19 +36,13 @@ namespace Microsoft.PSharp.Timers
         /// </summary>
         private TimerId tid;
 
-        #endregion
-
-        #region states
         [Start]
 		[OnEntry(nameof(InitializeTimer))]
 		[OnEventDoAction(typeof(HaltTimerEvent), nameof(DisposeTimer))]
         [OnEventDoAction(typeof(RepeatTimeout), nameof(SendTimeout))]
         private class Init : MachineState { }
 
-		#endregion
-
-		#region event handlers
-		private void InitializeTimer()
+        private void InitializeTimer()
 		{
 			InitTimer e = (this.ReceivedEvent as InitTimer);
 			this.client = e.client;
@@ -110,6 +97,5 @@ namespace Microsoft.PSharp.Timers
 			// Stop this machine
 			this.Raise(new Halt());
 		}
-		#endregion
-	}
+    }
 }

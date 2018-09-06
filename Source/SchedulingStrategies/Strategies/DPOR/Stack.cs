@@ -177,7 +177,6 @@ namespace Microsoft.PSharp.TestingServices.SchedulingStrategies.DPOR
                 }
             }
 
-
             // Pop until there are some tid entries that are not done/slept OR stack is empty.
             while (StackInternal.Count > 0)
             {

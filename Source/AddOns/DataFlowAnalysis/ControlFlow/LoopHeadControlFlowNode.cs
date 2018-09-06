@@ -10,16 +10,10 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
     /// </summary>
     internal class LoopHeadControlFlowNode : ControlFlowNode
     {
-        #region fields
-
         /// <summary>
         /// The node after exiting the loop.
         /// </summary>
         public ControlFlowNode LoopExitNode;
-
-        #endregion
-
-        #region constructors
 
         /// <summary>
         /// Constructor.
@@ -33,7 +27,5 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
         {
             this.LoopExitNode = loopExitNode;
         }
-
-        #endregion
     }
 }

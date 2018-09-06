@@ -12,8 +12,6 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
     /// </summary>
     internal abstract class PSharpSyntaxNode
     {
-        #region fields
-
         /// <summary>
         /// The program this node belongs to.
         /// </summary>
@@ -29,10 +27,6 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
 
         protected const int SpacesPerIndent = 4;
         protected static string OneIndent = new string(' ', SpacesPerIndent);
-
-        #endregion
-
-        #region protected API
 
         /// <summary>
         /// Constructor.
@@ -53,16 +47,10 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
                 : new System.Text.StringBuilder().Insert(0, OneIndent, indentLevel).ToString();
         }
 
-        #endregion
-
-        #region internal API
-
         /// <summary>
         /// Rewrites the syntax node declaration to the intermediate C#
         /// representation.
         /// </summary>
         internal abstract void Rewrite(int indentLevel);
-
-        #endregion
     }
 }

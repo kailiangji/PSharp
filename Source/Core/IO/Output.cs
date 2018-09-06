@@ -10,16 +10,10 @@ namespace Microsoft.PSharp.IO
     /// </summary>
     public static class Output
     {
-        #region fields
-
         /// <summary>
         /// The underlying logger.
         /// </summary>
         internal static ILogger Logger { get; private set; }
-
-        #endregion
-
-        #region constructors
 
         /// <summary>
         /// Static constructor.
@@ -28,10 +22,6 @@ namespace Microsoft.PSharp.IO
         {
             Logger = new ConsoleLogger();
         }
-
-        #endregion
-
-        #region methods
 
         /// <summary>
         ///  Writes the specified string value to the output stream.
@@ -71,10 +61,6 @@ namespace Microsoft.PSharp.IO
             Logger.WriteLine(format, args);
         }
 
-        #endregion
-
-        #region logger management
-
         /// <summary>
         /// Installs the specified logger. If a null logger is provided,
         /// then the default logger will be installed.
@@ -94,7 +80,5 @@ namespace Microsoft.PSharp.IO
             Logger?.Dispose();
             Logger = new ConsoleLogger();
         }
-
-        #endregion
     }
 }

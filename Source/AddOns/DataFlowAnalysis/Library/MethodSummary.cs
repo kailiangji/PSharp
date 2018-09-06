@@ -16,8 +16,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
     /// </summary>
     public sealed class MethodSummary
     {
-        #region fields
-
         /// <summary>
         /// The unique id of the summary.
         /// </summary>
@@ -67,10 +65,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
         /// A counter for creating unique IDs.
         /// </summary>
         private static int IdCounter;
-
-        #endregion
-
-        #region constructors
 
         /// <summary>
         /// Static constructor.
@@ -131,10 +125,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
             return summary;
         }
 
-        #endregion
-
-        #region public methods
-
         /// <summary>
         /// Returns all cached method summaries for the specified call symbol.
         /// </summary>
@@ -187,10 +177,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
             return symbols;
         }
 
-        #endregion
-
-        #region private methods
-
         /// <summary>
         /// Builds the summary.
         /// </summary>
@@ -235,10 +221,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
                 }
             }
         }
-
-        #endregion
-
-        #region summary printing methods
 
         /// <summary>
         /// Prints the control-flow graph.
@@ -749,7 +731,5 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
                 }
             }
         }
-
-        #endregion
     }
 }

@@ -9,8 +9,6 @@ namespace Microsoft.PSharp.StaticAnalysis.Tests.Unit
 {
     public class AccessBeforeCreateMachineTests : BaseTest
     {
-        #region correct tests
-
         [Fact]
         public void TestAccessBeforeCreateMachine()
         {
@@ -109,7 +107,5 @@ class M : Machine
 }";
             base.AssertSucceeded(test, isPSharpProgram: false);
         }
-
-        #endregion
     }
 }

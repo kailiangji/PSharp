@@ -20,8 +20,6 @@ namespace Microsoft.PSharp.StaticAnalysis
     /// </summary>
     internal sealed class GivesUpOwnershipAnalysisPass : OwnershipAnalysisPass
     {
-        #region internal API
-
         /// <summary>
         /// Creates a new gives-up ownership analysis pass.
         /// </summary>
@@ -35,10 +33,6 @@ namespace Microsoft.PSharp.StaticAnalysis
         {
             return new GivesUpOwnershipAnalysisPass(context, configuration, logger, errorReporter);
         }
-
-        #endregion
-
-        #region protected methods
 
         /// <summary>
         /// Analyzes the ownership of the given-up symbol
@@ -217,10 +211,6 @@ namespace Microsoft.PSharp.StaticAnalysis
             }
         }
 
-        #endregion
-
-        #region private methods
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -232,7 +222,6 @@ namespace Microsoft.PSharp.StaticAnalysis
             ILogger logger, ErrorReporter errorReporter)
             : base(context, configuration, logger, errorReporter)
         {
-
         }
 
         /// <summary>
@@ -301,10 +290,6 @@ namespace Microsoft.PSharp.StaticAnalysis
             }
         }
 
-        #endregion
-
-        #region profiling methods
-
         /// <summary>
         /// Prints profiling results.
         /// </summary>
@@ -313,7 +298,5 @@ namespace Microsoft.PSharp.StaticAnalysis
             base.Logger.WriteLine("... Gives-up ownership analysis runtime: '" +
                 base.Profiler.Results() + "' seconds.");
         }
-
-        #endregion
     }
 }

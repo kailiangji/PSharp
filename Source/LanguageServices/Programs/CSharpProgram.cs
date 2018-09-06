@@ -21,8 +21,6 @@ namespace Microsoft.PSharp.LanguageServices
     /// </summary>
     public sealed class CSharpProgram : AbstractPSharpProgram
     {
-        #region fields
-
         /// <summary>
         /// List of event identifiers.
         /// </summary>
@@ -32,10 +30,6 @@ namespace Microsoft.PSharp.LanguageServices
         /// List of machine identifiers.
         /// </summary>
         internal List<ClassDeclarationSyntax> MachineIdentifiers;
-
-        #endregion
-
-        #region public API
 
         /// <summary>
         /// Constructor.
@@ -62,10 +56,6 @@ namespace Microsoft.PSharp.LanguageServices
                 base.GetProject().CompilationContext.PrintSyntaxTree(base.GetSyntaxTree());
             }
         }
-
-        #endregion
-
-        #region private methods
 
         /// <summary>
         /// Rewrites the P# statements to C#.
@@ -98,7 +88,6 @@ namespace Microsoft.PSharp.LanguageServices
             while (rewritingPasses.Count > 0)
             {
                 Type nextPass = rewritingPasses.Dequeue();
-
 
                 bool allDependenciesDone = true;
                 foreach (var dependency in passDependencies[nextPass])
@@ -180,7 +169,5 @@ namespace Microsoft.PSharp.LanguageServices
 
             return result;
         }
-
-        #endregion
     }
 }

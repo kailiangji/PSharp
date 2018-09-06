@@ -22,7 +22,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Syntax
         internal DeferEventsDeclarationVisitor(TokenStream tokenStream)
             : base(tokenStream)
         {
-
         }
 
         /// <summary>
@@ -90,7 +89,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Syntax
                 });
             }
 
-
             if (!base.TokenStream.Done &&
                 (base.TokenStream.Peek().Type == TokenType.LeftAngleBracket ||
                 base.TokenStream.Peek().Type == TokenType.RightAngleBracket))
@@ -98,7 +96,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Syntax
                 throw new ParsingException("Invalid generic expression.",
                     new List<TokenType> { });
             }
-
 
             if (base.TokenStream.Done ||
                 base.TokenStream.Peek().Type != TokenType.Semicolon)

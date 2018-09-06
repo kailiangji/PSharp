@@ -12,8 +12,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
     /// </summary>
     public class SymbolDefinition
     {
-        #region fields
-
         /// <summary>
         /// Node that defined the symbol.
         /// </summary>
@@ -39,10 +37,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
         /// </summary>
         public readonly string Name;
 
-        #endregion
-
-        #region constructors
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -57,10 +51,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
             this.Name = $"[{this.DataFlowNode.Id},{this.Kind}]::{this.Symbol.Name}";
         }
 
-        #endregion
-
-        #region public methods
-
         /// <summary>
         /// Returns a string that represents the current object.
         /// </summary>
@@ -69,7 +59,5 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
         {
             return this.Name;
         }
-
-        #endregion
     }
 }

@@ -22,7 +22,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Syntax
         internal IgnoreEventsDeclarationVisitor(TokenStream tokenStream)
             : base(tokenStream)
         {
-
         }
 
         /// <summary>
@@ -82,7 +81,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing.Syntax
                     TokenType.Comma
                 });
             }
-
 
             if (!base.TokenStream.Done &&
                 (base.TokenStream.Peek().Type == TokenType.LeftAngleBracket ||

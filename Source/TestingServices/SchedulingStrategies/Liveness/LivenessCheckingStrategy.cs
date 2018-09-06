@@ -16,8 +16,6 @@ namespace Microsoft.PSharp.TestingServices.Scheduling
     /// </summary>
     internal abstract class LivenessCheckingStrategy : ISchedulingStrategy
     {
-        #region fields
-
         /// <summary>
         /// The configuration.
         /// </summary>
@@ -32,10 +30,6 @@ namespace Microsoft.PSharp.TestingServices.Scheduling
         /// Strategy used for scheduling decisions.
         /// </summary>
         protected ISchedulingStrategy SchedulingStrategy;
-
-        #endregion
-
-        #region public API
 
         /// <summary>
         /// Creates a liveness strategy that checks the specific monitors
@@ -167,7 +161,5 @@ namespace Microsoft.PSharp.TestingServices.Scheduling
         {
             return SchedulingStrategy.GetDescription();
         }
-
-        #endregion
     }
 }

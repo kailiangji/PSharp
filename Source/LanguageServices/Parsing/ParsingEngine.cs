@@ -14,8 +14,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
     /// </summary>
     public sealed class ParsingEngine
     {
-        #region fields
-
         /// <summary>
         /// The compilation context.
         /// </summary>
@@ -25,10 +23,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
         /// The parsing options.
         /// </summary>
         private ParsingOptions Options;
-
-        #endregion
-
-        #region public API
 
         /// <summary>
         /// Creates a P# parsing engine for the specified compilation
@@ -94,10 +88,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
             return this;
         }
 
-        #endregion
-
-        #region constructors
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -108,7 +98,5 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
             this.CompilationContext = context;
             this.Options = options;
         }
-
-        #endregion
     }
 }

@@ -33,7 +33,6 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
 
         class M : Machine
         {
-
             [Start]
             class Init : MachineState { }
         }

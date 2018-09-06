@@ -18,8 +18,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
     /// </summary>
     public sealed class PSharpParser : TokenParser
     {
-        #region public API
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -27,7 +25,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
         public PSharpParser(ParsingOptions options)
             : base(options)
         {
-
         }
 
         /// <summary>
@@ -39,12 +36,7 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
         internal PSharpParser(PSharpProject project, SyntaxTree tree, ParsingOptions options)
             : base(project, tree, options)
         {
-
         }
-
-        #endregion
-
-        #region protected API
 
         /// <summary>
         /// Returns a new P# program.
@@ -109,10 +101,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
                 }
             }
         }
-
-        #endregion
-
-        #region private methods
 
         /// <summary>
         /// Visits a using declaration.
@@ -372,7 +360,5 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
                 new MachineDeclarationVisitor(base.TokenStream).Visit(null, parentNode, true, modSet);
             }
         }
-
-        #endregion
     }
 }

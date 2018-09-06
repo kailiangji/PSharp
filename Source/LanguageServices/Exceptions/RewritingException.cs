@@ -19,7 +19,6 @@ namespace Microsoft.PSharp.LanguageServices
         public RewritingException(string message)
             : base(message)
         {
-
         }
 
         /// <summary>
@@ -30,7 +29,6 @@ namespace Microsoft.PSharp.LanguageServices
         public RewritingException(string message, Exception innerException)
             : base(message, innerException)
         {
-
         }
     }
 }

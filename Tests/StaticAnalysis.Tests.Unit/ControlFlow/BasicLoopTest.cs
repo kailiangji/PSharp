@@ -9,8 +9,6 @@ namespace Microsoft.PSharp.StaticAnalysis.Tests.Unit
 {
     public class BasicLoopTest : BaseTest
     {
-        #region correct tests
-
         [Fact]
         public void TestBasicLoop()
         {
@@ -34,7 +32,5 @@ class M : Machine
 }";
             base.AssertSucceeded(test, isPSharpProgram: false);
         }
-
-        #endregion
     }
 }

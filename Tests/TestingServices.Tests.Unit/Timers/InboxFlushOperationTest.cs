@@ -15,14 +15,12 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
 {
     public class InboxFlushOperationTest : BaseTest
     {
-		#region check flushing
-		private class FlushingClient : TimedMachine
+        private class FlushingClient : TimedMachine
 		{
-			#region fields
-			/// <summary>
-			/// A dummy payload object received with timeout events.
-			/// </summary>
-			object payload = new object();
+            /// <summary>
+            /// A dummy payload object received with timeout events.
+            /// </summary>
+            object payload = new object();
 
 			/// <summary>
 			/// Timer used in the Ping State.
@@ -34,15 +32,11 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
 			/// </summary>
 			TimerId pongTimer;
 
-			#endregion
-
-			#region states
-
-			/// <summary>
-			/// Start the pingTimer and start handling the timeout events from it.
-			/// After handling 10 events, stop pingTimer and move to the Pong state.
-			/// </summary>
-			[Start]
+            /// <summary>
+            /// Start the pingTimer and start handling the timeout events from it.
+            /// After handling 10 events, stop pingTimer and move to the Pong state.
+            /// </summary>
+            [Start]
 			[OnEntry(nameof(DoPing))]
 			[IgnoreEvents(typeof(TimerElapsedEvent))]
 			class Ping : MachineState { }
@@ -54,11 +48,8 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
 			[OnEntry(nameof(DoPong))]
 			[OnEventDoAction(typeof(TimerElapsedEvent), nameof(HandleTimeoutForPong))]
 			class Pong : MachineState { }
-			#endregion
 
-			#region event handlers
-
-			private async Task DoPing()
+            private async Task DoPing()
 			{
 				// Start a periodic timer with timeout interval of 1sec.
 				// The timer generates TimerElapsedEvent with 'm' as payload.
@@ -82,12 +73,9 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
 				TimerElapsedEvent e = (this.ReceivedEvent as TimerElapsedEvent);
 				this.Assert(e.Tid == this.pongTimer);
 			}
-			#endregion
-		}
-		#endregion
+        }
 
-		#region test
-		[Fact]
+        [Fact]
 		public void InboxFlushTest()
 		{
 			var config = Configuration.Create().WithNumberOfIterations(100);
@@ -99,7 +87,5 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
 			});
 			base.AssertSucceeded(test);
 		}
-		#endregion
-
-	}
+    }
 }

@@ -16,8 +16,6 @@ namespace Microsoft.PSharp.StaticAnalysis
     /// </summary>
     internal class ErrorReporter
     {
-        #region fields
-
         /// <summary>
         /// Configuration.
         /// </summary>
@@ -27,10 +25,6 @@ namespace Microsoft.PSharp.StaticAnalysis
         /// Enables colored console output.
         /// </summary>
         internal bool EnableColoredConsoleOutput;
-
-        #endregion
-
-        #region properties
 
         /// <summary>
         /// The installed logger.
@@ -51,10 +45,6 @@ namespace Microsoft.PSharp.StaticAnalysis
         /// Number of warnings reported by the analysis.
         /// </summary>
         internal int WarningCount { get; private set; }
-
-        #endregion
-
-        #region public API
 
         /// <summary>
         /// Constructor.
@@ -102,10 +92,6 @@ namespace Microsoft.PSharp.StaticAnalysis
                 return "No static analysis errors detected.";
             }
         }
-
-        #endregion
-
-        #region error reporting methods
 
         /// <summary>
         /// Reports an error to the user.
@@ -408,10 +394,6 @@ namespace Microsoft.PSharp.StaticAnalysis
             this.ReportWarningTrace(trace, message);
         }
 
-        #endregion
-
-        #region private methods
-
         /// <summary>
         /// Reports an error to the user.
         /// </summary>
@@ -470,7 +452,5 @@ namespace Microsoft.PSharp.StaticAnalysis
                 }
             }
         }
-
-        #endregion
     }
 }

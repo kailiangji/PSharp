@@ -18,8 +18,6 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.PSharp
     /// </summary>
     internal sealed class RandomChoiceRewriter : PSharpRewriter
     {
-        #region public API
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -27,7 +25,6 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.PSharp
         internal RandomChoiceRewriter(IPSharpProgram program)
             : base(program)
         {
-
         }
 
         /// <summary>
@@ -53,10 +50,6 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.PSharp
             base.UpdateSyntaxTree(root.ToString());
         }
 
-        #endregion
-
-        #region private methods
-
         /// <summary>
         /// Rewrites the expression with a random choice expression.
         /// </summary>
@@ -68,7 +61,5 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.PSharp
             var rewritten = SyntaxFactory.ParseExpression(text);
             return rewritten;
         }
-
-        #endregion
     }
 }

@@ -16,8 +16,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
     /// </summary>
     internal class TaintTrackingAnalysis : IAnalysisPass
     {
-        #region fields
-
         /// <summary>
         /// The analysis context.
         /// </summary>
@@ -38,10 +36,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
         /// </summary>
         private IGraph<IDataFlowNode> DataFlowGraph;
 
-        #endregion
-
-        #region constructors
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -53,10 +47,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
             this.Summary = dfg.EntryNode.Summary;
             this.DataFlowGraph = dfg;
         }
-
-        #endregion
-
-        #region public methods
 
         /// <summary>
         /// Runs the analysis.
@@ -83,10 +73,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
                 }
             }
         }
-
-        #endregion
-
-        #region reaching definitions analysis methods
 
         /// <summary>
         /// Computes the data-flow information in the specified node.
@@ -486,10 +472,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
             }
         }
 
-        #endregion
-
-        #region transfer methods
-
         /// <summary>
         /// Transfers the data-flow information from the
         /// previous data-flow node.
@@ -510,10 +492,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
                 }
             }
         }
-
-        #endregion
-
-        #region resolution methods
 
         /// <summary>
         /// Resolves side-effects in the specified expression.
@@ -619,10 +597,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
                 }
             }
         }
-
-        #endregion
-
-        #region side-effect resolution methods
 
         /// <summary>
         /// Resolves parameters flowing into fields side-effects.
@@ -763,10 +737,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
             return sideEffects;
         }
 
-        #endregion
-
-        #region gives-up ownership methods
-
         /// <summary>
         /// Resolves the gives-up ownership information in the call.
         /// </summary>
@@ -859,10 +829,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
                 }
             }
         }
-
-        #endregion
-
-        #region helper methods
 
         /// <summary>
         /// Returns the symbol infos from the specified member expression.
@@ -959,7 +925,5 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
 
             return true;
         }
-
-        #endregion
     }
 }

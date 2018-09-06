@@ -16,8 +16,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
     /// </summary>
     public sealed class AnalysisContext
     {
-        #region fields
-
         /// <summary>
         /// The solution of the P# program.
         /// </summary>
@@ -38,10 +36,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
         /// gives-up ownership methods.
         /// </summary>
         internal IDictionary<string, ISet<int>> GivesUpOwnershipMethods;
-
-        #endregion
-
-        #region constructors
 
         /// <summary>
         /// Constructor.
@@ -64,10 +58,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
         {
             return new AnalysisContext(project);
         }
-
-        #endregion
-
-        #region public methods
 
         /// <summary>
         /// Registers the specified immutable type.
@@ -340,10 +330,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
             return argumentList;
         }
 
-        #endregion
-
-        #region private methods
-
         /// <summary>
         /// Returns the full qualifier name of the given syntax node.
         /// </summary>
@@ -376,7 +362,5 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
 
             return result;
         }
-
-        #endregion
     }
 }

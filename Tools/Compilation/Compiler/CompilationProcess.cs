@@ -14,8 +14,6 @@ namespace Microsoft.PSharp
     /// </summary>
     internal sealed class CompilationProcess
     {
-        #region fields
-
         /// <summary>
         /// The compilation context.
         /// </summary>
@@ -25,10 +23,6 @@ namespace Microsoft.PSharp
         /// The installed logger.
         /// </summary>
         private ILogger Logger;
-
-        #endregion
-
-        #region API
 
         /// <summary>
         /// Creates a P# compilation process.
@@ -60,10 +54,6 @@ namespace Microsoft.PSharp
             CompilationEngine.Create(this.CompilationContext, this.Logger).Run();
         }
 
-        #endregion
-
-        #region constructors
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -74,7 +64,5 @@ namespace Microsoft.PSharp
             this.CompilationContext = context;
             this.Logger = logger;
         }
-
-        #endregion
     }
 }

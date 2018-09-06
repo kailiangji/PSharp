@@ -18,8 +18,6 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.PSharp
     /// </summary>
     class TypeNameQualifier
     {
-        #region fields
-
         /// <summary>
         /// Set of all qualified state names in the current machine.
         /// </summary>
@@ -35,10 +33,6 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.PSharp
         /// Set of rewritten qualified methods.
         /// </summary>
         internal HashSet<QualifiedMethod> RewrittenQualifiedMethods = new HashSet<QualifiedMethod>();
-
-        #endregion
-
-        #region internal API
 
         /// <summary>
         /// Returns a fully-qualified name for the type inside the syntax node.
@@ -108,10 +102,6 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.PSharp
             return true;
         }
 
-        #endregion
-
-        #region private methods
-
         /// <summary>
         /// Given a partially-qualified state name, return the
         /// fully qualified state name.
@@ -162,7 +152,5 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.PSharp
         {
             return state.Aggregate(string.Empty, (acc, name) => acc == string.Empty ? name : acc + "." + name);
         }
-
-        #endregion
     }
 }

@@ -25,7 +25,6 @@ namespace Microsoft.PSharp.Core.Tests.Performance
 
             public void SendMessageToPSharp()
             {
-
                 Task.Factory.StartNew(async () =>
                 {
                     await Task.Delay(0);
@@ -35,10 +34,8 @@ namespace Microsoft.PSharp.Core.Tests.Performance
 
             public void PersistInline()
             {
-
             }
         }
-
 
         public class SetContextMessage : Event
         {

@@ -16,8 +16,6 @@ namespace Microsoft.PSharp.LanguageServices
     /// </summary>
     internal static class Querying
     {
-        #region state-machine specific queries
-
         /// <summary>
         /// Returns true if the given class declaration is a P# machine.
         /// </summary>
@@ -240,10 +238,6 @@ namespace Microsoft.PSharp.LanguageServices
             return result;
         }
 
-        #endregion
-
-        #region private methods
-
         /// <summary>
         /// Returns the callee of the given call expression.
         /// </summary>
@@ -273,7 +267,5 @@ namespace Microsoft.PSharp.LanguageServices
 
             return callee;
         }
-
-        #endregion
     }
 }

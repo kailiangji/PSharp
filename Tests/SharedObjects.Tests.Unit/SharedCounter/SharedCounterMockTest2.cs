@@ -79,7 +79,6 @@ namespace Microsoft.PSharp.SharedObjects.Tests.Unit
                 }
             }
 
-
         }
 
         class N : Machine
@@ -143,7 +142,6 @@ namespace Microsoft.PSharp.SharedObjects.Tests.Unit
 
             base.AssertFailed(config, test, "Detected an assertion failure.");
         }
-
 
         [Fact]
         public void TestCounterFail3()

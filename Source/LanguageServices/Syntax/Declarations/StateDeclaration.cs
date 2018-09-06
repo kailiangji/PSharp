@@ -17,8 +17,6 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
     /// </summary>
     internal sealed class StateDeclaration : PSharpSyntaxNode
     {
-        #region fields
-
         /// <summary>
         /// The machine parent node.
         /// </summary>
@@ -139,10 +137,6 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
         /// Whether to use nameof or a quoted string (based on C# version).
         /// </summary>
         private bool isNameofSupported;
-
-        #endregion
-
-        #region internal API
 
         /// <summary>
         /// Constructor.
@@ -395,10 +389,6 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
 
             return qualifiedEventIdentifier + typeId;
         }
-
-        #endregion
-
-        #region private methods
 
         /// <summary>
         /// Returns the rewritten state declaration.
@@ -776,8 +766,5 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
 
             return text;
         }
-
-
-        #endregion
     }
 }

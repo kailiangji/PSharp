@@ -15,8 +15,6 @@ namespace Microsoft.PSharp.StaticAnalysis.Tests.Unit
 {
     public abstract class BaseTest
     {
-        #region successful tests
-
         protected void AssertSucceeded(string test, bool isPSharpProgram = true)
         {
             var configuration = GetConfiguration();
@@ -41,10 +39,6 @@ namespace Microsoft.PSharp.StaticAnalysis.Tests.Unit
                 logger.Dispose();
             }
         }
-
-        #endregion
-
-        #region failed tests
 
         protected void AssertFailed(string test, int numExpectedErrors, bool isPSharpProgram = true)
         {
@@ -88,10 +82,6 @@ namespace Microsoft.PSharp.StaticAnalysis.Tests.Unit
             }
         }
 
-        #endregion
-
-        #region warning tests
-
         protected void AssertWarning(string test, int numExpectedWarnings, bool isPSharpProgram = true)
         {
             var configuration = GetConfiguration();
@@ -113,10 +103,6 @@ namespace Microsoft.PSharp.StaticAnalysis.Tests.Unit
         {
             AssertFailedAndWarning(configuration, test, 0, numExpectedWarnings, expectedOutput, isPSharpProgram);
         }
-
-        #endregion
-
-        #region failed with warning tests
 
         protected void AssertFailedAndWarning(string test, int numExpectedErrors, int numExpectedWarnings, bool isPSharpProgram = true)
         {
@@ -163,10 +149,6 @@ namespace Microsoft.PSharp.StaticAnalysis.Tests.Unit
             }
         }
 
-        #endregion
-
-        #region utilities
-
         protected Configuration GetConfiguration()
         {
             var configuration = Configuration.Create();
@@ -185,7 +167,5 @@ namespace Microsoft.PSharp.StaticAnalysis.Tests.Unit
             RewritingEngine.Create(context).Run();
             return context;
         }
-
-        #endregion
     }
 }

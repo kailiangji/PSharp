@@ -12,8 +12,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
     /// </summary>
     public abstract class BaseParser
     {
-        #region fields
-
         /// <summary>
         /// Syntax tree currently parsed.
         /// </summary>
@@ -33,10 +31,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
         /// The parsing options.
         /// </summary>
         protected ParsingOptions Options;
-
-        #endregion
-
-        #region constructors
 
         /// <summary>
         /// Constructor.
@@ -60,16 +54,10 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
             this.Options = options;
         }
 
-        #endregion
-
-        #region protected API
-
         /// <summary>
         /// Returns a new P# program.
         /// </summary>
         /// <returns>P# program</returns>
         protected abstract IPSharpProgram CreateNewProgram();
-
-        #endregion
     }
 }

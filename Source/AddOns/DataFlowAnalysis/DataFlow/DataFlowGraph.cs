@@ -14,8 +14,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
     /// </summary>
     internal class DataFlowGraph : Graph<IDataFlowNode>, IDataFlowAnalysis
     {
-        #region constructors
-
         /// <summary>
         /// Method summary that contains this graph.
         /// </summary>
@@ -25,10 +23,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
         /// The semantic model.
         /// </summary>
         private SemanticModel SemanticModel;
-
-        #endregion
-
-        #region constructors
 
         /// <summary>
         /// Constructor.
@@ -43,10 +37,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
             base.EntryNode = DataFlowNode.Create(this, summary);
             base.MergeEmptyNodes();
         }
-
-        #endregion
-
-        #region public methods
 
         /// <summary>
         /// Checks if the target symbol flows from the entry of the method.
@@ -129,10 +119,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
 
             return this.FlowsIntoSymbol(symbol, targetSymbol, node, targetNode);
         }
-
-        #endregion
-
-        #region private methods
 
         /// <summary>
         /// Checks if the symbol flows into the target symbol.
@@ -223,11 +209,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
             return false;
         }
 
-
-        #endregion
-
-        #region printing methods
-
         /// <summary>
         /// Pretty prints the graph.
         /// </summary>
@@ -280,7 +261,5 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
                 this.PrettyPrint(node, visited);
             }
         }
-
-        #endregion
     }
 }

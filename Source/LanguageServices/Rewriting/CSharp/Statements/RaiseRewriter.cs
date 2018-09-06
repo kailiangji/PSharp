@@ -18,8 +18,6 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.CSharp
     /// </summary>
     internal sealed class RaiseRewriter : CSharpRewriter
     {
-        #region public API
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -27,7 +25,6 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.CSharp
         internal RaiseRewriter(IPSharpProgram program)
             : base(program)
         {
-
         }
 
         /// <summary>
@@ -55,10 +52,6 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.CSharp
             base.UpdateSyntaxTree(root.ToString());
         }
 
-        #endregion
-
-        #region private methods
-
         /// <summary>
         /// Rewrites the raise statement.
         /// </summary>
@@ -72,7 +65,5 @@ namespace Microsoft.PSharp.LanguageServices.Rewriting.CSharp
 
             return rewritten;
         }
-
-        #endregion
     }
 }

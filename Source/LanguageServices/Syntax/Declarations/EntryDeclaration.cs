@@ -12,8 +12,6 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
     /// </summary>
     internal sealed class EntryDeclaration : PSharpSyntaxNode
     {
-        #region fields
-
         /// <summary>
         /// The state parent node.
         /// </summary>
@@ -33,10 +31,6 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
         /// True if the entry action is async.
         /// </summary>
         internal readonly bool IsAsync;
-
-        #endregion
-
-        #region internal API
 
         /// <summary>
         /// Constructor.
@@ -67,7 +61,5 @@ namespace Microsoft.PSharp.LanguageServices.Syntax
 
             base.TextUnit = new TextUnit(text, this.EntryKeyword.TextUnit.Line);
         }
-
-        #endregion
     }
 }

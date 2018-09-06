@@ -14,8 +14,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
     /// </summary>
     internal class Graph<T> : IGraph<T> where T : INode, ITraversable<T>
     {
-        #region fields
-
         /// <summary>
         /// The unique id of the graph.
         /// </summary>
@@ -36,10 +34,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
         /// </summary>
         private static int IdCounter;
 
-        #endregion
-
-        #region constructors
-
         /// <summary>
         /// Static constructor.
         /// </summary>
@@ -56,10 +50,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
             this.Id = Graph<T>.IdCounter++;
             this.Nodes = new HashSet<T>();
         }
-
-        #endregion
-
-        #region public methods
 
         /// <summary>
         /// Checks if the node is a successor of the specified node.
@@ -126,10 +116,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
             this.PrettyPrint(this.EntryNode, new HashSet<T>());
         }
 
-        #endregion
-
-        #region protected methods
-
         /// <summary>
         /// Merges empty nodes.
         /// </summary>
@@ -161,10 +147,6 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
                 }
             }
         }
-
-        #endregion
-
-        #region private methods
 
         /// <summary>
         /// Checks if the node is a successor of the specified node.
@@ -250,17 +232,11 @@ namespace Microsoft.CodeAnalysis.CSharp.DataFlowAnalysis
             return exitNodes;
         }
 
-        #endregion
-
-        #region printing methods
-
         /// <summary>
         /// Pretty prints the graph.
         /// </summary>
         /// <param name="currentNode">INode</param>
         /// <param name="visited">Set of visited nodes</param>
         protected virtual void PrettyPrint(T currentNode, ISet<T> visited) { }
-
-        #endregion
     }
 }

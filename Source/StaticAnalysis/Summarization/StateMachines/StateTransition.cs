@@ -12,8 +12,6 @@ namespace Microsoft.PSharp.StaticAnalysis
     /// </summary>
     internal sealed class StateTransition
     {
-        #region fields
-
         /// <summary>
         /// The analysis context.
         /// </summary>
@@ -29,10 +27,6 @@ namespace Microsoft.PSharp.StaticAnalysis
         /// </summary>
         internal MachineState TargetState;
 
-        #endregion
-
-        #region constructors
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -46,7 +40,5 @@ namespace Microsoft.PSharp.StaticAnalysis
             this.State = state;
             this.TargetState = targetState;
         }
-
-        #endregion
     }
 }

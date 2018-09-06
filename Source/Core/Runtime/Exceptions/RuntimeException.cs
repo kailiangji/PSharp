@@ -17,7 +17,6 @@ namespace Microsoft.PSharp
         /// </summary>
         internal RuntimeException()
         {
-
         }
 
         /// <summary>
@@ -27,7 +26,6 @@ namespace Microsoft.PSharp
         internal RuntimeException(string message)
             : base(message)
         {
-
         }
 
         /// <summary>
@@ -38,7 +36,6 @@ namespace Microsoft.PSharp
         internal RuntimeException(string message, Exception innerException)
             : base(message, innerException)
         {
-
         }
     }
 }

@@ -15,8 +15,6 @@ namespace Microsoft.PSharp
     [DataContract]
     public sealed class MachineId
     {
-        #region fields
-
         /// <summary>
         /// The P# runtime that executes the machine with this id.
         /// </summary>
@@ -57,10 +55,6 @@ namespace Microsoft.PSharp
         /// </summary>
         [DataMember]
         public readonly string Endpoint;
-
-        #endregion
-
-        #region constructors
 
         /// <summary>
         /// Creates a new machine id.
@@ -130,10 +124,6 @@ namespace Microsoft.PSharp
             Runtime = runtime;
         }
 
-        #endregion
-
-        #region generic public and override methods
-
         /// <summary>
         /// Determines whether the specified System.Object is equal
         /// to the current System.Object.
@@ -176,7 +166,5 @@ namespace Microsoft.PSharp
         {
             return Name;
         }
-
-        #endregion
     }
 }

@@ -14,16 +14,10 @@ namespace Microsoft.PSharp
     /// </summary>
     internal sealed class StaticAnalysisProcess
     {
-        #region fields
-
         /// <summary>
         /// The compilation context.
         /// </summary>
         private CompilationContext CompilationContext;
-
-        #endregion
-
-        #region API
 
         /// <summary>
         /// Creates a P# static analysis process.
@@ -53,10 +47,6 @@ namespace Microsoft.PSharp
             }
         }
 
-        #endregion
-
-        #region private methods
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -65,7 +55,5 @@ namespace Microsoft.PSharp
         {
             this.CompilationContext = context;
         }
-
-        #endregion
     }
 }

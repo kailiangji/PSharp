@@ -109,7 +109,6 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
             internal class Done : MachineState { }
         }
 
-
         [Fact]
         public void TestPushSimple()
         {
@@ -140,7 +139,6 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
 
             base.AssertSucceeded(test);
         }
-
 
         [Fact]
         public void TestPushBadStateFail()

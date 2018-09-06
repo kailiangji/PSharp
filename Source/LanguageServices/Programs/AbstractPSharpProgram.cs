@@ -14,8 +14,6 @@ namespace Microsoft.PSharp.LanguageServices
     /// </summary>
     public abstract class AbstractPSharpProgram : IPSharpProgram
     {
-        #region fields
-
         /// <summary>
         /// The project that this program belongs to.
         /// </summary>
@@ -25,10 +23,6 @@ namespace Microsoft.PSharp.LanguageServices
         /// The syntax tree.
         /// </summary>
         private SyntaxTree SyntaxTree;
-
-        #endregion
-
-        #region internal API
 
         /// <summary>
         /// Constructor.
@@ -40,10 +34,6 @@ namespace Microsoft.PSharp.LanguageServices
             this.Project = project;
             this.SyntaxTree = tree;
         }
-
-        #endregion
-
-        #region public API
 
         /// <summary>
         /// Rewrites the P# program to the C#-IR.
@@ -78,10 +68,6 @@ namespace Microsoft.PSharp.LanguageServices
             this.SyntaxTree = this.Project.CompilationContext.ReplaceSyntaxTree(this.SyntaxTree, text, project);
         }
 
-        #endregion
-
-        #region protected API
-
         /// <summary>
         /// Creates a new library using syntax node.
         /// </summary>
@@ -101,7 +87,5 @@ namespace Microsoft.PSharp.LanguageServices
 
             return usingDirective;
         }
-
-        #endregion
     }
 }

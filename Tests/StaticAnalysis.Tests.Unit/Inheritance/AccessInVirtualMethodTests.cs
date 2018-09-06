@@ -9,8 +9,6 @@ namespace Microsoft.PSharp.StaticAnalysis.Tests.Unit
 {
     public class AccessInVirtualMethodTests : BaseTest
     {
-        #region correct tests
-
         [Fact]
         public void TestAccessInVirtualMethod()
         {
@@ -77,10 +75,6 @@ class M : Machine
 }";
             base.AssertSucceeded(test, isPSharpProgram: false);
         }
-
-        #endregion
-
-        #region failure tests
 
         [Fact]
         public void TestAccessInVirtualMethod1Fail()
@@ -844,7 +838,5 @@ class M : Machine
             configuration.DoStateTransitionAnalysis = false;
             base.AssertFailed(configuration, test, 3, isPSharpProgram: false);
         }
-
-        #endregion
     }
 }

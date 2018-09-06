@@ -9,8 +9,6 @@ namespace Microsoft.PSharp.StaticAnalysis.Tests.Unit
 {
     public class DuplicateSendsTests : BaseTest
     {
-        #region failure tests
-
         [Fact]
         public void TestDuplicateSends1Fail()
         {
@@ -274,7 +272,5 @@ class M : Machine
                 "'letter', the ownership of which has already been given up.";
             base.AssertFailed(test, 1, error, isPSharpProgram: false);
         }
-
-        #endregion
     }
 }

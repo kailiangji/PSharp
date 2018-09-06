@@ -9,8 +9,6 @@ namespace Microsoft.PSharp.StaticAnalysis.Tests.Unit
 {
     public class FieldSendAliasTests : BaseTest
     {
-        #region correct tests
-
         [Fact]
         public void TestFieldSendAlias()
         {
@@ -74,10 +72,6 @@ class M : Machine
 }";
             base.AssertSucceeded(test, isPSharpProgram: false);
         }
-
-        #endregion
-
-        #region failure tests
 
         [Fact]
         public void TestFieldSendAlias1Fail()
@@ -534,7 +528,5 @@ class M : Machine
                 "'envelope', which contains data from field 'Foo.M.Letter'.";
             base.AssertFailed(configuration, test, 1, error, isPSharpProgram: false);
         }
-
-        #endregion
     }
 }

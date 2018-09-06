@@ -178,7 +178,6 @@ namespace Microsoft.PSharp.Core.Tests.Unit
             }
         }
 
-
         [Fact]
         public void TestOnExceptionCalledOnce1()
         {

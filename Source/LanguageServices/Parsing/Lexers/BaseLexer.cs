@@ -14,8 +14,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
     /// </summary>
     public abstract class BaseLexer : ILexer
     {
-        #region fields
-
         /// <summary>
         /// List of tokens.
         /// </summary>
@@ -30,10 +28,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
         /// The current index.
         /// </summary>
         protected int Index;
-
-        #endregion
-
-        #region public API
 
         /// <summary>
         /// Tokenizes the given text.
@@ -84,10 +78,6 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
             return this.Tokens;
         }
 
-        #endregion
-
-        #region protected API
-
         /// <summary>
         /// Splits the given text using a regex pattern and returns the split text.
         /// </summary>
@@ -108,7 +98,5 @@ namespace Microsoft.PSharp.LanguageServices.Parsing
         /// </summary>
         /// <returns></returns>
         protected abstract string GetPattern();
-
-        #endregion
     }
 }

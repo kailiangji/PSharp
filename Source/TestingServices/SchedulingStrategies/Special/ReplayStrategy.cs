@@ -18,8 +18,6 @@ namespace Microsoft.PSharp.TestingServices.Scheduling
     /// </summary>
     internal sealed class ReplayStrategy : ISchedulingStrategy
     {
-        #region fields
-
         /// <summary>
         /// The configuration.
         /// </summary>
@@ -55,10 +53,6 @@ namespace Microsoft.PSharp.TestingServices.Scheduling
         /// Text describing a replay error.
         /// </summary>
         internal string ErrorText { get; private set; }
-
-        #endregion
-
-        #region public API
 
         /// <summary>
         /// Constructor.
@@ -401,7 +395,5 @@ namespace Microsoft.PSharp.TestingServices.Scheduling
                 return "Replay";
             }
         }
-
-        #endregion
     }
 }

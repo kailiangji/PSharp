@@ -16,8 +16,6 @@ namespace Microsoft.PSharp.StaticAnalysis
     /// </summary>
     internal sealed class NoGenericStatesAnalysisPass : StateMachineAnalysisPass
     {
-        #region internal API
-
         /// <summary>
         /// Creates a new generic machine analysis pass.
         /// </summary>
@@ -41,10 +39,6 @@ namespace Microsoft.PSharp.StaticAnalysis
             this.CheckStates(machines);
         }
 
-        #endregion
-
-        #region private methods
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -56,7 +50,6 @@ namespace Microsoft.PSharp.StaticAnalysis
             ILogger logger, ErrorReporter errorReporter)
             : base(context, configuration, logger, errorReporter)
         {
-
         }
 
         /// <summary>
@@ -81,10 +74,6 @@ namespace Microsoft.PSharp.StaticAnalysis
             }
         }
 
-        #endregion
-
-        #region profiling methods
-
         /// <summary>
         /// Prints profiling results.
         /// </summary>
@@ -93,7 +82,5 @@ namespace Microsoft.PSharp.StaticAnalysis
             base.Logger.WriteLine("... No generic states analysis runtime: '" +
                 base.Profiler.Results() + "' seconds.");
         }
-
-        #endregion
     }
 }

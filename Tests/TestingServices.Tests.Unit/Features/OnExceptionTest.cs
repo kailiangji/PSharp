@@ -260,6 +260,49 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
             }
         }
 
+        class M6a : Machine
+        {
+            [Start]
+            [OnEntry(nameof(InitOnEntry))]
+            [OnEventDoAction(typeof(E), nameof(Act))]
+            class Init : MachineState { }
+
+            void InitOnEntry()
+            {
+                throw new Ex1();
+            }
+
+            void Act()
+            {
+                this.Assert(false);
+            }
+
+            protected override OnExceptionOutcome OnException(string method, Exception ex)
+            {
+                if (ex is Ex1)
+                {
+                    var e = this.Receive(typeof(E)).GetAwaiter().GetResult();
+                    this.Assert(e != null && e is E);
+                    this.Monitor<GetsDone>(new Done());
+                    return OnExceptionOutcome.HandledException;
+                }
+                return OnExceptionOutcome.ThrowException;
+            }
+        }
+
+        class M6b : Machine
+        {
+            [Start]
+            [OnEntry(nameof(InitOnEntry))]
+            class Init : MachineState { }
+
+            void InitOnEntry()
+            {
+                var m = this.CreateMachine(typeof(M6a));
+                this.Send(m, new E());
+            }
+        }
+
         [Fact]
         public void TestExceptionSuppressed1()
         {
@@ -353,5 +396,16 @@ namespace Microsoft.PSharp.TestingServices.Tests.Unit
             AssertSucceeded(test);
         }
 
+        [Fact]
+        public void TestReceiveOnException()
+        {
+            var test = new Action<PSharpRuntime>((r) => {
+                r.RegisterMonitor(typeof(GetsDone));
+                var m = r.CreateMachine(typeof(M6b));
+            });
+
+            var config = Configuration.Create().WithNumberOfIterations(100);
+            AssertSucceeded(config, test);
+        }
     }
 }

@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Runtime.ExceptionServices;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.PSharp.Runtime;
 
 namespace Microsoft.PSharp.TestingServices.Engines
 {
@@ -104,7 +105,7 @@ namespace Microsoft.PSharp.TestingServices.Engines
             report.AppendLine();
 
             report.Append($"... Elapsed {base.Profiler.Results()} sec.");
-            report.Append($"( t-krgov really should improve this report. It's not a bug though.)");
+            report.Append($"(t-krgov really should improve this report)");
 
             return report.ToString();
         }
@@ -123,6 +124,9 @@ namespace Microsoft.PSharp.TestingServices.Engines
 
             Task task = new Task(() =>
             {
+                bool boundsConverged = false;
+                int currentUpperBoundForCriticalTransition = -1;
+                CriticalTransitionFindingStrategy typedStrategy = (base.Strategy as CriticalTransitionFindingStrategy);
                 try
                 {
                     if (base.TestInitMethod != null)
@@ -132,7 +136,10 @@ namespace Microsoft.PSharp.TestingServices.Engines
                     }
 
                     int maxIterations = base.Configuration.SchedulingIterations;
-                    for (int i = 0; i < maxIterations; i++)
+
+                    bool needsMoreItersForBound = true;
+                    bool bugFoundEveryTime = true;
+                    for (int i = 0; i < maxIterations ; i++)
                     {
                         if (this.CancellationTokenSource.IsCancellationRequested)
                         {
@@ -140,13 +147,25 @@ namespace Microsoft.PSharp.TestingServices.Engines
                         }
 
                         // Runs a new testing iteration.
-                        this.RunNextIteration(i);
+                        bool bugFoundThisIter =  this.RunNextIteration(i);
 
-                        if (!base.Strategy.PrepareForNextIteration())
+                        bugFoundEveryTime = bugFoundEveryTime && bugFoundThisIter;
+                        // We need to replay + randomwalk till we're convinced OR till we show recovery.
+                        bool randomWalkBoundReached = typedStrategy.PrepareForNextIteration();
+                        needsMoreItersForBound = randomWalkBoundReached && bugFoundEveryTime;
+                        if (!needsMoreItersForBound)
                         {
-                            break;
+                            Console.WriteLine($"Completed run for searchSteps={typedStrategy.currentSearchSteps} ; bugFound={bugFoundThisIter}");
+                            if (!typedStrategy.updateBounds(bugFoundEveryTime))
+                            {
+                                // We (may) have succeeded in finding the critical transition :o
+                                boundsConverged = true;
+                                break;
+                            }
+                            // Reset variables
+                            bugFoundEveryTime = true;
+                            currentUpperBoundForCriticalTransition = typedStrategy.getLastFoundBugSteps();
                         }
-
                         // Increases iterations if there is a specified timeout
                         // and the default iteration given.
                         if (base.Configuration.SchedulingIterations == 1 &&
@@ -169,12 +188,18 @@ namespace Microsoft.PSharp.TestingServices.Engines
                         ExceptionDispatchInfo.Capture(ex.InnerException).Throw();
                     }
                 }
+                finally
+                {
+                    currentUpperBoundForCriticalTransition = typedStrategy.getLastFoundBugSteps();
+                    Logger.WriteLine($"<CriticalTransitionEngine> BoundsConverged:{boundsConverged}, " +
+                        $"bestBound={currentUpperBoundForCriticalTransition}");
+                }
             }, base.CancellationTokenSource.Token);
 
             return task;
         }
 
-        private void RunNextIteration(int i)
+        private bool RunNextIteration(int i)
         {
             // Runtime used to serialize and test the program.
             TestingRuntime runtime = null;
@@ -187,6 +212,7 @@ namespace Microsoft.PSharp.TestingServices.Engines
             var stdOut = Console.Out;
             var stdErr = Console.Error;
 
+            bool foundBugInIter = false;
             try
             {
                 if (base.TestInitMethod != null)
@@ -239,8 +265,9 @@ namespace Microsoft.PSharp.TestingServices.Engines
                     base.TestDisposeMethod.Invoke(null, new object[] { });
                 }
                 Console.WriteLine(base.Strategy);
-                this.InternalError = (base.Strategy as MinimizationStrategy).ErrorText;
+                this.InternalError = (base.Strategy as CriticalTransitionFindingStrategy).ErrorText;
 
+                Console.WriteLine("Is this being done?");
                 // Checks that no monitor is in a hot state at termination. Only
                 // checked if no safety property violations have been found.
                 if (!runtime.Scheduler.BugFound && this.InternalError.Length == 0)
@@ -272,11 +299,13 @@ namespace Microsoft.PSharp.TestingServices.Engines
                     Console.SetOut(stdOut);
                     Console.SetError(stdErr);
                 }
-
+                foundBugInIter = runtime.Scheduler.BugFound;
                 // Cleans up the runtime.
                 runtimeLogger?.Dispose();
                 runtime?.Dispose();
+
             }
+            return foundBugInIter;
         }
     }
 }

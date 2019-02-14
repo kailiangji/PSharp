@@ -12,7 +12,7 @@ namespace Microsoft.PSharp.TestingServices.Scheduling
     /// <summary>
     /// Class representing a replaying scheduling strategy.
     /// </summary>
-    internal sealed class MinimizationStrategy : ISchedulingStrategy
+    internal sealed class CriticalTransitionFindingStrategy : ISchedulingStrategy
     {
         #region fields
 
@@ -52,21 +52,62 @@ namespace Microsoft.PSharp.TestingServices.Scheduling
         /// </summary>
         internal string ErrorText { get; private set; }
 
+
+        /// <summary>
+        /// Number of random walks to try before concluding we have executed the critical transition.
+        /// </summary>
+        internal int maxRandomWalks;
+        private int? maxSchedulableSteps;
+
+        /// <summary>
+        /// Number of random walks to try before concluding we have executed the critical transition.
+        /// </summary>
+        internal int currentRandomWalks;
+
+
+        /// <summary>
+        /// Current left bound of critical transition ( in terms of number of steps )
+        /// </summary>
+        internal int leftBound;
+
+
+        /// <summary>
+        /// Current right bound of critical transition ( in terms of number of steps )
+        /// </summary>
+        internal int rightBound;
+
+        // We only do binary 
+        ///// <summary>
+        ///// Are we in exponential or binary search phase?
+        ///// </summary>
+        //internal bool isExponentialSearch;
+
+
+        /// <summary>
+        /// Keep track in case of early exit - due to running out of time budget
+        /// </summary>
+        private int lastBugFoundSteps;
+
+        /// <summary>
+        /// 'Mid' of the binary search.
+        /// </summary>
+        internal int currentSearchSteps;
+
         #endregion
 
         #region public API
 
-        /// <summary>
-        /// Constructor.
-        /// </summary>
-        /// <param name="configuration">Configuration</param>
-        /// <param name="trace">ScheduleTrace</param>
-        /// <param name="isFair">Is scheduler fair</param>
-        public MinimizationStrategy(Configuration configuration, ScheduleTrace trace, /*List<Type> externalEventTypes, */bool isFair)
-            : this(configuration, trace, isFair, null)
-        { }
-        /* /// <param name="externalEventTypes">Specifies a list of "external" events which are to be pruned first</param> */
-
+        // Disallow those without suffix strategy
+        ///// <summary>
+        ///// Constructor.
+        ///// </summary>
+        ///// <param name="configuration">Configuration</param>
+        ///// <param name="trace">ScheduleTrace</param>
+        ///// <param name="externalEventTypes">Specifies a list of "external" events which are to be pruned first</param>
+        ///// <param name="isFair">Is scheduler fair</param>
+        //public CriticalTransitionFindingStrategy(Configuration configuration, ScheduleTrace trace, bool isFair)
+        //    : this(configuration, trace, isFair, null)
+        //{ }
 
         /// <summary>
         /// Constructor.
@@ -75,7 +116,11 @@ namespace Microsoft.PSharp.TestingServices.Scheduling
         /// <param name="trace">ScheduleTrace</param>
         /// <param name="isFair">Is scheduler fair</param>
         /// <param name="suffixStrategy">The suffix strategy.</param>
-        public MinimizationStrategy(Configuration configuration, ScheduleTrace trace, bool isFair, ISchedulingStrategy suffixStrategy)
+        public CriticalTransitionFindingStrategy(Configuration configuration, 
+            ScheduleTrace trace, 
+            bool isFair, 
+            ISchedulingStrategy suffixStrategy
+            /*, List<Type> externalEventTypes, */ )
         {
             Configuration = configuration;
             ScheduleTrace = trace;
@@ -84,6 +129,21 @@ namespace Microsoft.PSharp.TestingServices.Scheduling
             IsReplaying = true;
             SuffixStrategy = suffixStrategy;
             ErrorText = string.Empty;
+
+            maxRandomWalks = 5; // TODO: [t-krgov] - Accept as commandline option
+            if(Configuration.MaxFairSchedulingSteps > ScheduleTrace.Count)
+            {
+                maxSchedulableSteps = Configuration.MaxFairSchedulingSteps + ScheduleTrace.Count; 
+            }
+            else
+            {
+                maxSchedulableSteps = 5 * ScheduleTrace.Count;
+            }
+
+            lastBugFoundSteps = -1;
+            leftBound = 0;
+            rightBound = ScheduleTrace.Count;
+            currentSearchSteps = (leftBound + rightBound) / 2;
         }
 
         /// <summary>
@@ -95,6 +155,13 @@ namespace Microsoft.PSharp.TestingServices.Scheduling
         /// <returns>Boolean</returns>
         public bool GetNext(out ISchedulable next, List<ISchedulable> choices, ISchedulable current)
         {
+
+            if (IsReplaying && ScheduledSteps >= currentSearchSteps)
+            {
+                IsReplaying = false;
+            }
+            //Console.WriteLine($"GetNext called with {ScheduledSteps} ; IsReplaying={IsReplaying}");
+
             if (IsReplaying)
             {
                 var enabledChoices = choices.Where(choice => choice.IsEnabled).ToList();
@@ -310,19 +377,21 @@ namespace Microsoft.PSharp.TestingServices.Scheduling
         /// Prepares for the next scheduling iteration. This is invoked
         /// at the end of a scheduling iteration. It must return false
         /// if the scheduling strategy should stop exploring.
+        ///     In the critical specific case, We say false iff we reach nRandomwalks
         /// </summary>
         /// <returns>True to start the next iteration</returns>
         public bool PrepareForNextIteration()
         {
             ScheduledSteps = 0;
+            currentRandomWalks++;
+            IsReplaying = true;
+            bool suffixStrategySaysWhat = true;
             if (SuffixStrategy != null)
             {
-                return SuffixStrategy.PrepareForNextIteration();
+                suffixStrategySaysWhat  = SuffixStrategy.PrepareForNextIteration();
             }
-            else
-            {
-                return false;
-            }
+
+            return suffixStrategySaysWhat && currentRandomWalks < maxRandomWalks ;
         }
 
         /// <summary>
@@ -332,6 +401,7 @@ namespace Microsoft.PSharp.TestingServices.Scheduling
         public void Reset()
         {
             ScheduledSteps = 0;
+            IsReplaying = true;
             SuffixStrategy?.Reset();
         }
 
@@ -358,14 +428,16 @@ namespace Microsoft.PSharp.TestingServices.Scheduling
         /// <returns>Boolean</returns>
         public bool HasReachedMaxSchedulingSteps()
         {
-            if (SuffixStrategy != null)
-            {
-                return SuffixStrategy.HasReachedMaxSchedulingSteps();
-            }
-            else
-            {
-                return false;
-            }
+            //TODO: [t-krgov] Fix this to be configurable?
+            //if (SuffixStrategy != null)
+            //{
+            //    return SuffixStrategy.HasReachedMaxSchedulingSteps();
+            //}
+            //else
+            //{
+            //    return false;
+            //}
+            return GetScheduledSteps() > maxSchedulableSteps;
         }
 
         /// <summary>
@@ -392,14 +464,66 @@ namespace Microsoft.PSharp.TestingServices.Scheduling
         {
             if (SuffixStrategy != null)
             {
-                return "Replay(" + SuffixStrategy.GetDescription() + ")";
+                return "Critical transition finding with suffix strategy (" + SuffixStrategy.GetDescription() + ")";
             }
             else
             {
-                return "Replay";
+                return "Critical transition finding ";
             }
         }
 
+        #endregion
+
+
+        #region Critical transition specific methods
+
+        /// <summary>
+        /// Manually set initial bounds for critical transition. 
+        /// Default of (0, ScheduleTrace.Length is set in constructor )
+        /// </summary>
+        /// <param name="leftBoundStart">Initial value of leftBound for search procedure </param>
+        /// <param name="rightBoundStart">Initial value of rightBound for search procedure </param>
+        /// <returns></returns>
+        internal void setBounds(int leftBoundStart, int rightBoundStart)
+        {
+            leftBound = leftBoundStart;
+            rightBound = rightBoundStart;
+            currentRandomWalks = 0;
+            currentSearchSteps = (leftBound + rightBound) / 2;
+        }
+
+
+        /// <summary>
+        /// returns false if the search has concluded.
+        /// </summary>
+        /// <param name="foundBug"></param>
+        /// <returns></returns>
+        internal bool updateBounds(bool foundBug)
+        {
+            if (foundBug)
+            {
+                rightBound = currentSearchSteps;
+                lastBugFoundSteps = currentSearchSteps;
+            }
+            else
+            {
+                leftBound = 1 + currentSearchSteps;
+            }
+            currentSearchSteps = (leftBound + rightBound) / 2;
+            currentRandomWalks = -1; // Sorry
+            Console.WriteLine($"Updated bounds to ({leftBound},{rightBound})");
+            return (leftBound < rightBound);
+        }
+
+
+        /// <summary>
+        /// returns -1 if we've never found a bug; steps required otherwise
+        /// </summary>
+        /// <returns></returns>
+        internal int getLastFoundBugSteps()
+        {
+            return lastBugFoundSteps;
+        }
         #endregion
     }
 }

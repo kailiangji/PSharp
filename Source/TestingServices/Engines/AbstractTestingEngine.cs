@@ -297,7 +297,8 @@ namespace Microsoft.PSharp.TestingServices
             {
                 var scheduleDump = this.GetScheduleForReplay(out bool isFair);
                 ScheduleTrace schedule = new ScheduleTrace(scheduleDump);
-                this.Strategy = new MinimizationStrategy(this.Configuration, schedule, isFair);
+                this.Strategy = new CriticalTransitionFindingStrategy(this.Configuration, schedule, isFair,
+                    new RandomStrategy(this.Configuration.MaxFairSchedulingSteps, this.RandomNumberGenerator));
             }
             else if (this.Configuration.SchedulingStrategy == SchedulingStrategy.Random)
             {

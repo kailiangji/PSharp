@@ -24,6 +24,17 @@ namespace Microsoft.PSharp.Utilities
             {
                 base.Configuration.AssemblyToBeAnalyzed = option.Substring(6);
             }
+            else if (this.IsMatch(option, @"^[\/|-]i:") && option.Length > 3)
+            {
+                int i = 0;
+                if (!int.TryParse(option.Substring(3), out i) && i > 0)
+                {
+                    Error.ReportAndExit("Please give a valid number of " +
+                        "iterations '-i:[x]', where [x] > 0.");
+                }
+
+                base.Configuration.SchedulingIterations = i;
+            }
             else if (this.IsMatch(option, @"^[\/|-]runtime:") && option.Length > 9)
             {
                 base.Configuration.TestingRuntimeAssembly = option.Substring(9);

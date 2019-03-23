@@ -86,7 +86,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
             configuration.SchedulingStrategy = SchedulingStrategy.DFS;
             configuration.RandomSchedulingSeed = 96;
 
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.RegisterMonitor(typeof(WatchDog));
                 r.CreateMachine(typeof(EventHandler));
             });

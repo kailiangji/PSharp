@@ -50,7 +50,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestGotoStateFail()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(Program));
             });
 

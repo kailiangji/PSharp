@@ -98,7 +98,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
             var configuration = base.GetConfiguration();
             configuration.SchedulingStrategy = SchedulingStrategy.DFS;
 
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.RegisterMonitor(typeof(Spec1));
                 r.CreateMachine(typeof(M1<Spec1>));
             });
@@ -112,7 +112,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
             var configuration = base.GetConfiguration();
             configuration.SchedulingStrategy = SchedulingStrategy.DFS;
 
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.RegisterMonitor(typeof(Spec2));
                 r.CreateMachine(typeof(M2));
             });
@@ -126,7 +126,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
             var configuration = base.GetConfiguration();
             configuration.SchedulingStrategy = SchedulingStrategy.DFS;
 
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.RegisterMonitor(typeof(Spec3));
                 r.CreateMachine(typeof(M1<Spec3>));
             });

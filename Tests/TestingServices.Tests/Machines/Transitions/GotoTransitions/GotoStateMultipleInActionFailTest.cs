@@ -82,7 +82,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestGotoStateTopLevelActionFail1()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(Program), new Configure(ErrorType.CALL_GOTO));
             });
 
@@ -93,7 +93,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestGotoStateTopLevelActionFail2()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(Program), new Configure(ErrorType.CALL_RAISE));
             });
 
@@ -104,7 +104,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestGotoStateTopLevelActionFail3()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(Program), new Configure(ErrorType.CALL_SEND));
             });
 
@@ -115,7 +115,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestGotoStateTopLevelActionFail4()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(Program), new Configure(ErrorType.ON_EXIT));
             });
 
@@ -126,7 +126,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestGotoStateTopLevelActionFail5()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(Program), new Configure(ErrorType.CALL_PUSH));
             });
 

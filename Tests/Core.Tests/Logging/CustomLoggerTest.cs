@@ -127,7 +127,7 @@ namespace Microsoft.PSharp.Core.Tests
             CustomLogger logger = new CustomLogger();
 
             Configuration config = Configuration.Create().WithVerbosityEnabled(2);
-            PSharpRuntime runtime = PSharpRuntime.Create(config);
+            var runtime = PSharpRuntime.Create(config);
             runtime.SetLogger(logger);
 
             var tcs = new TaskCompletionSource<bool>();
@@ -163,7 +163,7 @@ namespace Microsoft.PSharp.Core.Tests
         {
             CustomLogger logger = new CustomLogger();
 
-            PSharpRuntime runtime = PSharpRuntime.Create();
+            var runtime = PSharpRuntime.Create();
             runtime.SetLogger(logger);
 
             var tcs = new TaskCompletionSource<bool>();
@@ -179,7 +179,7 @@ namespace Microsoft.PSharp.Core.Tests
         public void TestNullCustomLoggerFail()
         {
             var config = base.GetConfiguration().WithVerbosityEnabled(2);
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 InvalidOperationException ex = Assert.Throws<InvalidOperationException>(() => r.SetLogger(null));
                 Assert.Equal("Cannot install a null logger.", ex.Message);
             });

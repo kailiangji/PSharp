@@ -141,7 +141,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestHaltCalled()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(M1));
             });
 
@@ -151,7 +151,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestReceiveOnHalt()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(M2a));
             });
 
@@ -162,7 +162,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestRaiseOnHalt()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(M2b));
             });
 
@@ -173,7 +173,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestGotoOnHalt()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(M2c));
             });
 
@@ -184,7 +184,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestAPIsOnHalt()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var m = r.CreateMachine(typeof(M4));
                 r.CreateMachine(typeof(M3), new E(m));
             });

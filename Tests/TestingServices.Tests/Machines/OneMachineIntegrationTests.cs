@@ -665,7 +665,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestOneMachineIntegration1()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(M1));
             });
 
@@ -675,7 +675,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestOneMachineIntegration2()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(M2));
             });
 
@@ -685,7 +685,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestOneMachineIntegration3()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(M3));
             });
 
@@ -695,7 +695,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestOneMachineIntegration4()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(M4));
             });
 
@@ -705,7 +705,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestOneMachineIntegration5()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(M5));
             });
 
@@ -715,7 +715,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestOneMachineIntegration6()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(M6));
             });
 
@@ -725,7 +725,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestOneMachineIntegration7()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(M7));
             });
 
@@ -735,7 +735,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestOneMachineIntegration8()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(M8));
             });
 
@@ -745,7 +745,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestOneMachineIntegration9()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(M9));
             });
 
@@ -755,7 +755,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestOneMachineIntegration10()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(M10));
             });
 
@@ -765,7 +765,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestOneMachineIntegration11()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(M11));
             });
 
@@ -775,7 +775,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestOneMachineIntegration12()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(M12));
             });
 
@@ -785,7 +785,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestOneMachineIntegration13()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(M13));
             });
 
@@ -795,7 +795,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestOneMachineIntegration14()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(M14));
             });
 
@@ -805,7 +805,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestOneMachineIntegration15()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(M15));
             });
 
@@ -815,7 +815,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestOneMachineIntegration16()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(M16));
             });
 
@@ -825,7 +825,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestOneMachineIntegration17()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(M17));
             });
 
@@ -835,7 +835,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestOneMachineIntegration18()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(M18));
             });
 
@@ -845,7 +845,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestOneMachineIntegration19()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(M19));
             });
 
@@ -855,7 +855,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestOneMachineIntegration20()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(M20));
             });
 

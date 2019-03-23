@@ -74,7 +74,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
             configuration.SchedulingIterations = 10;
             configuration.MaxSchedulingSteps = 200;
 
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.RegisterMonitor(typeof(WatchDog));
                 r.CreateMachine(typeof(EventHandler), new Configure(true));
             });
@@ -89,7 +89,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
             configuration.EnableCycleDetection = true;
             configuration.MaxSchedulingSteps = 200;
 
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.RegisterMonitor(typeof(WatchDog));
                 r.CreateMachine(typeof(EventHandler), new Configure(false));
             });

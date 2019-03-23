@@ -189,7 +189,7 @@ namespace Microsoft.PSharp.Core.Tests
         public void TestOnExceptionCalledOnce1()
         {
             var config = base.GetConfiguration().WithVerbosityEnabled(2);
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var failed = false;
                 var tcs = new TaskCompletionSource<bool>();
                 r.OnFailure += delegate
@@ -215,7 +215,7 @@ namespace Microsoft.PSharp.Core.Tests
         public void TestOnExceptionCalledOnce2()
         {
             var config = base.GetConfiguration().WithVerbosityEnabled(2);
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var failed = false;
                 var tcs = new TaskCompletionSource<bool>();
                 r.OnFailure += delegate
@@ -239,7 +239,7 @@ namespace Microsoft.PSharp.Core.Tests
         public void TestOnExceptionCalledOnceAsync1()
         {
             var config = base.GetConfiguration().WithVerbosityEnabled(2);
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var failed = false;
                 var tcs = new TaskCompletionSource<bool>();
                 r.OnFailure += delegate
@@ -265,7 +265,7 @@ namespace Microsoft.PSharp.Core.Tests
         public void TestOnExceptionCalledOnceAsync2()
         {
             var config = base.GetConfiguration().WithVerbosityEnabled(2);
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var failed = false;
                 var tcs = new TaskCompletionSource<bool>();
                 r.OnFailure += delegate
@@ -289,7 +289,7 @@ namespace Microsoft.PSharp.Core.Tests
         public void TestOnExceptionCanHalt()
         {
             var config = base.GetConfiguration().WithVerbosityEnabled(2);
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var failed = false;
                 var tcs = new TaskCompletionSource<bool>();
                 r.OnFailure += delegate
@@ -313,7 +313,7 @@ namespace Microsoft.PSharp.Core.Tests
         public void TestUnHandledEventCanHalt()
         {
             var config = base.GetConfiguration().WithVerbosityEnabled(2);
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var failed = false;
                 var tcs = new TaskCompletionSource<bool>();
                 r.OnFailure += delegate

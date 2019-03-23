@@ -54,7 +54,7 @@ namespace Microsoft.PSharp.TestingServices
         /// <param name="configuration">Configuration</param>
         /// <param name="action">Action</param>
         /// <returns>ReplayEngine</returns>
-        public static ReplayEngine Create(Configuration configuration, Action<PSharpRuntime> action)
+        public static ReplayEngine Create(Configuration configuration, Action<IMachineRuntime> action)
         {
             configuration.SchedulingStrategy = SchedulingStrategy.Replay;
             return new ReplayEngine(configuration, action);
@@ -67,7 +67,7 @@ namespace Microsoft.PSharp.TestingServices
         /// <param name="action">Action</param>
         /// <param name="trace">Reproducable trace</param>
         /// <returns>ReplayEngine</returns>
-        public static ReplayEngine Create(Configuration configuration, Action<PSharpRuntime> action, string trace)
+        public static ReplayEngine Create(Configuration configuration, Action<IMachineRuntime> action, string trace)
         {
             configuration.SchedulingStrategy = SchedulingStrategy.Replay;
             configuration.ScheduleTrace = trace;
@@ -128,7 +128,7 @@ namespace Microsoft.PSharp.TestingServices
         /// </summary>
         /// <param name="configuration">Configuration</param>
         /// <param name="action">Action</param>
-        private ReplayEngine(Configuration configuration, Action<PSharpRuntime> action)
+        private ReplayEngine(Configuration configuration, Action<IMachineRuntime> action)
             : base(configuration, action)
         {
 

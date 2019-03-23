@@ -276,7 +276,7 @@ namespace Microsoft.PSharp.Core.Tests.Deprecated
         public void BasicPeriodicTimerOperationTest()
         {
             var config = base.GetConfiguration().WithVerbosityEnabled(2);
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var tcs = new TaskCompletionSource<bool>();
                 r.CreateMachine(typeof(T1), new Configure(tcs, true));
                 Assert.True(tcs.Task.Result);
@@ -289,7 +289,7 @@ namespace Microsoft.PSharp.Core.Tests.Deprecated
         public void BasicSingleTimerOperationTest()
         {
             var config = base.GetConfiguration().WithVerbosityEnabled(2);
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var tcs = new TaskCompletionSource<bool>();
                 r.CreateMachine(typeof(T1), new Configure(tcs, false));
                 Assert.True(tcs.Task.Result);
@@ -305,7 +305,7 @@ namespace Microsoft.PSharp.Core.Tests.Deprecated
         public void InboxFlushOperationTest()
         {
             var config = base.GetConfiguration().WithVerbosityEnabled(2);
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var tcs = new TaskCompletionSource<bool>();
                 r.CreateMachine(typeof(FlushingClient), new Configure(tcs, true));
                 Assert.True(tcs.Task.Result);
@@ -318,7 +318,7 @@ namespace Microsoft.PSharp.Core.Tests.Deprecated
         public void IllegalTimerStoppageTest()
         {
             var config = base.GetConfiguration().WithVerbosityEnabled(2);
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var tcs = new TaskCompletionSource<bool>();
                 r.CreateMachine(typeof(T2), new Configure(tcs, true));
                 Assert.True(tcs.Task.Result);
@@ -331,7 +331,7 @@ namespace Microsoft.PSharp.Core.Tests.Deprecated
         public void IllegalPeriodSpecificationTest()
         {
             var config = base.GetConfiguration().WithVerbosityEnabled(2);
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var tcs = new TaskCompletionSource<bool>();
                 r.CreateMachine(typeof(T4), new ConfigureWithPeriod(tcs, -1));
                 Assert.True(tcs.Task.Result);

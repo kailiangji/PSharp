@@ -154,7 +154,7 @@ namespace Microsoft.PSharp.SharedObjects.Tests
         public void TestMockSharedRegister1()
         {
             var config = Configuration.Create().WithNumberOfIterations(100);
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(M1), new Setup(true));
             });
 
@@ -165,7 +165,7 @@ namespace Microsoft.PSharp.SharedObjects.Tests
         public void TestMockSharedRegister2()
         {
             var config = Configuration.Create().WithNumberOfIterations(100);
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(M1), new Setup(false));
             });
 
@@ -176,7 +176,7 @@ namespace Microsoft.PSharp.SharedObjects.Tests
         public void TestMockSharedRegister3()
         {
             var config = Configuration.Create().WithNumberOfIterations(100);
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(M2), new Setup(true));
             });
 
@@ -187,7 +187,7 @@ namespace Microsoft.PSharp.SharedObjects.Tests
         public void TestMockSharedRegister4()
         {
             var config = Configuration.Create().WithNumberOfIterations(100);
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(M2), new Setup(false));
             });
 

@@ -47,7 +47,7 @@ namespace Microsoft.PSharp.Core.Tests
         public void TestCreateWithId1()
         {
             var config = base.GetConfiguration().WithVerbosityEnabled(2);
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var failed = false;
                 var tcs = new TaskCompletionSource<bool>();
                 r.OnFailure += delegate
@@ -72,7 +72,7 @@ namespace Microsoft.PSharp.Core.Tests
         public void TestCreateWithId2()
         {
             var config = base.GetConfiguration().WithVerbosityEnabled(2);
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var failed = false;
                 var tcs = new TaskCompletionSource<bool>();
                 r.OnFailure += delegate
@@ -110,7 +110,7 @@ namespace Microsoft.PSharp.Core.Tests
         public void TestCreateWithId4()
         {
             var config = base.GetConfiguration().WithVerbosityEnabled(2);
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var failed = false;
                 var tcs = new TaskCompletionSource<bool>();
                 r.OnFailure += delegate
@@ -141,7 +141,7 @@ namespace Microsoft.PSharp.Core.Tests
         public void TestCreateWithId5()
         {
             var config = base.GetConfiguration().WithVerbosityEnabled(2);
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var failed = false;
                 var tcs = new TaskCompletionSource<bool>();
                 r.OnFailure += delegate
@@ -195,7 +195,7 @@ namespace Microsoft.PSharp.Core.Tests
         public void TestCreateWithId9()
         {
             var config = base.GetConfiguration().WithVerbosityEnabled(2);
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var m1 = r.CreateMachineIdFromName(typeof(M4), "M4");
                 var m2 = r.CreateMachineIdFromName(typeof(M4), "M4");
                 Assert.True(m1.Equals(m2));
@@ -221,7 +221,7 @@ namespace Microsoft.PSharp.Core.Tests
         public void TestCreateWithId10()
         {
             var config = base.GetConfiguration().WithVerbosityEnabled(2);
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var failed = false;
                 var tcs = new TaskCompletionSource<bool>();
                 r.OnFailure += delegate
@@ -258,7 +258,7 @@ namespace Microsoft.PSharp.Core.Tests
         public void TestCreateWithId11()
         {
             var config = base.GetConfiguration().WithVerbosityEnabled(2);
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var failed = false;
                 var tcs = new TaskCompletionSource<bool>();
                 r.OnFailure += delegate

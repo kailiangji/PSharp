@@ -223,7 +223,7 @@ namespace Microsoft.PSharp.Core.Tests
         public void TestBasicTimerOperation()
         {
             var configuration = base.GetConfiguration().WithVerbosityEnabled(2);
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var tcs = new TaskCompletionSource<bool>();
                 r.CreateMachine(typeof(T1), new SetupEvent(tcs));
                 Assert.True(tcs.Task.Result);
@@ -236,7 +236,7 @@ namespace Microsoft.PSharp.Core.Tests
         public void TestBasicPeriodicTimerOperation()
         {
             var configuration = base.GetConfiguration().WithVerbosityEnabled(2);
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var tcs = new TaskCompletionSource<bool>();
                 r.CreateMachine(typeof(T2), new SetupEvent(tcs));
                 Assert.True(tcs.Task.Result);
@@ -249,7 +249,7 @@ namespace Microsoft.PSharp.Core.Tests
         public void TestDropTimeoutsAfterTimerDisposal()
         {
             var configuration = base.GetConfiguration().WithVerbosityEnabled(2);
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var tcs = new TaskCompletionSource<bool>();
                 r.CreateMachine(typeof(T3), new SetupEvent(tcs));
                 Assert.True(tcs.Task.Result);
@@ -262,7 +262,7 @@ namespace Microsoft.PSharp.Core.Tests
         public void TestIllegalDueTimeSpecification()
         {
             var configuration = base.GetConfiguration().WithVerbosityEnabled(2);
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var tcs = new TaskCompletionSource<bool>();
                 r.CreateMachine(typeof(T4), new SetupEvent(tcs));
                 Assert.True(tcs.Task.Result);
@@ -275,7 +275,7 @@ namespace Microsoft.PSharp.Core.Tests
         public void TestIllegalPeriodSpecification()
         {
             var configuration = base.GetConfiguration().WithVerbosityEnabled(2);
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var tcs = new TaskCompletionSource<bool>();
                 r.CreateMachine(typeof(T5), new SetupEvent(tcs));
                 Assert.True(tcs.Task.Result);

@@ -65,7 +65,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Benchmarking", "Benchmarkin
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PSharpBenchmarkRunner", "Tools\Benchmarking\PSharpBenchmarkRunner\PSharpBenchmarkRunner.csproj", "{B27EFAA7-9166-4CC6-94AF-214A69DC5794}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.Launcher", "Tests\Tests.Launcher\Tests.Launcher.csproj", "{F747B11D-F9E8-4FC1-8655-F40B59BCED75}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests.Launcher", "Tests\Tests.Launcher\Tests.Launcher.csproj", "{F747B11D-F9E8-4FC1-8655-F40B59BCED75}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

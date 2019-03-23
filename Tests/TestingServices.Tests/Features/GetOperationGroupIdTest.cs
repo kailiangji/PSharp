@@ -83,7 +83,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestGetOperationGroupIdNotSet()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(M1));
             });
 
@@ -93,7 +93,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestGetOperationGroupIdSet()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(M2));
             });
 
@@ -103,7 +103,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestGetOperationGroupIdOfNotCurrentMachine()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(M3));
             });
 

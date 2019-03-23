@@ -83,7 +83,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestGotoStateGenericMethod()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(Program1));
             });
 
@@ -93,7 +93,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestGotoStateTypeof()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(Program2));
             });
 
@@ -103,7 +103,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestGotoStateMonitorGenericMethod()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.RegisterMonitor(typeof(M1));
             });
 
@@ -114,7 +114,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestGotoStateMonitorTypeof()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.RegisterMonitor(typeof(M2));
             });
 

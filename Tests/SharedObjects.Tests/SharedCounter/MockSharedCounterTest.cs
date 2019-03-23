@@ -72,7 +72,7 @@ namespace Microsoft.PSharp.SharedObjects.Tests
         {
             var config = Configuration.Create().WithNumberOfIterations(50);
 
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(M1));
             });
 
@@ -191,7 +191,7 @@ namespace Microsoft.PSharp.SharedObjects.Tests
         public void TestMockSharedCounter2()
         {
             var config = Configuration.Create().WithNumberOfIterations(100);
-            var test = new Action<PSharpRuntime>((r) =>
+            var test = new Action<IMachineRuntime>((r) =>
             {
                 r.CreateMachine(typeof(M2), new Config(0));
             });
@@ -203,7 +203,7 @@ namespace Microsoft.PSharp.SharedObjects.Tests
         public void TestMockSharedCounter3()
         {
             var config = Configuration.Create().WithNumberOfIterations(100);
-            var test = new Action<PSharpRuntime>((r) =>
+            var test = new Action<IMachineRuntime>((r) =>
             {
                 r.CreateMachine(typeof(M2), new Config(1));
             });
@@ -215,7 +215,7 @@ namespace Microsoft.PSharp.SharedObjects.Tests
         public void TestMockSharedCounter4()
         {
             var config = Configuration.Create().WithNumberOfIterations(100);
-            var test = new Action<PSharpRuntime>((r) =>
+            var test = new Action<IMachineRuntime>((r) =>
             {
                 r.CreateMachine(typeof(M2), new Config(2));
             });
@@ -228,7 +228,7 @@ namespace Microsoft.PSharp.SharedObjects.Tests
         public void TestMockSharedCounter5()
         {
             var config = Configuration.Create().WithNumberOfIterations(100);
-            var test = new Action<PSharpRuntime>((r) =>
+            var test = new Action<IMachineRuntime>((r) =>
             {
                 r.CreateMachine(typeof(M2), new Config(3));
             });
@@ -241,7 +241,7 @@ namespace Microsoft.PSharp.SharedObjects.Tests
         {
             var config = Configuration.Create().WithNumberOfIterations(50);
 
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(M3));
             });
 

@@ -51,7 +51,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestAsyncDelay()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(M));
             });
 
@@ -61,7 +61,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestAsyncDelayWithOtherSynchronizationContext()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(N));
             });
 

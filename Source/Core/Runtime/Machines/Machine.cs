@@ -273,36 +273,6 @@ namespace Microsoft.PSharp
         }
 
         /// <summary>
-        /// Creates a new remote machine of the specified type and with the specified
-        /// optional <see cref="Event"/>. This <see cref="Event"/> can only be used
-        /// to access its payload, and cannot be handled.
-        /// </summary>
-        /// <param name="type">Type of the machine</param>
-        /// <param name="endpoint">Endpoint</param>
-        /// <param name="e">Event</param>
-        /// <returns>MachineId</returns>
-        protected MachineId CreateRemoteMachine(Type type, string endpoint, Event e = null)
-        {
-            return base.Runtime.CreateRemoteMachine(type, null, endpoint, e, this, null);
-        }
-
-        /// <summary>
-        /// Creates a new remote machine of the specified type and name, and with the
-        /// specified optional <see cref="Event"/>. This <see cref="Event"/> can only
-        /// be used to access its payload, and cannot be handled.
-        /// </summary>
-        /// <param name="type">Type of the machine</param>
-        /// <param name="friendlyName">Friendly machine name used for logging</param>
-        /// <param name="endpoint">Endpoint</param>
-        /// <param name="e">Event</param>
-        /// <returns>MachineId</returns>
-        protected MachineId CreateRemoteMachine(Type type, string friendlyName,
-            string endpoint, Event e = null)
-        {
-            return base.Runtime.CreateRemoteMachine(type, friendlyName, endpoint, e, this, null);
-        }
-
-        /// <summary>
         /// Sends an asynchronous <see cref="Event"/> to a machine.
         /// </summary>
         /// <param name="mid">MachineId</param>
@@ -315,21 +285,6 @@ namespace Microsoft.PSharp
             // If the event is null, then report an error and exit.
             this.Assert(e != null, $"Machine '{base.Id}' is sending a null event.");
             base.Runtime.SendEvent(mid, e, this, options);
-        }
-
-        /// <summary>
-        /// Sends an asynchronous <see cref="Event"/> to a remote machine.
-        /// </summary>
-        /// <param name="mid">MachineId</param>
-        /// <param name="e">Event</param>
-        /// <param name="options">Optional parameters</param>
-        protected void RemoteSend(MachineId mid, Event e, SendOptions options = null)
-        {
-            // If the target machine is null, then report an error and exit.
-            this.Assert(mid != null, $"Machine '{base.Id}' is sending to a null machine.");
-            // If the event is null, then report an error and exit.
-            this.Assert(e != null, $"Machine '{base.Id}' is sending a null event.");
-            base.Runtime.SendEventRemotely(mid, e, this, options);
         }
 
         /// <summary>

@@ -126,7 +126,7 @@ namespace Microsoft.PSharp.TestingServices.RaceDetection
         /// Registers the testing runtime.
         /// </summary>
         /// <param name="runtime">The testing runtime.</param>
-        public void RegisterRuntime(PSharpRuntime runtime)
+        public void RegisterRuntime(IMachineRuntime runtime)
         {
             runtime.Assert((runtime as TestingRuntime) != null,
                 "Requires passed runtime to support method GetCurrentMachineId");

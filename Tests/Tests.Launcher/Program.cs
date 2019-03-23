@@ -37,7 +37,7 @@ namespace Microsoft.PSharp.Tests.Launcher
         { }
 
         [Test]
-        public static void Execute(PSharpRuntime r)
+        public static void Execute(IMachineRuntime r)
         {
         }
     }

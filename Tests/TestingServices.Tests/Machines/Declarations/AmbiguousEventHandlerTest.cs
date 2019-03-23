@@ -52,7 +52,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestAmbiguousMachineEventHandler()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(Program));
             });
 
@@ -62,7 +62,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestAmbiguousMonitorEventHandler()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.RegisterMonitor(typeof(Safety));
             });
 

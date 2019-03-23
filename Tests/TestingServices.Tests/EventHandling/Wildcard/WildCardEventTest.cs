@@ -61,7 +61,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestWildCardEvent()
         {
-            var test = new Action<PSharpRuntime>((r) => { r.CreateMachine(typeof(B)); });
+            var test = new Action<IMachineRuntime>((r) => { r.CreateMachine(typeof(B)); });
             base.AssertSucceeded(test);
         }
     }

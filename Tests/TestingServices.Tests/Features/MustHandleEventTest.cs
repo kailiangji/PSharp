@@ -101,7 +101,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestMustHandleFail1()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var m = r.CreateMachine(typeof(M1));
                 r.SendEvent(m, new E(), new SendOptions { MustHandle = true });
             });
@@ -128,7 +128,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestMustHandleFail2()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var m = r.CreateMachine(typeof(M2));
                 r.SendEvent(m, new E());
                 r.SendEvent(m, new E(), new SendOptions { MustHandle = true });
@@ -156,7 +156,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestMustHandleFail3()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var m = r.CreateMachine(typeof(M5));
                 r.SendEvent(m, new Halt());
                 r.SendEvent(m, new E(), new SendOptions { MustHandle = true });
@@ -173,7 +173,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestMustHandleSuccess()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var m = r.CreateMachine(typeof(M3));
                 r.SendEvent(m, new E(), new SendOptions { MustHandle = true });
                 r.SendEvent(m, new Halt());
@@ -186,7 +186,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestMustHandleDeferFail()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var m = r.CreateMachine(typeof(M4));
                 r.SendEvent(m, new E(), new SendOptions { MustHandle = true });
                 r.SendEvent(m, new Halt());

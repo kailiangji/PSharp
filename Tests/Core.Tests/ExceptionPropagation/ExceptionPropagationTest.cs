@@ -70,7 +70,7 @@ namespace Microsoft.PSharp.Core.Tests
         [Fact]
         public void TestAssertFailureNoEventHandler()
         {
-            PSharpRuntime runtime = PSharpRuntime.Create();
+            var runtime = PSharpRuntime.Create();
             var tcs = new TaskCompletionSource<bool>();
             runtime.CreateMachine(typeof(M), new Configure(tcs));
             tcs.Task.Wait();
@@ -80,7 +80,7 @@ namespace Microsoft.PSharp.Core.Tests
         public void TestAssertFailureEventHandler()
         {
             var config = base.GetConfiguration().WithVerbosityEnabled(2);
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var tcsFail = new TaskCompletionSource<bool>();
                 int count = 0;
 
@@ -110,7 +110,7 @@ namespace Microsoft.PSharp.Core.Tests
         public void TestUnhandledExceptionEventHandler()
         {
             var config = base.GetConfiguration().WithVerbosityEnabled(2);
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var tcsFail = new TaskCompletionSource<bool>();
                 int count = 0;
                 bool sawFilterException = false;

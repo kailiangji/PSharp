@@ -84,7 +84,7 @@ namespace Microsoft.PSharp.TestingServices.Tests.Deprecated
             config.MaxSchedulingSteps = 200;
             config.SchedulingStrategy = Utilities.SchedulingStrategy.Portfolio;
             config.RunAsParallelBugFindingTask = true;
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(FlushingClient));
             });
             base.AssertSucceeded(test);

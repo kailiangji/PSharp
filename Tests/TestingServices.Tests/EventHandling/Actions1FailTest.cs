@@ -132,7 +132,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         {
             var configuration = base.GetConfiguration();
             configuration.SchedulingStrategy = SchedulingStrategy.DFS;
-            var test = new Action<PSharpRuntime>((r) => { r.CreateMachine(typeof(Real)); });
+            var test = new Action<IMachineRuntime>((r) => { r.CreateMachine(typeof(Real)); });
             base.AssertFailed(configuration, test, 1, true);
         }
     }

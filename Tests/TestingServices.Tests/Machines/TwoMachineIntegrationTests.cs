@@ -372,7 +372,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
             var configuration = base.GetConfiguration();
             configuration.SchedulingStrategy = SchedulingStrategy.DFS;
 
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(M1));
             });
 
@@ -385,7 +385,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
             var configuration = base.GetConfiguration();
             configuration.SchedulingStrategy = SchedulingStrategy.DFS;
 
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(M3));
             });
 
@@ -398,7 +398,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
             var configuration = base.GetConfiguration();
             configuration.SchedulingStrategy = SchedulingStrategy.DFS;
 
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(M5));
             });
 
@@ -411,7 +411,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
             var configuration = base.GetConfiguration();
             configuration.SchedulingStrategy = SchedulingStrategy.DFS;
 
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(M7));
             });
 
@@ -421,7 +421,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestTwoMachineIntegration5()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(M9));
             });
 

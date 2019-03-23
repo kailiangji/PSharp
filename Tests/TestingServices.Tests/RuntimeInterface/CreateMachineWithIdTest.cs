@@ -47,7 +47,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestCreateMachineWithId1()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.RegisterMonitor(typeof(LivenessMonitor));
                 var m = r.CreateMachine(typeof(M));
                 var mprime = r.CreateMachineId(typeof(M));
@@ -147,7 +147,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestCreateMachineWithId2()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.RegisterMonitor(typeof(LivenessMonitor));
                 var m = r.CreateMachine(typeof(Harness));
             });
@@ -170,7 +170,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestCreateMachineWithId3()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var m3 = r.CreateMachineId(typeof(M3));
                 r.CreateMachine(m3, typeof(M2));
             });
@@ -181,7 +181,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestCreateMachineWithId4()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var m2 = r.CreateMachine(typeof(M2));
                 r.CreateMachine(m2, typeof(M2));
             });
@@ -192,7 +192,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestCreateMachineWithId5()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var m = r.CreateMachineId(typeof(M2));
                 r.SendEvent(m, new E());
             });
@@ -204,7 +204,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestCreateMachineWithId6()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var m = r.CreateMachine(typeof(M2));
 
                 // Make sure that the machine halts
@@ -260,7 +260,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestCreateMachineWithId7()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var m = r.CreateMachineId(typeof(M4));
                 r.CreateMachine(typeof(M5), new E2(m));
                 r.CreateMachine(m, typeof(M4));

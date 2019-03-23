@@ -27,7 +27,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
 
         class Engine
         {
-            public static void Send(PSharpRuntime runtime, MachineId target)
+            public static void Send(IMachineRuntime runtime, MachineId target)
             {
                 runtime.SendEvent(target, new E(2));
             }
@@ -54,7 +54,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestReceivingExternalEvents()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.CreateMachine(typeof(M));
             });
 

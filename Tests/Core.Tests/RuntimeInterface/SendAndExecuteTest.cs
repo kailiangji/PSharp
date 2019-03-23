@@ -115,7 +115,7 @@ namespace Microsoft.PSharp.Core.Tests
         public void TestSyncSendBlocks()
         {
             var config = base.GetConfiguration().WithVerbosityEnabled(2);
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var failed = false;
                 var tcs = new TaskCompletionSource<bool>();
                 r.OnFailure += delegate
@@ -169,7 +169,7 @@ namespace Microsoft.PSharp.Core.Tests
         public void TestSendCycleDoesNotDeadlock()
         {
             var config = base.GetConfiguration().WithVerbosityEnabled(2);
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var failed = false;
                 var tcs = new TaskCompletionSource<bool>();
                 r.OnFailure += delegate
@@ -255,7 +255,7 @@ namespace Microsoft.PSharp.Core.Tests
             var config = base.GetConfiguration().WithVerbosityEnabled(2);
             config.EnableMonitorsInProduction = true;
 
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var failed = false;
                 var tcs = new TaskCompletionSource<bool>();
                 r.OnFailure += delegate
@@ -325,7 +325,7 @@ namespace Microsoft.PSharp.Core.Tests
         public void TestHandledExceptionOnSendExec()
         {
             var config = base.GetConfiguration().WithVerbosityEnabled(2);
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var failed = false;
                 var tcs = new TaskCompletionSource<bool>();
                 r.OnFailure += delegate
@@ -347,7 +347,7 @@ namespace Microsoft.PSharp.Core.Tests
         public void TestUnHandledExceptionOnSendExec()
         {
             var config = base.GetConfiguration().WithVerbosityEnabled(2);
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var failed = false;
                 var tcs = new TaskCompletionSource<bool>();
                 var message = string.Empty;
@@ -398,7 +398,7 @@ namespace Microsoft.PSharp.Core.Tests
         public void TestUnhandledEventOnSendExec()
         {
             var config = base.GetConfiguration().WithVerbosityEnabled(2);
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var failed = false;
                 var tcs = new TaskCompletionSource<bool>();
                 var message = string.Empty;

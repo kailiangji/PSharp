@@ -118,7 +118,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestOnProcessingCalled()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.RegisterMonitor(typeof(Spec1));
                 var m = r.CreateMachine(typeof(M1), new E());
                 r.SendEvent(m, new E1());
@@ -187,7 +187,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestOnProcessingNotCalledOnHalt()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.RegisterMonitor(typeof(Spec2));
                 var m = r.CreateMachine(typeof(M2));
                 r.SendEvent(m, new E1());
@@ -240,7 +240,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestOnProcessingCanGoto()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.RegisterMonitor(typeof(Spec3));
                 var m = r.CreateMachine(typeof(M3));
                 r.SendEvent(m, new E1());
@@ -282,7 +282,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestOnProcessingCanHalt()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.RegisterMonitor(typeof(Spec4));
                 var m = r.CreateMachine(typeof(M4));
                 r.SendEvent(m, new E1());

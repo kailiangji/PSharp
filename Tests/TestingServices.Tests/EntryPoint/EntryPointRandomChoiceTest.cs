@@ -24,7 +24,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestEntryPointRandomChoice()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 if (r.Random())
                 {
                     r.CreateMachine(typeof(M));

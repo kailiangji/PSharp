@@ -41,7 +41,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestOnDroppedCalled1()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.OnEventDropped += delegate (Event e, MachineId target)
                 {
                     r.Assert(false);
@@ -70,7 +70,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestOnDroppedCalled2()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.OnEventDropped += delegate (Event e, MachineId target)
                 {
                     r.Assert(false);
@@ -85,7 +85,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestOnDroppedParams()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 var m = r.CreateMachine(typeof(M1));
 
                 r.OnEventDropped += delegate (Event e, MachineId target)
@@ -154,7 +154,7 @@ namespace Microsoft.PSharp.TestingServices.Tests
         [Fact]
         public void TestProcessedOrDropped()
         {
-            var test = new Action<PSharpRuntime>((r) => {
+            var test = new Action<IMachineRuntime>((r) => {
                 r.RegisterMonitor(typeof(Monitor3));
                 r.OnEventDropped += delegate (Event e, MachineId target)
                 {

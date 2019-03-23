@@ -28,7 +28,7 @@ namespace Microsoft.PSharp
         /// <returns>The machine runtime.</returns>
         public static IMachineRuntime Create(Configuration configuration)
         {
-            return new ProductionRuntime(configuration);
+            return new ProductionRuntime(configuration ?? Configuration.Create());
         }
     }
 }

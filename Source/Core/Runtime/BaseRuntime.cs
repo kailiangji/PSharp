@@ -19,7 +19,7 @@ namespace Microsoft.PSharp.Runtime
     /// <summary>
     /// Runtime for executing machines.
     /// </summary>
-    public abstract class BaseRuntime : IMachineRuntime
+    internal abstract class BaseRuntime : IMachineRuntime
     {
         /// <summary>
         /// The configuration used by the runtime.
